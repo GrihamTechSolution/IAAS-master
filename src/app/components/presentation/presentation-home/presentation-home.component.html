@@ -1,0 +1,273 @@
+<div style="background-color: #f3f9fe">
+  <div class="home-jumbo-1 jumbotron" style="background-color: #f3f9fe">
+    <div class="home-jumbo-inner">
+      <h2>The biggest student agricultural organization</h2>
+      <p>
+        Our aim is to exchange ideas, knowledge and information among students.
+      </p>
+      <a class="btn btn-success" routerLink="/about"> Explore Now </a>
+    </div>
+  </div>
+
+  <div class="services-sec">
+    <div class="container">
+      <div class="row home-service">
+        <div *ngFor="let content of homeContent" class="home-service-item">
+          <img
+            class="img-responsive services-img"
+            src="{{ imageSource }}/assets/img/{{ content.image }}" />
+          <h3>{{ content.title }}</h3>
+          <p>{{ content.content }}</p>
+          <a
+            class="home-link-btn"
+            href="{{ content.link }}"
+            style="margin-top: auto"
+            >Learn More</a
+          >
+        </div>
+      </div>
+      <!-- <div class="col-md-4 col-sm-12 col-xs-12 text-center margin-bottom-30" style="align-items: stretch; display: flex; flex-direction: column;">
+                    <img class="img-responsive services-img" src="{{imageSource}}/assets/img/iaasglobal.png" />
+                    <p> We create projects to contribute in global goals </p>
+                    <a class="home-link-btn" href="/contentHub" style="margin-top: auto;">LEARN MORE</a>
+                </div>
+                <div class="col-md-4 col-sm-12 col-xs-12 text-center margin-bottom-30" style="align-items: stretch;">
+                    <img class="img-responsive services-img" src="{{imageSource}}/assets/img/iaas-expro-home.png" />
+                    <p> We provide Exchange Program and Internships in agricultural related companies and organizations </p>
+                    <a class="home-link-btn" href="/expro/home" style="margin-top: auto;">LEARN MORE</a>
+                </div>
+                <div class="col-md-4 col-sm-12 col-xs-12 text-center margin-bottom-30" style="align-items: stretch;">
+                    <img class="img-responsive services-img" src="{{imageSource}}/assets/img/iaas-info-3.png" />
+                    <p> We provide Study Abroad Program opportunity  space in life science universities </p>
+                    <a class="home-link-btn" href="/studyAbroad" style="margin-top: auto;">LEARN MORE</a>
+                </div> -->
+    </div>
+  </div>
+
+  <div class="exchange-section">
+    <div class="container">
+      <div class="home-exchange">
+        <div>
+          <img
+            class="img-responsive services-img"
+            src="{{ imageSource }}/assets/img/exchange_experience.png" />
+        </div>
+        <div>
+          <h2>Exchange Experiences</h2>
+          <h3>Improve yourself with tons of international opportunities !</h3>
+          <div class="home-exchange-btn">
+            <a class="btn btn-success" routerLink="/apply">For Students</a>
+            <a class="btn btn-success" routerLink="/becomePartner"
+              >For Companies</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="news-section no-margin">
+    <!-- <div class="jumbotron">
+      <h1>The Latest</h1>
+    </div> -->
+    <section class="all-blog blog-section">
+      <div class="container">
+        <div class="header-flex">
+          <h2 style="margin-bottom: 0 !important">The Latest</h2>
+          <a style="margin-left: 1em; color: #70ad47" routerLink="/contentHub"
+            >View all</a
+          >
+        </div>
+        <div style="display: flex; flex-wrap: wrap; align-items: stretch">
+          <article
+            class="col-md-3 col-sm-6 col-xs-12"
+            *ngFor="let article of articles"
+            style="display: flex">
+            <div class="panel panel-default" style="width: 100%">
+              <div
+                class="default-blog-news wow fadeInUp animated animated flex-item"
+                style="
+                  visibility: visible;
+                  animation-name: fadeInUp;
+                  margin-bottom: 0 !important;
+                ">
+                <figure class="img-holder">
+                  <a routerLink="/contentHub/{{ article.id }}"
+                    ><img
+                      class="img-responsive"
+                      style="
+                        height: 250px;
+                        overflow: hidden;
+                        width: 100%;
+                        object-fit: cover;
+                      "
+                      src="{{ uploadImageSource }}/{{ article.imagePath }}"
+                      alt="News"
+                  /></a>
+                </figure>
+              </div>
+              <div class="lower-content panel-body">
+                <!-- <div class="date">
+                  {{ article.created | date : 'dd.MM.yyyy' }}
+                </div>
+                <div class="post-meta">
+                  by {{ article.user.firstName }} {{ article.user.lastName }} |
+                  {{ article.comments.length }} Comments
+                </div> -->
+                <a routerLink="/contentHub//{{ article.id }}"
+                  ><h4
+                    style="
+                      overflow: hidden;
+                      display: -webkit-box;
+                      -webkit-line-clamp: 2; /* number of lines to show */
+                      line-clamp: 2;
+                      -webkit-box-orient: vertical;
+                    ">
+                    {{ article.title }}
+                  </h4></a
+                >
+                <div class="post-meta">
+                  by {{ article.user.firstName }} {{ article.user.lastName }}
+                </div>
+                <a
+                  routerLink="/contentHub/{{ article.id }}"
+                  class="btn btn-success"
+                  style="margin-top: 1em"
+                  routerLink="/apply"
+                  >See more</a
+                >
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+    <!-- <section class="all-blog blog-section">
+      <div class="container">
+        <h2>The Latest</h2>
+        <div class="row">
+          <article
+            class="col-md-3 col-sm-6 col-xs-12"
+            *ngFor="let article of articles">
+            <div
+              class="default-blog-news wow fadeInUp animated animated"
+              style="visibility: visible; animation-name: fadeInUp">
+              <figure class="img-holder">
+                <a routerLink="/contentHub/{{ article.id }}"
+                  ><img
+                    class="img-responsive"
+                    src="{{ uploadImageSource }}/{{ article.imagePath }}"
+                    alt="News"
+                /></a>
+                <figcaption class="overlay">
+                  <div class="box">
+                    <div class="content">
+                      <a routerLink="/contentHub/{{ article.id }}"
+                        ><i class="fa fa-link" aria-hidden="true"></i
+                      ></a>
+                    </div>
+                  </div>
+                </figcaption>
+              </figure>
+              <div class="lower-content">
+                <div class="date">
+                  {{ article.created | date : 'dd.MM.yyyy' }}
+                </div>
+                <div class="post-meta">
+                  by {{ article.user.firstName }} {{ article.user.lastName }} |
+                  {{ article.comments.length }} Comments
+                </div>
+                <a routerLink="/contentHub//{{ article.id }}"
+                  ><h4>{{ article.title }}</h4></a
+                >
+
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="row text-center margin-bottom-5pct">
+          <a class="btn btn-success btn-iaas" routerLink="/contentHub"
+            >SEE ALL</a
+          >
+        </div>
+      </div>
+    </section> -->
+  </div>
+
+  <div class="stories-section container text-center">
+    <h1>Our stories</h1>
+    <br />
+    <p>Learn from our stories and experiences!</p>
+    <br />
+    <br />
+    <a class="btn btn-success" routerLink="/becomeMember">Become member now</a>
+  </div>
+
+  <!-- <div class="home-jumbo-3 jumbotron no-margin">
+    <div class="home-jumbo-3-inner"></div>
+  </div> -->
+
+  <div
+    class="partners-section container"
+    style="padding-left: 1em; padding-right: 1em; margin-top: 2em">
+    <div>
+      <h1 style="font-weight: bold">Our Partners</h1>
+      <div
+        style="
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          justify-content: center;
+        ">
+        <div
+          class="item"
+          [ngClass]="i == 0 ? 'active' : ''"
+          *ngFor="let p of sliderPartners; let i = index">
+          <div style="flex: 1; padding: 1.5em">
+            <a href="{{ p.website }}" target="__blank">
+              <img
+                src="{{ uploadImageSource }}/{{ p.imagePath }}"
+                class="img-responsive"
+                style="width: 200px" />
+            </a>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top: 2em">
+        <h1 style="font-weight: bold">Our Sponsors</h1>
+        <div
+          style="
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+          ">
+          <div class="item" *ngFor="let s of sliderSponsors">
+            <div style="flex: 1; padding: 1.5em">
+              <a [href]="s.website" target="__blank">
+                <img
+                  src="{{ uploadImageSource }}/{{ s.imagePath }}"
+                  class="img-responsive"
+                  style="width: 200px" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="end-section">
+    <div class="container">
+      <h1>Agriculture is important for achieving global goals !</h1>
+      <br />
+      <p>
+        We are striving for a better world in agriculture by empowering our
+        members and stakeholders. The youth all around the world will innovate
+        more ! Ready to work with us?
+      </p>
+      <br />
+      <a routerLink="/contact" class="btn btn-success">CONTACT US</a>
+    </div>
+  </div>
+</div>

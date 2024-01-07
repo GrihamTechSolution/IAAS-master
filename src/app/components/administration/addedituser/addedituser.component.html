@@ -1,0 +1,70 @@
+<div>
+    <div class="col-md-6 margin-top-2pct">
+        <div class="box box-success">
+            <div class="box-header">
+                <h3 class="box-title">
+                    Add/Edit User
+                </h3>
+            </div>
+            <div class="box-body">
+                <div class="form-group">
+                    <label>User Role</label>
+                    <select class="form-control" [(ngModel)]='user.userTypeID'>
+                        <option value="5">National Director</option>
+                        <option value="6">Exchange Coordinator</option>
+                        <option value="7">Regional Director</option>
+                    </select>
+                </div>
+                <div class="form-group" *ngIf='user.userTypeID == 7'>
+                    <label>
+                        Region
+                    </label>
+                    <ng-select [items]='regions'
+                                bindLabel='name'
+                                bindValue='id'
+                                name='regionID'
+                                [(ngModel)]='user.regionID'>
+
+                    </ng-select>
+                </div>
+                <div class="form-group" *ngIf='user.userTypeID != 7'>
+                    <label>
+                        Country
+                    </label>
+                    <ng-select [items]='countries'
+                                bindLabel='name'
+                                bindValue='id'
+                                name='countryID'
+                                [(ngModel)]='user.countryID'>
+
+                    </ng-select>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" name="email" class="form-control" [(ngModel)]='user.email' />
+                </div>
+                <div class="form-group">
+                    <label>Test Password</label>
+                    <input type="password" name="password" class="form-control" [(ngModel)]='user.password' />
+                </div>
+                <div class="form-group">
+                    <label>Confirm Password</label>
+                    <input type="password" name="confirmpass" class='form-control' [(ngModel)]='user.confirmPassword' />
+                </div>
+                <div class="form-group">
+                    <label>Is Active</label>
+                    <select class="form-control" [(ngModel)]='user.isActive'>
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-success" (click)='insertOrEditUser()'>
+                        <i class="fa fa-save"></i> &nbsp; 
+                        Save
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

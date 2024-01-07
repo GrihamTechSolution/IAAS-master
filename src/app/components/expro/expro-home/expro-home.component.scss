@@ -1,0 +1,113 @@
+.aim-list {
+    list-style-type: square;
+}
+
+.expro-banner{
+    margin: 4em 0;
+}
+
+.apply-process {
+    margin: 4em 0;
+}
+
+.expro-link {
+    text-decoration: none;
+    color: #70ad47;
+}
+
+.exchange-logo {
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    border-radius: 1em;
+    justify-content: center;
+    align-items: center;
+}
+
+.exchange-logo-img, .exchange-logo-text {
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    border-radius: 1em;
+    flex: 1
+}
+
+.row-fluid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.aim-list li {
+    padding: 5px;
+}
+
+.jumbotron {
+    background-color: #70ad47;
+    padding: 50px !important;
+}
+
+@media only screen and (min-width: 720px){
+    .carousel-inner {
+        height: 500px !important;
+    }
+}
+
+.display-3 {
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+.section-title h2 {
+    color: #70ad47 !important;
+}
+
+.service p {
+    color: black !important;
+}
+
+.img-slider {
+    width: 80% !important;
+    margin-left: 10% !important;   
+    cursor: pointer !important;
+}
+
+.caption {
+    cursor: pointer !important;
+}
+
+@media only screen and (min-width: 720px){
+    .btn-success {
+        background-color: #70ad47 !important;
+        border-color: #70ad47 !important;
+        font-size: 20px;
+    }
+}
+
+@media only screen and (max-width: 720px){
+    .btn-success {
+        background-color: #70ad47 !important;
+        border-color: #70ad47 !important;
+        font-size: 10px;
+    }
+}
+
+.carousel-caption{
+    width: 50%;
+    left: 25%;
+    background-color: rgba(#f1f1f1, 0.5);
+    color: black;
+}
+
+// .carousel-inner .item{
+//     position: relative;
+// }
+
+@media only screen and (min-width: 720px){
+.carousel-inner .item {
+    position: relative; 
+    top: 50%; 
+    transform: translateY(-50%);
+}
+}

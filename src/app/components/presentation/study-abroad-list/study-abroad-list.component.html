@@ -1,0 +1,36 @@
+
+<div class="pg">
+    <div class="jumbotron content-hub-jumbo no-margin">
+        <div class="container">
+            <!-- <h3 class="display-3">Welcome to</h3> -->
+            <h1 class="display-3">Study Abroad Program</h1>
+            <h1 class="display-3">AVAILABLE PROGRAMS</h1> 
+        </div>
+    </div>
+    
+    <div class="container margin-top-2pct">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 study-abroad-program" *ngFor='let p of programs'>
+                <div class="col-md-4 col-sm-12">
+                    <img src='{{uploadImageSource}}/{{p.partner.imagePath}}' />
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <h1>{{p.title}}</h1>
+                    <p class="study-abroad-location">
+                        <i class="fa fa-2x fa-map-marker"></i> &nbsp; &nbsp; {{p.location}}
+                    </p>
+                    <p class="study-abroad-description">
+                        {{p.description}}
+                    </p>
+                </div>
+                <div class="col-md-2 col-sm-12">
+                    <button class='learn-more-button btn btn-success' routerLink='/showStudyAbroadProgram/{{p.id}}'>
+                        Learn More!
+                    </button>
+                </div>
+
+                
+            </div>
+        </div>
+    </div>
+</div>

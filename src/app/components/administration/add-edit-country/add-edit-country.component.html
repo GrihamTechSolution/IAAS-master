@@ -1,0 +1,138 @@
+<div class="">
+  <div class="col-md-12 padding-top-2pct">
+    <div class="box box-success">
+      <div class="box-header">
+        <h3 class="box-title">Add/edit country</h3>
+      </div>
+      <div class="box-body">
+        <form role="form">
+          <div class="box-body">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Name</label>
+                <input type="name" name="name" class="form-control" placeholder="Name" [(ngModel)]='country.name' />
+              </div>
+              <div class="form-group">
+                <label>Category</label>
+                <ng-select [items]="categories"
+                            bindLabel="name"
+                            bindValue="id"
+                            name="selectedCategoryID"
+                            [(ngModel)]='country.categoryID'>
+                </ng-select>
+              </div>
+              
+
+              <div class="form-group">
+                <label>Look</label>
+                <textarea class="form-control" name="look" rows="7" [(ngModel)]='country.look'></textarea>
+              </div>
+              <div class="form-group">
+                <label>Weather</label>
+                <textarea class="form-control" name="weather" rows="7" [(ngModel)]='country.weather'></textarea>
+              </div>
+              <div class="form-group">
+                <label>Places to visit</label>
+                <textarea class="form-control" name="placesToVisit" rows="7" [(ngModel)]='country.placesToVisit'></textarea>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Region</label>
+                <ng-select [items]="regions"
+                            bindLabel="name"
+                            bindValue="id"
+                            name="selectedRegionID"
+                            [(ngModel)]='country.regionID'
+                            [disabled]='userData.userTypeID == 7'>
+                </ng-select>
+              </div>
+              <div class="form-group">
+                <label>Code</label>
+                <input type="text" name="code"  class="form-control" placeholder="Code" [(ngModel)]='country.code' />
+              </div>
+              <div class="form-group">
+                <label>IAAS email</label>
+                <input type="email" name="iaasEmail" class="form-control" placeholder="IAAS Email" [(ngModel)]='country.iaasEmail' />
+              </div>
+              <div class="form-group">
+                <label>Expro email</label>
+                <input type="text" class="form-control" name="exproemail" placeholder="Expro Email" [(ngModel)]='country.exproEmail' />
+              </div>
+              <div class="form-group">
+                <label>Photo</label>
+                <input type='file' name='doc' class="form-control"
+                      ng2FileSelect
+                      [uploader]='uploader' />
+              </div>
+              <div class="form-group">
+                <label>Languages</label>
+                <textarea class="form-control" name="languages" rows="7" [(ngModel)]='country.languages'></textarea>
+              </div>
+              <div class="form-group">
+                <label>Visa info</label>
+                <textarea class="form-control" name="visaInfo" rows="7" [(ngModel)]='country.visaInfo'></textarea>
+              </div>
+              <div class="form-group">
+                <label>Local Committees</label>
+                <textarea class="form-control" name="committees" rows="7" [(ngModel)]='country.localCommittees'></textarea>
+              </div>
+              
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label>Status</label>
+                <ng-select [items]="statuses"
+                            bindLabel="name"
+                            bindValue="id"
+                            name="selectedStatusID"
+                            [(ngModel)]='country.statusID'>
+                </ng-select>
+              </div>
+              <div class="form-group">
+                <label>National Director</label>
+                <input type="text" name="nationaldirector" class="form-control" placeholder="National Director" [(ngModel)]='country.nationalDirector' />
+              </div>
+              <div class="form-group">
+                <label>Exchange Coordinator</label>
+                <input type="text" name="exCo" class="form-control" placeholder="Exchange Coordinator" [(ngModel)]='country.exchangeCoordinator' />
+              </div>
+              <div class="form-group">
+                <label>Is Active</label>
+                <input type="checkbox" name="isActive" [(ngModel)]='country.isActive' />
+              </div>
+              <div class="form-group">
+                <label>Local Activities</label>
+                <textarea class="form-control" name="activities" rows="7" [(ngModel)]='country.localActivities'></textarea>
+              </div>
+              <div class="form-group">
+                <label>Internship requests</label>
+                <textarea class="form-control" name="requests" rows="7" [(ngModel)]='country.internshipRequest'></textarea>
+              </div>
+              <div class="form-group">
+                <label>Extra</label>
+                <textarea class="form-control" name="people" rows="7" [(ngModel)]='country.peopleCountry'></textarea>
+              </div>
+            </div>
+
+            <div class="col-md-3" *ngIf='edit'>
+              <h3>Current photo:</h3>
+              <img src="{{apiStaticUrl}}{{country.photo}}" style="width: 80%; height: auto;" />
+            </div>
+          </div>
+          <!-- /.box-body -->
+      
+          <div class="box-footer">
+            <button type="submit" class="btn btn-success" (click)='validateInput()'>
+              <i class="fa fa-save">
+
+              </i>
+              Save</button>
+          </div>
+        </form>
+      </div>
+        
+    </div>
+  </div>
+</div>
+

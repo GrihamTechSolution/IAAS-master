@@ -1,0 +1,60 @@
+<div class="">
+    <div class="col-md-12 padding-top-2pct">
+      <div class="box box-success">
+        <div class="box-header">
+          <h3 class="box-title">Add/edit Events</h3>
+        </div>
+
+        <form role="form">
+            <div class="box-body">
+              <div class="row">
+                <div class="form-group col-md-3">
+                  <label>Title</label>
+                  <input type="text" class="form-control" name="title" [(ngModel)]='events.title' placeholder="Enter article title">
+                </div>
+                <div class="form-group col-md-3">
+                    <label>Preview image</label>
+                    <input type='file' name='doc' class="form-control"
+                        ng2FileSelect
+                        [uploader]='uploader' />
+                </div>
+                <div class="form-group col-md-3">
+                  <label>Date & Location</label>
+                  <input type="text" class="form-control" name="dateLocation" [(ngModel)]='events.dateLocation' placeholder="Enter date & location">
+                </div>
+                <div class="form-group col-md-3">
+                    <label>Status</label>
+                    <select class="form-control" name="status" [(ngModel)]='events.status'>
+                      <option selected='selected' value="0">Not approved</option>
+                      <option value="1">Approved</option>
+                    </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Feature Image</label>
+                <ckeditor class="height-80pct" name='editor' 
+                          [(ngModel)]="events.content" 
+                          id='editor'
+                          [editor]='Editor'
+                          [config]='ckconfig'
+                         ></ckeditor>
+              </div>
+              <div class="row" *ngIf='events.imagePath' style="margin-left: 5% !important;">
+                <label>Preview image</label> <br/> <br/>
+                <img style="width: 50%" src='{{uploadImageSource}}/{{events.imagePath}}' />
+              </div>
+            </div>
+            <!-- /.box-body -->
+        
+            <div class="box-footer">
+              <button type="submit" class="btn btn-success" (click)='validateInput()'>
+                <i class="fa fa-save"></i> &nbsp;
+                Save</button>
+                <button type="submit" class="btn btn-danger" (click)='cancel()' style="margin-left: 1em;">
+
+                  Cancel</button>
+            </div>
+          </form>
+
+    </div>
+</div>

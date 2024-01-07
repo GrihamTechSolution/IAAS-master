@@ -1,0 +1,31 @@
+
+.exproint-jumbo {
+    background-color: #70ad47 !important;
+    color: white !important;
+    text-align: center;
+}
+
+.exproint-jumbo h1 {
+    color: white;
+}
+
+.exproint-jumbo p {
+    color: white;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 720px) {
+    .show-desktop{
+        display: none;
+    }
+
+    th, td{
+        font-size: 12px;
+    }
+}
+
+@media screen and (min-width: 720px) {
+    .show-mobile{
+        display: none;
+    }
+}

@@ -1,0 +1,250 @@
+<div class="jumbotron">
+    <div class="container">
+      <h1 class="display-3">WELCOME TO THE IAAS EXPRO!</h1>
+    </div>
+  </div>
+
+<div style="background: url('{{imageSource}}/assets/img/background.jpg');">
+
+
+
+<section class="service container">
+    <div class="section-title center">
+        <h2>FEATURED OPPORTUNITIES</h2> <br/>
+    </div>
+     <div class="img-slider">
+        <ng-image-slider 
+            [images]="imageObject"
+            [imageSize]="{width: '100%', height: '80%', size: 'cover'}"
+            [imagePopup]='false'
+            [infinite]='true'
+            [autoSlide]='3'
+            (imageClick)='checkImage()'
+            style="object-fit: cover;"
+            #nav></ng-image-slider>
+     </div>
+     <section id="testimonial" style="margin-top: 6em;">
+        <div class="row row-fluid expro-banner">
+            <div class="col-md-8 col-sm-6 col-x-12">
+                <div>
+                    <div>
+                       <img src="{{imageSource}}/assets/img/sample_expro.jpg" style="border-radius: 2em;"/>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-x-12">
+                <ul class="list-group expro-list">
+                    <li class="list-group-item"><a class="expro-link" href="www.google.com">What is expro</a></li>
+                    <li class="list-group-item"><a class="expro-link" href="www.google.com">Frequently Asked Questions</a></li>
+                    <li class="list-group-item"><a class="expro-link" href="www.google.com">How to Apply</a></li>
+                    <li class="list-group-item"><a class="expro-link" href="www.google.com">Contact Information</a></li>
+                    <li class="list-group-item"><a class="expro-link" href="www.google.com">Login</a></li>
+                  </ul>
+           </div>
+        </div>
+    </section>
+        
+     <section id="exchange-logo" class="container-fluid">
+         <div class="row row-fluid">
+             <div class="col-md-6 col-sm-8 col-x-12">
+                 <p>
+                     You’re about to discover the amazing world of IAAS Exchange Program. 
+                     The ExPro exists over 60 years and in this time, more than 20.000 students 
+                     have been exchanged with IAAS. The IAAS Exchange Program gives the opportunity 
+                     to all students to do an internship in another country in agricultural and 
+                     related sciences. With ExPro, you can learn and experience things that 
+                     cannot be learned out of course books all while immersing in a new culture.
+                 </p>
+            </div>
+            <div class="col-md-6 col-sm-8 col-x-12">
+                <div style="text-align: center; width: 100%">
+                    <img style='margin-top: 10px; max-width: 350px;' src="{{imageSource}}/assets/img/iaas-expro-home-logo.png">
+                </div>
+            </div>
+        </div>        
+</section>
+
+
+</section>
+
+<section class="service sec-padd">
+    <div class="container">
+        <!-- <div class="section-title center">
+            <h2>DISCOVER EXCHANGE PROGRAM</h2>
+            <img style='margin-top: 10px; width: 300px;' src="{{imageSource}}/assets/img/iaas-expro-home-logo.png">
+            <br/> <br/>
+            <p>
+                You’re about to discover the amazing world of IAAS Exchange Program. 
+                The ExPro exists over 60 years and in this time, more than 20.000 students 
+                have been exchanged with IAAS. The IAAS Exchange Program gives the opportunity 
+                to all students to do an internship in another country in agricultural and 
+                related sciences. With ExPro, you can learn and experience things that 
+                cannot be learned out of course books all while immersing in a new culture.
+            </p>
+        </div> -->
+        <br/> <br/>
+        <div class="center ">
+            <a *ngIf='!userData' class="btn btn-success" routerLink='/apply'>Register! &nbsp; <i class="fa fa-upload"></i></a>
+            <a *ngIf='userData' class="btn btn-success" routerLink='/expro/internships'> 
+                View internships! &nbsp; <i class="fa fa-search"></i>
+            </a>
+        </div>
+        <br/> <br/>
+        <div class="row">
+            <div class="col-md-4 col-sm-6 col-x-12">
+                <div class="service-item center">
+                    <div class="">
+                        <!-- <span class="fa fa-2x fa-cogs"></span> -->
+                        <img src="{{imageSource}}/assets/img/Porgram Ceres Type-B.png" />
+                    </div>
+                    <h4>Ceres</h4>
+                    <p>Internships on farms such as organic crop farms, dairy farms. 
+                        Interns can learn the basics of planting, harvesting, 
+                        watering…etc it’s mostly field work, sometimes alongside 
+                        with marketing and indoor work.</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-x-12">
+                <div class="service-item center">
+                    <div class="">
+                        <!-- <span class="fa fa-2x fa-cogs"></span> -->
+                        <img src="{{imageSource}}/assets/img/Program Archimedes Type-B.png" />
+                    </div>
+                    <h4>Archimedes</h4>
+                    <p>
+                        Internships related to education, research, engineering, and management. 
+                        Often, Archimedes takes place in companies, organizations, universities 
+                        and research institutions.
+                    </p>
+
+                    </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-x-12">
+                <div class="service-item center">
+                    <div class="">
+                        <!-- <span class="fa fa-2x fa-cogs"></span> -->
+                        <img src="{{imageSource}}/assets/img/Program Libertas Type-B.png" />
+                    </div>
+                    <h4>Libertas</h4>
+                    <p>
+                        These internships are community-based projects. They are mainly 
+                        volunteering internships in collaboration with Village Concept Projects.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <section class="service">
+            <div class="container">
+                <h2 class="text-center">About ExPro</h2>
+                <br/> <br/>
+                <p class="center">
+                    <b>Minimum duration:</b> 3 weeks <br/>
+                        <b>Maximum duration:</b> 1 year <br/>
+                        <b>Note:</b> 
+                        Some internships have different requirements, for example a minimum duration 
+                        of 2 months or a maximum duration of 3 months. Please check the requirements 
+                        regarding each internship on the internship description.
+                </p>
+                <div class="col-md-6 col-sm-12 col-xs-12 text-center margin-top-5pct margin-bottom-5pct">
+                    <button routerLink='/expro/faq' class="btn btn-success">Still having questions?</button>
+                </div>
+                <div class="col-md-6 col-sm-12 col-xs-12 text-center margin-top-5pct margin-bottom-5pct">
+                    <button routerLink='/expro/contact' class="btn btn-success">Are you a company and want to offer internships to students?</button>
+                </div>
+            </div>
+        </section>
+        
+        <br> <br>
+        <div class="row">
+            <div class="col-md-6">
+                <h3>What ARE aims of our internships?</h3>
+                <ul class="aim-list">
+                    <li>A positive learning experience.</li>
+                    <li>Practical skills and knowledge in a foreign environment to complement their higher educational background.</li>
+                    <li>Interaction with a different social and cultural environment with a view to gaining intercultural competences</li>
+                    <li>Development of theoretical and practical leadership skills</li>
+                    <li>Opportunity to apply their personal and professional skills, knowledge, attitudes and values to work for the organization as well as the host community.</li>
+                    <li>Develop the student’s awareness and knowledge of social issues and different practices of the sending and hosting country.</li>
+                    <li>Opportunity to contribute to students personal and professional life goals</li>
+                </ul>
+            </div>
+
+            <div class="col-md-6">
+                <h3>What ARE NOT aims of our internships?</h3>
+                <ul class="aim-list">
+                    <li>To provide an opportunity for the purpose of earning money</li>
+                    <li>To provide a holiday</li>
+                    <li>Intended to be a permanent career placement or recruitment opportunity in another country. If the organization decides to extend the internship on a permanent basis, IAAS will have no role in facilitating this</li>
+                    <li>A vehicle for any person to permanently leave their country. IAAS does not encourage the extension of internships beyond the limit of 12 months.</li>
+                </ul>
+            </div>
+        </div>
+        <br><br>
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Who may participate in ExPRO?</h3>
+                <p>
+                    All applicants have to be students or have graduated within 24 months from an agricultural or related sciences program.
+Applicants are not necessarly IAAS members but please note that priority will be given to IAAS members, then to students and lastly to recent graduates.
+                </p>
+            </div>
+            <div class="col-md-6">
+                <h3>Who may NOT participate in ExPRO?</h3>
+                <p>
+                    A student who has graduated since two years or more does not qualify for this exchange program.
+                </p>
+            </div>
+        </div>  
+        <div class="row apply-process">
+            <h3>How to apply</h3>
+            <img src="{{imageSource}}/assets/resources/apply_tutorial.png" style="margin-top: 2em;"/>
+        </div>
+        <br><br>
+        <div class="row">
+            <h3>ExPRO fees</h3>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                Country Category
+                            </th>
+                            <th>
+                                Fee
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>A</td>
+                            <td>&euro; 75</td>
+                        </tr>
+                        <tr>
+                            <td>B</td>
+                            <td>&euro; 75</td>
+                        </tr>
+                        <tr>
+                            <td>C</td>
+                            <td>&euro; 100</td>
+                        </tr>
+                        <tr>
+                            <td>D</td>
+                            <td>&euro; 100</td>
+                        </tr>
+                        <tr>
+                            <td>E</td>
+                            <td>&euro; 125</td>
+                        </tr>
+                        <tr>
+                            <td>F</td>
+                            <td>&euro; 125</td>
+                        </tr>
+                    </tbody>
+                </table>
+                Check your country <a routerLink='/network'>HERE</a>.
+        </div>
+    </div>
+</section>
+
+
+
+</div>

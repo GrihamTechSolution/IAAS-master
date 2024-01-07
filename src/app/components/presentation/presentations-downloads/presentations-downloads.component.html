@@ -1,0 +1,100 @@
+<div class="jumbotron">
+    <div class="container">
+      <h1 class="display-3">Everything you need is here!</h1>
+      <br> <br>
+      <h3 class="display-3">Your IAAS Materials for your IAAS Activity!</h3>
+    </div>
+  </div>
+
+  
+<section class="contact-section padding-top-2pct">
+    <div class="container">
+      <div class="download-category">
+        <h2>Brand Resources</h2>
+      </div>
+      <div class="row flexRow">
+        <ng-container *ngFor='let d of brandResourceDownloads'>
+          <div class="col-md-3 col-sm-12 col-xs-12 text-center margin-bottom-5pct" *ngIf='!d.isPrivate || (d.isPrivate && isIaasUser)'  style="height: 350px;">
+            <img src='{{uploadImageSource}}/{{d.imagePath}}' style="width:80%; height: 220px;" /> 
+            <br/> <br/> 
+            <h4>{{d.title}}</h4>
+            <br/> <br/> 
+            <a target="__blank" class="btn btn-success"
+                href='{{uploadImageSource}}/{{d.downloadPath}}'>
+                <i class="fa fa-download"></i> &nbsp;
+                Download here</a>
+          </div>
+        </ng-container>
+      </div>  
+      <div class="download-category">
+        <h2>IAAS Booklets and Guides</h2>
+      </div>
+      <div class="row flexRow">
+        <ng-container *ngFor='let d of bookletDownloads'>
+          <div class="col-md-3 col-sm-12 col-xs-12 text-center margin-bottom-5pct" *ngIf='!d.isPrivate || (d.isPrivate && isIaasUser)' style="height: 350px;">
+            <img src='{{uploadImageSource}}/{{d.imagePath}}' style="width:80%; height: 220px;" /> 
+            <br/> <br/> 
+            <h4>{{d.title}}</h4>
+            <br/> <br/> 
+            <a target="__blank" class="btn btn-success"
+                href='{{uploadImageSource}}/{{d.downloadPath}}'>
+                <i class="fa fa-download"></i> &nbsp;
+                Download here</a>
+          </div>
+        </ng-container>
+      </div>  
+      <div class="download-category">
+        <h2>Publications</h2>
+      </div>
+      <div class="row flexRow">
+        <ng-container *ngFor='let d of publicationDownloads'>
+          <div class="col-md-3 col-sm-12 col-xs-12 text-center margin-bottom-5pct" *ngIf='!d.isPrivate || (d.isPrivate && isIaasUser)'>
+            <img src='{{uploadImageSource}}/{{d.imagePath}}' style="width:80%; height: 220px;" /> 
+            <br/> <br/> 
+            <h4>{{d.title}}</h4>
+            <br/> <br/> 
+            <a target="__blank" class="btn btn-success"
+                href='{{uploadImageSource}}/{{d.downloadPath}}'>
+                <i class="fa fa-download"></i> &nbsp;
+                Download here</a>
+          </div>
+        </ng-container>
+      </div>
+      <div class="download-category">
+        <h2>ExPro</h2>
+      </div>
+      <div class="row flexRow">
+        <ng-container *ngFor='let d of exproDownloads'>
+          <div class="col-md-3 col-sm-12 col-xs-12 text-center margin-bottom-5pct" *ngIf='!d.isPrivate || (d.isPrivate && isIaasUser)'>
+            <img src='{{uploadImageSource}}/{{d.imagePath}}' style="width:80%; height: 220px;" /> 
+            <br/> <br/> 
+            <h4>{{d.title}}</h4>
+            <br/> <br/> 
+            <a target="__blank" class="btn btn-success"
+                href='{{uploadImageSource}}/{{d.downloadPath}}'>
+                <i class="fa fa-download"></i> &nbsp;
+                Download here</a>
+          </div>
+        </ng-container>
+        
+      </div>  
+      <div class="download-category">
+        <h2>Other</h2>
+      </div>
+      <div class="row flexRow">
+        <ng-container *ngFor='let d of otherDownloads'>
+          <div class="col-md-3 col-sm-12 col-xs-12 text-center margin-bottom-5pct" *ngIf='!d.isPrivate || (d.isPrivate && isIaasUser)'>
+            <img src='{{uploadImageSource}}/{{d.imagePath}}' style="width:80%; height: 220px;" /> 
+            <br/> <br/> 
+            <h4>{{d.title}}</h4>
+            <br/> <br/> 
+            <a target="__blank" class="btn btn-success"
+                href='{{uploadImageSource}}/{{d.downloadPath}}'>
+                <i class="fa fa-download"></i> &nbsp;
+                Download here</a>
+          </div>
+        </ng-container>
+        
+      </div>  
+    </div>
+</section>

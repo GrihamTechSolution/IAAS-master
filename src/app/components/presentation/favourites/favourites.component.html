@@ -1,0 +1,111 @@
+
+<div class="jumbotron content-hub-jumbo no-margin">
+    <div class="container">
+        <h3 class="display-3">My Favourites</h3>
+    </div>
+</div>
+
+<div class="pg">
+    <div class="container padding-top-2pct">
+        <div class="row">
+            <h1 class="favourite-title">
+                Blog
+            </h1>
+            <div class="col-md-12 col-sm-12 study-abroad-program margin-top-2pct" *ngFor='let fb of favouriteBlogs'>
+                <div class="col-md-4 col-sm-12">
+                    <img src='{{uploadImageSource}}/{{fb.article.imagePath}}' />
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <h1>{{fb.article.title}}</h1>
+                    <p [innerHTML]='fb.article.content | shortenArticleContent | safeHtml'></p>   
+                </div>
+                <div class="col-md-2 col-sm-12">
+                    <button class='learn-more-button btn btn-success' routerLink='/contentHub/{{fb.article.id}}'>
+                        Learn More!
+                    </button>
+
+                    <br/> 
+
+                    <br/>
+
+                    <button class='btn btn-danger' (click)='removeBlogFromFavourites(fb.id)'>
+                        <i class="fa fa-close"></i> &nbsp; Remove
+                    </button>
+                </div>
+
+                
+            </div>
+        </div>
+        <hr/>
+        <div class="row">
+            <h1 class="favourite-title">
+                Internship
+            </h1>
+            <div class="col-md-12 col-sm-12 study-abroad-program margin-top-2pct" *ngFor='let fi of favouriteInternships'>
+                <div class="col-md-4 col-sm-12">
+                    <img src='{{uploadImageSource}}/{{fi.internship.firstImagePath}}' />
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <h1>{{fi.internship.name}}</h1>
+                    <p class="study-abroad-location">
+                        {{fi.internship.description}}
+                    </p>
+                    <p class="study-abroad-location">
+                        <i class="fa fa-2x fa-map-marker"></i> &nbsp; &nbsp; {{fi.internship.country.name}}
+                    </p>
+                </div>
+                <div class="col-md-2 col-sm-12">
+                    <button class='learn-more-button btn btn-success' routerLink='/internshipDetails/{{fi.id}}'>
+                        Learn More!
+                    </button>
+
+                    <br/> 
+
+                    <br/>
+
+                    <button class='btn btn-danger' (click)='removeInternshipFromFavourites(fi.id)'>
+                        <i class="fa fa-close"></i> &nbsp; Remove
+                    </button>
+                </div>
+
+                
+            </div>
+        </div>
+        <hr/>
+        <div class="row">
+            <h1 class="favourite-title">
+                Study Abroad
+            </h1>
+            <div class="col-md-12 col-sm-12 study-abroad-program margin-top-2pct" *ngFor='let p of favouriteAbroads'>
+                <div class="col-md-4 col-sm-12">
+                    <img src='{{uploadImageSource}}/{{p.study_abroad_program.partner.imagePath}}' />
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <h1>{{p.study_abroad_program.title}}</h1>
+                    <p class="study-abroad-location">
+                        <i class="fa fa-2x fa-map-marker"></i> &nbsp; &nbsp; {{p.study_abroad_program.location}}
+                    </p>
+                    <p class="study-abroad-description">
+                        {{p.study_abroad_program.decription}}
+                    </p>
+                </div>
+                <div class="col-md-2 col-sm-12">
+                    <button class='learn-more-button btn btn-success' routerLink='/showStudyAbroadProgram/{{p.study_abroad_program.id}}'>
+                        Learn More!
+                    </button>
+
+                    <br/> 
+
+                    <br/>
+
+                    <button class='btn btn-danger' (click)='removeAbroadFromFavourites(p.id)'>
+                        <i class="fa fa-close"></i> &nbsp; Remove
+                    </button>
+                </div>
+
+                
+            </div>
+        </div>
+        <hr/>
+    </div>
+</div>

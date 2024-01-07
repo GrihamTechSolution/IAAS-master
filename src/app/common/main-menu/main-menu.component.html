@@ -1,0 +1,177 @@
+<section class="theme_menu stricky">
+  <div class="navbar_div">
+    <div class="row" style="display: flex; justify-content: center">
+      <div class="">
+        <div class="main-logo">
+          <a href="index.html"
+            ><img
+              src="{{ imageSource }}/assets/img/iaas-logo.png"
+              style="width: 200px; height: auto"
+              alt=""
+          /></a>
+        </div>
+      </div>
+      <div class="menu-column navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button
+              type="button"
+              class="navbar-toggle collapsed"
+              data-toggle="collapse"
+              data-target="#main_menu"
+              aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+
+          <div id="main_menu" class="navbar-collapse collapse menuzord">
+            <ul class="nav navbar-nav menuzord-menu">
+              <!-- <li><a routerLink="/" id="firstLink">Home</a></li> -->
+
+              <li class="dropdown" style="padding-left: 20px">
+                <a
+                  href="#"
+                  class="dropdown-toggle"
+                  data-toggle="dropdown"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  >About us <span class="caret"></span
+                ></a>
+                <ul class="dropdown-menu">
+                  <li><a routerLink="/about">Who we are</a></li>
+                  <li><a routerLink="/network">Our network</a></li>
+                  <li><a routerLink="/becomeMember">Become a Member</a></li>
+                  <li><a routerLink="/alumni">Alumni</a></li>
+                  <li><a routerLink="/downloads">Downloads</a></li>
+                </ul>
+              </li>
+
+              <li class="dropdown">
+                <a
+                  href="#"
+                  class="dropdown-toggle"
+                  data-toggle="dropdown"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  >Partners & Sponsors <span class="caret"></span
+                ></a>
+                <ul class="dropdown-menu">
+                  <li><a routerLink="/becomePartner">Our partners</a></li>
+                  <li><a routerLink="/becomeSponsor">Our sponsors</a></li>
+                </ul>
+              </li>
+
+              <li class="dropdown">
+                <a
+                  href="#"
+                  class="dropdown-toggle"
+                  data-toggle="dropdown"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  >SAP <span class="caret"></span
+                ></a>
+                <ul class="dropdown-menu">
+                  <li><a routerLink="/studyAbroadAbout">What is SAP?</a></li>
+                  <li><a routerLink="/studyAbroadStudents">Students</a></li>
+                  <li><a routerLink="/studyAbroad">Partner Universities</a></li>
+                  <li>
+                    <a routerLink="/studyAbroadUniversities">Join Us</a>
+                  </li>
+                </ul>
+              </li>
+
+              <li class="dropdown">
+                <a
+                  href="#"
+                  class="dropdown-toggle"
+                  data-toggle="dropdown"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  >Expro <span class="caret"></span
+                ></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/expro/home">Home</a></li>
+                  <li><a href="/expro/countries">Countries</a></li>
+                  <li><a href="/expro/internships">Internships Hub</a></li>
+                  <!-- <li><a href="/expro/backpacking">Backpacking</a></li> -->
+                  <li><a href="/expro/testimonials">Testimonials</a></li>
+                  <li *ngIf="!isUserLoggedIn">
+                    <a href="/apply">Register now</a>
+                  </li>
+                  <li><a routerLink="/expro/faq">FAQ</a></li>
+                  <li><a routerLink="/expro/contact">Contact us</a></li>
+                </ul>
+              </li>
+
+              <li class="dropdown">
+                <a
+                  href="#"
+                  class="dropdown-toggle"
+                  data-toggle="dropdown"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  >Projects and Events <span class="caret"></span
+                ></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/projects">Projects</a></li>
+                  <li><a href="/events">Events</a></li>
+                </ul>
+              </li>
+
+              <!-- <li><a href="/events">Events and Projects</a></li> -->
+
+              <li><a href="/fayi">FAYI</a></li>
+
+              <li><a href="/contentHub">Content Hub</a></li>
+              <li><a routerLink="/contact">Contact us</a></li>
+
+              <li *ngIf="!isUserLoggedIn"><a routerLink="/login">Login</a></li>
+
+              <li class="dropdown" *ngIf="isUserLoggedIn">
+                <a
+                  href="#"
+                  class="dropdown-toggle"
+                  data-toggle="dropdown"
+                  role="button"
+                  aria-haspopup="true"
+                  aria-expanded="false">
+                  <i class="fa fa-2x fa-user"></i> &nbsp;
+                  <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a routerLink="/profile"> My Profile </a></li>
+                  <li *ngIf="user.userTypeID == 1 || user.userTypeID == 2">
+                    <a routerLink="/myInternships"> My Internships </a>
+                  </li>
+                  <li><a routerLink="/favourites">Favourites</a></li>
+                  <li *ngIf="user.userTypeID == 1 || user.userTypeID == 2">
+                    <a routerLink="/myBlog">Blog</a>
+                  </li>
+                  <li
+                    *ngIf="
+                      user.userTypeID == 3 ||
+                      user.userTypeID == 4 ||
+                      user.userTypeID == 5 ||
+                      user.userTypeID == 6 ||
+                      user.userTypeID == 7
+                    ">
+                    <a routerLink="/administration">Administration</a>
+                  </li>
+                  <li><a (click)="logout()">Logout</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

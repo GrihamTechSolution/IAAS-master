@@ -1,0 +1,349 @@
+
+<div class="jumbotron content-hub-jumbo no-margin">
+    <div class="container">
+        <h3 class="display-3">Welcome to</h3>
+        <h1 class="display-3">Content Hub</h1>
+        <h3 class="display-3">IAASer activity space</h3>
+    </div>
+</div>
+
+<section class="all-blog blog-section padding-top-2pct">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-12">
+                <h3 class="content-hub-title page-title">Categories</h3>
+            </div>
+            <div class='col-md-12 padding-top-2pct padding-bottom-2pct show-desktop'>
+                <button (click)='showCategory(0)' class="btn category-button">Latest updates</button> &nbsp; &nbsp; 
+                <ng-container *ngFor='let c of categories'>
+                    <button (click)='showCategory(c.id)'  class="btn category-button">{{c.name}}</button> &nbsp; &nbsp; 
+                </ng-container>
+            </div>    
+            <div class='col-md-12 padding-top-2pct padding-bottom-2pct show-mobile'>
+                <button (click)='showCategory(0)' class="btn category-button">Latest updates</button> &nbsp; &nbsp; 
+            </div>
+            <div class='col-md-12 padding-top-2pct padding-bottom-2pct show-mobile' *ngFor='let c of categories'>
+                <!-- <ng-container> -->
+                    <button (click)='showCategory(c.id)'  class="btn category-button">{{c.name}}</button> &nbsp; &nbsp; 
+                <!-- </ng-container> -->
+            </div>  
+        </div>
+        <div class="row row-same-height">
+            <!-- <div class="col-md-12"> -->
+                <!-- <div class="col-md-12"> -->
+                    <h2 class="page-title content-hub-title" style="width: 100%; margin-bottom: 20px;">Latest updates</h2>
+                <!-- </div> -->
+                
+                <div class="col-md-6 col-sm-12 col-xs-12">
+                    <!-- Dodat ngIf -->
+                    <article class="" *ngIf="articles.length >= 1">
+                        <!-- Set ck editor list style -->
+                        <div class="default-blog-news wow fadeInUp animated animated setCKListStyle" style="visibility: visible; animation-name: fadeInUp;">
+                            <figure class="img-holder">
+                                <a routerLink='/contentHub/{{articles[0].id}}'><img src="{{uploadImageSource}}/{{articles[0].imagePath}}" style="height:300px; object-fit: cover;" alt="News"></a>
+                            </figure>
+                            <div class="lower-content">
+                                <div class="date">{{articles[0].created | date : "dd.MM.yyyy"}}</div>
+                                <div class="post-meta">by {{articles[0].user.firstName}} {{articles[0].user.lastName}} | {{articles[0].comments.length}} Comments</div>
+                                <a routerLink='/contentHub/{{articles[0].id}}'><h4>{{articles[0].title}}</h4></a>
+                                <div class="text">
+                                    <p [innerHTML]='articles[0].content | shortenArticleContent | safeHtml'></p>    
+                                    <a routerLink='/contentHub/{{articles[0].id}}'>Read more...</a>   
+                                </div>                        
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-md-6 col-sm-12 col-xs-12">
+                    <!-- Dodat ngIf -->
+                    <article class="" *ngIf="articles.length >= 2">
+                        <!-- Set ck editor list style -->
+                        <div class="default-blog-news side-article wow fadeInUp animated animated setCKListStyle" style="visibility: visible; animation-name: fadeInUp;">
+                            <!-- Uradjena zamjena tagova -->
+                            <!-- <a routerLink='/contentHub/{{articles[1].id}}' class="col-md-6 col-sm-12 col-xs-12"> -->
+                                <figure class="img-holder">
+                                    <a routerLink='/contentHub/{{articles[1].id}}' >
+                                        <img src="{{uploadImageSource}}/{{articles[1].imagePath}}" alt="News" style="height:300px; object-fit: cover;">
+                                    </a>
+                                </figure>
+                            <!-- </a> -->
+                            <div class="lower-content" style="cursor: pointer;" (click)='showArticle(articles[1].id)'>
+                                <!-- Sklonjena klasa top-80pct -->
+                                <div class="date">{{articles[1].created | date : "dd.MM.yyyy" }}</div>
+                                <div class="post-meta">by {{articles[1].user.firstName}} {{articles[1].user.lastName}} | {{articles[1].comments.length}} Comments</div>
+                                <a routerLink='/contentHub/{{articles[1].id}}'><h4>{{articles[1].title}}</h4></a>
+                                <div class="text">
+                                    <p [innerHTML]='articles[1].content | shortenArticleContent | safeHtml'></p>
+                                    <a routerLink='/contentHub/{{articles[1].id}}'>Read more...</a>                  
+                                </div>                        
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-md-6 col-sm-12 col-xs-12">
+                    <!-- Dodat ngIf -->
+                    <article class="" *ngIf="articles.length >= 3">
+                        <!-- Set ck editor list style -->
+                        <div class="default-blog-news side-article wow fadeInUp animated animated setCKListStyle" style="visibility: visible; animation-name: fadeInUp;">
+                            <!-- Sklonjene klase :  col-md-6 col-sm-12 col-xs-12 -->
+                            <figure class="img-holder"> 
+                                <a routerLink='/contentHub/{{articles[2].id}}'><img src="{{uploadImageSource}}/{{articles[2].imagePath}}" style="height:300px; object-fit: cover;" alt="News"></a>
+                            </figure>
+                            <div class="lower-content" style="cursor: pointer;" (click)='showArticle(articles[2].id)'>
+                                <!-- Sklonjena klasa top-80pct -->
+                                <div class="date">{{articles[2].created | date: "dd.MM.yyyy"}}</div>
+                                <div class="post-meta">by {{articles[2].user.firstName}} {{articles[2].user.lastName}} | {{articles[2].comments.length}} Comments</div>
+                                <a routerLink='/contentHub/{{articles[2].id}}'><h4>{{articles[2].title}}</h4></a>
+                                <div class="text">
+                                    <p [innerHTML]='articles[2].content | shortenArticleContent | safeHtml'></p> 
+                                    <a routerLink='/contentHub/{{articles[2].id}}'>Read more...</a>                        
+                                </div>                        
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-md-6 col-sm-12 col-xs-12">
+                    <!-- Dodat ngIf -->
+                    <article class="" *ngIf="articles.length >= 4">
+                        <!-- Set ck editor list style -->
+                        <div class="default-blog-news side-article wow fadeInUp animated animated setCKListStyle" style="visibility: visible; animation-name: fadeInUp;">
+                            <!-- Sklonjene klase :  col-md-6 col-sm-12 col-xs-12 -->
+                            <figure class="img-holder"> 
+                                <a routerLink='/contentHub/{{articles[3].id}}'><img src="{{uploadImageSource}}/{{articles[3].imagePath}}" style="height:300px; object-fit: cover;" alt="News"></a>
+                            </figure>
+                            <div class="lower-content" style="cursor: pointer;" (click)='showArticle(articles[3].id)'>
+                                <!-- Sklonjena klasa top-80pct -->
+                                <div class="date">{{articles[3].created | date: "dd.MM.yyyy"}}</div>
+                                <div class="post-meta">by {{articles[3].user.firstName}} {{articles[3].user.lastName}} | {{articles[3].comments.length}} Comments</div>
+                                <a routerLink='/contentHub/{{articles[3].id}}'><h4>{{articles[3].title}}</h4></a>
+                                <div class="text">
+                                    <p [innerHTML]='articles[3].content | shortenArticleContent | safeHtml'></p> 
+                                    <a routerLink='/contentHub/{{articles[3].id}}'>Read more...</a>                        
+                                </div>                        
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            <!-- </div> -->
+            <div class="col-md-12 col-xs-12 col-sm-12 text-center">
+                <button (click)='showCategory(0)' class="btn category-button">Show all</button>
+                <hr/>
+            </div>    
+        </div>
+
+        <div class="row row-same-height" *ngFor='let c of categories; let i = index'>
+            <!-- <div > -->
+
+                <!-- <div class="col-md-12"> -->
+                    <h2 class="page-title content-hub-title" style="width: 100%; margin-bottom: 20px;">{{c.name}}</h2>
+                <!-- </div> -->
+
+                <!-- <div class="col-md-6 col-sm-12 col-xs-12" *ngIf='contentHubArticles[i * 3]'>
+                    <article class="">
+                        <div class="default-blog-news wow fadeInUp animated animated setCKListStyle" style="visibility: visible; animation-name: fadeInUp;">
+                            <figure class="img-holder">
+                                <a routerLink='/contentHub/{{contentHubArticles[i * 3].id}}'><img src="{{uploadImageSource}}/{{contentHubArticles[i * 3].imagePath}}" alt="News"></a>
+                            </figure>
+                            <div class="lower-content">
+                                <div class="date">{{contentHubArticles[i * 3].created | date : "dd.MM.yyyy"}}</div>
+                                <div class="post-meta">by {{contentHubArticles[i * 3].user.firstName}} {{contentHubArticles[i * 3].user.lastName}}  |  {{contentHubArticles[i * 3].comments.length}} Comments</div>
+                                <a routerLink='/contentHub/{{contentHubArticles[i * 3].id}}'><h4>{{contentHubArticles[i * 3].title}}</h4></a>
+                                <div class="text">
+                                    <p [innerHTML]='contentHubArticles[i * 3].content | shortenArticleContent | safeHtml'></p>   
+                                    <a routerLink='/contentHub/{{contentHubArticles[i * 3].id}}'>Read more...</a>                  
+                                </div>                        
+                            </div>
+                        </div>
+                        
+                    </article>
+                </div> -->
+
+                <div class="col-md-6 col-sm-12 col-xs-12">
+                    <article class="" *ngIf="c.articles[0]">
+                        <!-- Set ck editor list style -->
+                        <div class="default-blog-news wow fadeInUp animated animated setCKListStyle" style="visibility: visible; animation-name: fadeInUp;">
+                            <figure class="img-holder">
+                                <a routerLink='/contentHub/{{c.articles[0].id}}'><img src="{{uploadImageSource}}/{{c.articles[0].imagePath}}" alt="News"></a>
+                            </figure>
+                            <div class="lower-content">
+                                <div class="date">{{c.articles[0].created | date : "dd.MM.yyyy"}}</div>
+                                <div class="post-meta">by {{c.articles[0].user.firstName}} {{c.articles[0].user.lastName}}  |  {{c.articles[0].comments.length}} Comments</div>
+                                <a routerLink='/contentHub/{{c.articles[0].id}}'><h4>{{c.articles[0].title}}</h4></a>
+                                <div class="text">
+                                    <p [innerHTML]='c.articles[0].content | shortenArticleContent | safeHtml'></p>   
+                                    <a routerLink='/contentHub/{{c.articles[0].id}}'>Read more...</a>                  
+                                </div>                        
+                            </div>
+                        </div>
+                        
+                    </article>
+                </div>
+
+                <div class="col-md-6 col-sm-12 col-xs-12">
+                    <article class="" *ngIf='c.articles[1]'>
+                        <!-- Set ck editor list style -->
+                        <div class="default-blog-news side-article wow fadeInUp animated animated setCKListStyle" style="visibility: visible; animation-name: fadeInUp;">
+                            <!-- Zamjena tagova zbog prikaza -->
+                            <!-- <a routerLink='/contentHub/{{c.articles[1].id}}' class="col-md-6 col-sm-12 col-xs-12"> -->
+                                <figure class="img-holder">
+                                    <a routerLink='/contentHub/{{c.articles[1].id}}'>
+                                        <img src="{{uploadImageSource}}/{{c.articles[1].imagePath}}" alt="News">
+                                    </a>
+                                </figure>
+                            <!-- </a> -->
+                            <div class="lower-content" style="cursor: pointer;" (click)='showArticle(c.articles[1].id)'>
+                                <!-- Sklonjena klasa top-80pct -->
+                                <div class="date">{{c.articles[1].created | date : "dd.MM.yyyy" }}</div>
+                                <div class="post-meta">by {{c.articles[1].user.firstName}} {{c.articles[1].user.lastName}}  |  {{c.articles[1].comments.length}} Comments</div>
+                                <a routerLink='/contentHub/{{c.articles[1].id}}'><h4>{{c.articles[1].title}}</h4></a>
+                                <div class="text">
+                                    <p [innerHTML]='c.articles[1].content | shortenArticleContent | safeHtml'></p> 
+                                    <a routerLink='/contentHub/{{c.articles[1].id}}'>Read more...</a>                   
+                                </div>                        
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="col-md-6 col-sm-12 col-xs-12">
+                    <article class="" *ngIf='c.articles[2]'>
+                        <!-- Set ck editor list style -->
+                        <div class="default-blog-news side-article wow fadeInUp animated animated setCKListStyle" style="visibility: visible; animation-name: fadeInUp;">
+                            <!-- Sklonjene klase:  col-md-6 col-sm-12 col-xs-12 -->
+                            <figure class="img-holder">
+                                <a routerLink='/contentHub/{{c.articles[2].id}}'><img src="{{uploadImageSource}}/{{c.articles[2].imagePath}}" alt="News"></a>
+                            </figure>
+                            <div class="lower-content" style="cursor: pointer;" (click)='showArticle(c.articles[2].id)'>
+                                <!-- Sklonjena klasa top-80pct -->
+                                <div class="date">{{c.articles[2].created | date: "dd.MM.yyyy"}}</div>
+                                <div class="post-meta">by {{c.articles[2].user.firstName}} {{c.articles[2].user.lastName}}  |  {{c.articles[2].comments.length}} Comments</div>
+                                <a routerLink='/contentHub/{{c.articles[2].id}}'><h4>{{c.articles[2].title}}</h4></a>
+                                <div class="text">
+                                    <p [innerHTML]='c.articles[2].content | shortenArticleContent | safeHtml'></p>      
+                                    <a routerLink='/contentHub/{{c.articles[2].id}}'>Read more...</a>          
+                                </div>                        
+                            </div>
+                        </div>
+                        
+                    </article>
+                </div>
+
+                <div class="col-md-6 col-sm-12 col-xs-12">
+                    <article class="" *ngIf='c.articles[3]'>
+                        <!-- Set ck editor list style -->
+                        <div class="default-blog-news side-article wow fadeInUp animated animated setCKListStyle" style="visibility: visible; animation-name: fadeInUp;">
+                            <!-- Zamjena tagova zbog prikaza -->
+                            <!-- <a routerLink='/contentHub/{{c.articles[3].id}}' class="col-md-6 col-sm-12 col-xs-12"> -->
+                                <figure class="img-holder">
+                                    <a routerLink='/contentHub/{{c.articles[3].id}}'>
+                                        <img src="{{uploadImageSource}}/{{c.articles[3].imagePath}}" alt="News">
+                                    </a>
+                                </figure>
+                            <!-- </a> -->
+                            <div class="lower-content" style="cursor: pointer;" (click)='showArticle(c.articles[3].id)'>
+                                <!-- Sklonjena klasa top-80pct -->
+                                <div class="date">{{c.articles[3].created | date : "dd.MM.yyyy" }}</div>
+                                <div class="post-meta">by {{c.articles[3].user.firstName}} {{c.articles[3].user.lastName}}  |  {{c.articles[3].comments.length}} Comments</div>
+                                <a routerLink='/contentHub/{{c.articles[3].id}}'><h4>{{c.articles[3].title}}</h4></a>
+                                <div class="text">
+                                    <p [innerHTML]='c.articles[3].content | shortenArticleContent | safeHtml'></p> 
+                                    <a routerLink='/contentHub/{{c.articles[3].id}}'>Read more...</a>                   
+                                </div>                        
+                            </div>
+                        </div>
+                        
+                    </article>
+                </div>
+
+                <!-- <div class="col-md-6 col-sm-12 col-xs-12">
+                    <article class="" *ngIf='contentHubArticles[i * 3 + 1]'>
+                        <div class="default-blog-news side-article wow fadeInUp animated animated setCKListStyle" style="visibility: visible; animation-name: fadeInUp;">
+                                <figure class="img-holder">
+                                    <a routerLink='/contentHub/{{contentHubArticles[i * 3 + 1].id}}'>
+                                        <img src="{{uploadImageSource}}/{{contentHubArticles[i * 3 + 1].imagePath}}" alt="News">
+                                    </a>
+                                </figure>
+                            <div class="lower-content" style="cursor: pointer;" (click)='showArticle(contentHubArticles[i * 3 + 1].id)'>
+                                <div class="date">{{contentHubArticles[i * 3 + 1].created | date : "dd.MM.yyyy" }}</div>
+                                <div class="post-meta">by {{contentHubArticles[i * 3 + 1].user.firstName}} {{contentHubArticles[i * 3 + 1].user.lastName}}  |  {{contentHubArticles[i * 3 + 1].comments.length}} Comments</div>
+                                <a routerLink='/contentHub/{{contentHubArticles[i * 3 + 1].id}}'><h4>{{contentHubArticles[i * 3 + 1].title}}</h4></a>
+                                <div class="text">
+                                    <p [innerHTML]='contentHubArticles[i * 3 + 1].content | shortenArticleContent | safeHtml'></p> 
+                                    <a routerLink='/contentHub/{{contentHubArticles[i * 3 + 1].id}}'>Read more...</a>                   
+                                </div>                        
+                            </div>
+                        </div>
+                        
+                    </article>
+
+                    <article class="" *ngIf='contentHubArticles[i * 3 + 2]'>
+                        <div class="default-blog-news side-article wow fadeInUp animated animated setCKListStyle" style="visibility: visible; animation-name: fadeInUp;">
+                            <figure class="img-holder">
+                                <a routerLink='/contentHub/{{contentHubArticles[i * 3 + 2].id}}'><img src="{{uploadImageSource}}/{{contentHubArticles[i * 3 + 2].imagePath}}" alt="News"></a>
+                            </figure>
+                            <div class="lower-content" style="cursor: pointer;" (click)='showArticle(contentHubArticles[i * 3 + 2].id)'>
+                                <div class="date">{{contentHubArticles[i * 3 + 2].created | date: "dd.MM.yyyy"}}</div>
+                                <div class="post-meta">by {{contentHubArticles[i * 3 + 2].user.firstName}} {{contentHubArticles[i * 3 + 2].user.lastName}}  |  {{contentHubArticles[i * 3 + 2].comments.length}} Comments</div>
+                                <a routerLink='/contentHub/{{contentHubArticles[i * 3 + 2].id}}'><h4>{{contentHubArticles[i * 3 + 2].title}}</h4></a>
+                                <div class="text">
+                                    <p [innerHTML]='contentHubArticles[i * 3 + 2].content | shortenArticleContent | safeHtml'></p>      
+                                    <a routerLink='/contentHub/{{contentHubArticles[i * 3 + 2].id}}'>Read more...</a>          
+                                </div>                        
+                            </div>
+                        </div>
+                        
+                    </article>
+                </div> -->
+
+                <!-- <div class="col-md-6 col-sm-12 col-xs-12">
+                    <article class="" *ngIf='c.articles[1]'>
+                   
+                        <div class="default-blog-news side-article wow fadeInUp animated animated setCKListStyle" style="visibility: visible; animation-name: fadeInUp;">
+                           
+                                <figure class="img-holder">
+                                    <a routerLink='/contentHub/{{c.articles[1].id}}'>
+                                        <img src="{{uploadImageSource}}/{{c.articles[1].imagePath}}" alt="News">
+                                    </a>
+                                </figure>
+                          
+                            <div class="lower-content" style="cursor: pointer;" (click)='showArticle(c.articles[1].id)'>
+                                <div class="date">{{c.articles[1].created | date : "dd.MM.yyyy" }}</div>
+                                <div class="post-meta">by {{c.articles[1].user.firstName}} {{c.articles[1].user.lastName}}  |  {{c.articles[1].comments.length}} Comments</div>
+                                <a routerLink='/contentHub/{{c.articles[1].id}}'><h4>{{c.articles[1].title}}</h4></a>
+                                <div class="text">
+                                    <p [innerHTML]='c.articles[1].content | shortenArticleContent | safeHtml'></p> 
+                                    <a routerLink='/contentHub/{{c.articles[1].id}}'>Read more...</a>                   
+                                </div>                        
+                            </div>
+                        </div>
+                        
+                    </article>
+
+                    <article class="" *ngIf='c.articles[2]'>
+                        <div class="default-blog-news side-article wow fadeInUp animated animated setCKListStyle" style="visibility: visible; animation-name: fadeInUp;">
+                            <figure class="img-holder">
+                                <a routerLink='/contentHub/{{c.articles[2].id}}'><img src="{{uploadImageSource}}/{{c.articles[2].imagePath}}" alt="News"></a>
+                            </figure>
+                            <div class="lower-content" style="cursor: pointer;" (click)='showArticle(c.articles[2].id)'>
+                           
+                                <div class="date">{{c.articles[2].created | date: "dd.MM.yyyy"}}</div>
+                                <div class="post-meta">by {{c.articles[2].user.firstName}} {{c.articles[2].user.lastName}}  |  {{c.articles[2].comments.length}} Comments</div>
+                                <a routerLink='/contentHub/{{c.articles[2].id}}'><h4>{{c.articles[2].title}}</h4></a>
+                                <div class="text">
+                                    <p [innerHTML]='c.articles[2].content | shortenArticleContent | safeHtml'></p>      
+                                    <a routerLink='/contentHub/{{c.articles[2].id}}'>Read more...</a>          
+                                </div>                        
+                            </div>
+                        </div>
+                        
+                    </article>
+                </div> -->
+
+                <div class="col-md-12 col-xs-12 col-sm-12 text-center">
+                    <button (click)='showCategory(c.id)' class="btn category-button">Show all</button>
+                    <hr/>
+                </div>
+            <!-- </div> -->
+        </div>
+    </div>
+</section>

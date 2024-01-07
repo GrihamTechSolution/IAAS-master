@@ -1,0 +1,68 @@
+nav {
+    background-color: white !important;
+}
+
+.navbar-default{
+    background: transparent !important;
+    border: none !important;
+}
+
+.navbar-default .navbar-nav li a {
+    color: black !important;
+}
+
+// I am really not sure about this
+@media screen and (max-width: 720px) {
+    .menuzord li {
+      width: 100%;
+    }
+
+    .menuzord-menu li a
+    {
+        padding-left: 7px;
+    }
+}
+
+.main-logo {
+    margin: 0 !important;
+}
+
+.main-footer {
+    background-color: #111709 !important;
+    margin-left: 0 !important;
+}
+
+.footer-bottom {
+    padding: 40 0 !important;
+}
+
+.dropdown-menu {
+    border-top: 3px solid #8dc63f;
+}
+
+.dropdown-menu li {
+    padding: 5px;
+}
+
+.dropdown-menu li a {
+    background: #fff;
+    font-size: 14px;
+    color: #303030;
+}
+
+.dropdown-menu li a:hover {
+    background: #8dc63f;
+    color: #fff;
+}
+
+#firstLink {
+    padding-left: 20px !important;
+}
+
+.menuzord-menu[_ngcontent-xis-c2] > li[_ngcontent-xis-c2]:first-child a[_ngcontent-xis-c2] {
+    padding-left: 20px !important;
+}
+
+.footer-bottom li {
+    margin-left: 10px;
+}

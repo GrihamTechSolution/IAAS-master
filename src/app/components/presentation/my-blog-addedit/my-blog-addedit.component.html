@@ -1,0 +1,58 @@
+<!-- <div class="content-wrapper">
+    <div class="col-md-12 padding-top-2pct"> -->
+<div class="container wrapper">
+
+  <div class="box box-success">
+    <div class="box-header">
+      <h3 class="box-title">Add/edit Article</h3>
+    </div>
+
+    <form role="form">
+      <div class="box-body">
+        <div class="row">
+          <div class="form-group col-md-3">
+            <label>Title</label>
+            <input type="text" class="form-control" name="title" [(ngModel)]='article.title'
+              placeholder="Enter article title" [disabled]='article.status == 1'>
+          </div>
+          <div class="form-group col-md-3">
+            <label>Category</label>
+            <ng-select [items]="articleCategories" bindLabel="name" bindValue="id" name="articleCategoryID"
+              [(ngModel)]='article.articleCategoryID' [disabled]='article.status == 1'>
+            </ng-select>
+          </div>
+          <div class="form-group col-md-3">
+            <label>Preview image</label>
+            <input type='file' name='doc' class="form-control" ng2FileSelect [uploader]='uploader'
+              [disabled]='article.status == 1' />
+          </div>
+          <div class="form-group col-md-3">
+            <label>Status</label>
+            <select class="form-control" name="status" [(ngModel)]='article.status' disabled>
+              <option selected='selected' value="0">Not approved</option>
+              <option value="1">Approved</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Content</label>
+          <ckeditor class="height-80pct" name='editor' [(ngModel)]="article.content" id='editor' [editor]='Editor'
+            [config]='ckconfig' [disabled]='article.status == 1'></ckeditor>
+        </div>
+        <div class="row" *ngIf='article.imagePath' style="margin-left: 5% !important;">
+          <label>Preview image</label> <br /> <br />
+          <img style="width: 50%" src='{{uploadImageSource}}/{{article.imagePath}}' />
+        </div>
+      </div>
+      <!-- /.box-body -->
+
+      <div class="box-footer">
+        <button type="submit" class="btn btn-success" (click)='validateInput()' [disabled]='article.status == 1'>
+          <i class="fa fa-save"></i> &nbsp;
+          Save</button>
+      </div>
+    </form>
+
+  </div>
+</div>
+<!-- </div> -->

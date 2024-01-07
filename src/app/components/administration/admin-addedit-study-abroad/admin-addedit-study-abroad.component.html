@@ -1,0 +1,98 @@
+<div class="">
+    <div class="col-md-6 padding-top-2pct">
+        <div class="box box-success">
+            <div class="box-header">
+                <h3 class="box-title">Add/edit Study Abroad Program</h3>
+            </div>
+            <form role="form"> 
+                <div class="box-body">
+                    <label>
+                        Partner
+                    </label>
+                    <div class="form-group">
+                        <ng-select [items]="partners"
+                            bindLabel="name"
+                            bindValue="id"
+                            name="selectedPartnerID"
+                            [(ngModel)]='program.partnerID'>
+                        </ng-select>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            Title
+                        </label>
+                        <input type="text" [(ngModel)]='program.title' class="form-control" name="title" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            Description
+                        </label>
+                        <textarea name="description" [(ngModel)]='program.description' class="form-control"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            Location
+                        </label>
+                        <input type="text" class="form-control" [(ngModel)]='program.location' name="location" />
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            Site link
+                        </label>
+                        <input type="text" class="form-control" [(ngModel)]='program.siteLink' name="siteLink" />
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            Apply link
+                        </label>
+                        <input type="text" class="form-control" [(ngModel)]='program.applyLink' name="applLink"/>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            Video link
+                        </label>
+                        <input type="text" class="form-control" [(ngModel)]='program.videoLink' name="videoLink" />
+                    </div>
+                    <div class="form-group">
+                        <ckeditor class="height-80pct" name='editor' 
+                          [(ngModel)]="program.about" 
+                          id='editor'
+                          [editor]='Editor'
+                          [config]='ckconfig'
+                            name='ck'
+                         ></ckeditor>
+                    </div>
+                    <div>
+
+                    </div>
+                </div>
+                <div class="box-footer">
+                    <button type="submit" class="btn btn-success" (click)='insertOrEditStudyAbroadProgram()'>
+                      <i class="fa fa-save"></i> &nbsp;
+                      Save</button>
+                  </div>
+            </form>
+
+        </div>
+    </div>
+    <div *ngIf='program.id' class="col-md-12 padding-top-2pct">
+        <div class="box box-success">
+            <div class="box-header">
+                <h3 class="box-title">Images</h3>
+            </div>
+        </div>
+        <div class="box box-body">
+            <div class="row col-md-12">
+                <label>Insert photo</label>
+                <input type="file" name="doc" ng2FileSelect [uploader]='uploader' />
+            </div>
+            <br/> <br/> <br/> <br/>
+            <div class="row col-md-12">
+                <div class="col-md-3 col-sm-12" *ngFor='let i of program.images'>
+                    <img class="img-full" src='{{uploadImageSource}}/{{i.path}}' /> <br/> <br/>
+                    <button (click)='deleteImage(i.id)' class="btn btn-danger">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+<div class="col-md-12">
+  <div class="box box-success">
+    <div class="box-header">
+        <h3 class="box-title">List of applicants</h3>
+    </div>
+    <div class="box-body">
+        <table class="table table-striped table-bordered" [mfData]="applicants" #mf="mfDataTable" [mfRowsOnPage]="5">
+            <thead>
+            <tr>
+              <th>
+                  <mfDefaultSorter by="name">Int. Name</mfDefaultSorter>
+              </th>
+                <th style="width: 10%">
+                    <mfDefaultSorter by="country">Location</mfDefaultSorter>
+                </th>
+                <th style="width: 10%">
+                    <mfDefaultSorter by="where">Applicant</mfDefaultSorter>
+                </th>
+                <th style="width:10%">
+                    <mfDefaultSorter>Applicant country</mfDefaultSorter>
+                </th>
+                <th style="width:10%">
+                    <mfDefaultSorter>Status</mfDefaultSorter>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let item of mf.data"> 
+              <td>{{item.internshipName}}</td>
+              <td>{{item.city}}, {{item.country}}</td>
+              <td>{{item.applicantSurname}}, {{item.applicantName}}</td>
+              <td>{{item.applicantCountry}}</td>
+              <td>
+                  <span class="pull-right-container">
+                      <small class="label bg-green">IN PROGRESS</small></span>
+              </td>
+              <td>
+                <button class="btn btn-primary" routerLink='/exprogramtimeline'>
+                  <i class="fa fa-cogs"></i>
+                  Details
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+  </div>
+</div>

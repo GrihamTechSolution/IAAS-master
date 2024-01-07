@@ -1,0 +1,171 @@
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-success">
+                <div class="box-header">
+                    <h3>Student info - <span style="color: #00a65a">{{student.user.firstName}} {{student.user.lastName}}</span></h3> 
+                </div>
+                <div class="box-body">
+                   <div class="col-md-12">
+                        <div class="nav-tabs-custom">
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#studentInfo" data-toggle="tab" aria-expanded="false">Student info</a></li>
+                                <li class=""><a href="#emergencyContact" data-toggle="tab" aria-expanded="false">Emergency Contact</a></li>
+                                <li class=""><a href="#applications" data-toggle="tab" aria-expanded="false">Applications</a></li>
+                            </ul>
+                        </div>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="studentInfo">
+                                <div class="col-md-3 col-sm-12">
+                                    <div class="form-group">
+                                        <label>Photo</label>
+                                        <img style="width:100%" src="{{uploadImageSource}}/{{student.imagePath}}" alt="No current photo" />
+                                        <hr/>
+                                        <div class="form-group">
+                                        <label>CV</label> <br/>
+                                        <a href='{{uploadImageSource}}/{{student.bioPath}}'>
+                                            <i class="fa fa-download"></i> &nbsp;
+                                            Download
+                                        </a>
+                                        </div>
+                                        <hr/>
+                                        <div class="form-group">
+                                        <label>University - Proof of enrollment</label> <br/>
+                                        <a href='{{uploadImageSource}}/{{student.proofPath}}'>
+                                            <i class="fa fa-download"></i> &nbsp;
+                                            Download
+                                        </a>
+                                        </div>
+                                        <hr/>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-12">
+                                    <div class="form-group">
+                                        <label>First Name</label>
+                                        <input class="form-control" type="text" disabled name="name" [(ngModel)]='student.user.firstName' />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>University</label>
+                                        <input class="form-control" type="text" disabled name="name" [(ngModel)]='student.university' />
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-12">
+                                    <div class="form-group">
+                                        <label>Last Name</label>
+                                        <input class="form-control" type="text" disabled name="lastName" [(ngModel)]='student.user.lastName' />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Email</label>
+                                        <input class="form-control" type="text" disabled name="email" [(ngModel)]='student.user.email' />
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-sm-12">
+                                    <div class="form-group">
+                                        <div class="form-group">
+                                            <label>Country</label>
+                                            <input class="form-control" type="text" disabled name="lastName" [(ngModel)]='student.user.country.name' />
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane" id='emergencyContact'>
+                                <div class="row">
+                                    <div class="col-md-3 col-sm-12">
+                                      <div class="form-group">
+                                        <label>Name</label>
+                                        <input type="text" disabled name="name" [(ngModel)]='student.ecName' class="form-control"/>
+                                      </div>
+                                      <div class="form-group">
+                                        <label>Address</label>
+                                        <textarea name="ecAddress" disabled [(ngModel)]='student.ecAddress' class="form-control"></textarea>
+                                      </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-12">
+                                      <div class="form-group">
+                                        <label>Surname</label>
+                                        <input type="text" disabled name="surname" [(ngModel)]='student.ecSurname' class="form-control"/>
+                                      </div>
+                                      <div class="form-group">
+                                        <label>Relation with student</label>
+                                        <textarea name="ecRelation" disabled [(ngModel)]='student.ecRelation' class="form-control"></textarea>
+                                      </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-12">
+                                      <div class="form-group">
+                                        <label>Phone number</label>
+                                        <input type="text" disabled name="ecPhone" [(ngModel)]='student.ecPhone' class="form-control" />
+                                      </div>
+                                    </div>
+                                    <div class="col-md-3 col-sm-12">
+                                      <div class="form-group">
+                                        <label>Email</label>
+                                        <input type="text" disabled name="ecEmail" [(ngModel)]='student.ecEmail' class="form-control" />
+                                      </div>
+                                    </div>
+                                  </div>
+                            </div>
+
+                            <div class="tab-pane" id='applications'>
+                                <table class="table table-striped">
+                                    <thead>
+                                      <tr>
+                                        <th>
+                                          Name
+                                        </th>
+                                        <th>
+                                          Country
+                                        </th>
+                                        <th>
+                                          Motivational Letter
+                                        </th>
+                                        <th>
+                                          Status
+                                        </th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor='let a of student.user.applications'>
+                                          <td>
+                                            {{a.internship.name}}
+                                          </td>
+                                          <td>
+                                            {{a.internship.country.name}}
+                                          </td>
+                                          <td>
+                                            <a href="{{uploadImageSource}}/{{a.motivationalLetter}}" target="__blank">
+                                              <i class="fa fa-download"></i> &nbsp;
+                                              Download
+                                            </a>
+                                          </td>
+                                          <td *ngIf='a.step < 3'>
+                                            <span style="color: red;">Red light</span>
+                                          </td>
+                                          <td *ngIf='a.step >= 3 && a.step < 7'>
+                                            <span style="color: orange;">Orange light</span>
+                                          </td>
+                                          <td *ngIf='a.step >= 7'>
+                                            <span style="color: green;">Green light</span>
+                                          </td>
+                                          <td>
+                                            <a class="btn btn-success" routerLink='/administration/internshipStatus/{{a.id}}'>
+                                              <i class="fa fa-list"></i> &nbsp;
+                                              View timeline
+                                            </a>
+                                          </td>
+                                        </tr>
+                                    </tbody>
+                                  </table>
+                            </div>
+                        </div>
+                   </div>
+                </div>
+                <div class="box-footer">
+        
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</section>

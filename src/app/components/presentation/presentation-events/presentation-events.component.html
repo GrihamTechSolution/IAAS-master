@@ -1,0 +1,30 @@
+<div class="pg">
+    <div class="container padding-top-2pct">
+        <!-- <div class="col-md-6 col-sm-12 col-xs-12"> -->
+            <div>
+            <!-- Dodat ngIf -->
+            <article class="" *ngIf="events.length >= 0">
+                <!-- Set ck editor list style -->
+                <div *ngFor='let event of events'>
+                    <div *ngIf="event.status == 1" class="default-blog-news wow fadeInUp animated animated setCKListStyle" style="visibility: visible; animation-name: fadeInUp;">
+                        <div class="row">
+                            <h3 style="padding-left:15px; padding-right: 15px; margin-bottom: 1em; font-weight: bold;">{{event.title}}</h3>
+                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                <figure class="img-holder" >
+                                    <a routerLink='/events/{{event.id}}'><img src="{{uploadImageSource}}/{{event.imagePath}}" alt="News"></a>
+                                </figure>
+                            </div>
+                            <div class="col-md-6 col-sm-12 col-xs-12">
+                                <div style="margin-top: 1em;">
+                                    <h4 style="margin-bottom: 0.5em; font-weight: bold;">{{event.dateLocation}}</h4>
+                                    <div [innerHTML]="truncateHTML(event.content)" style="margin-bottom: 0.5em;"></div>
+                                    <a routerLink='/events/{{event.id}}'>Read more...</a>   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+</div>

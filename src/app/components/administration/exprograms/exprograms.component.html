@@ -1,0 +1,81 @@
+<div>
+  <div>
+    <a class="btn btn-primary" routerLink='/addeditexprogram'>
+      <i class="fa fa-plus"></i>
+      Add internship
+    </a>
+    <br /> <br />
+  </div>
+  <table class="table table-striped table-bordered" [mfData]="exprograms" #mf="mfDataTable" [mfRowsOnPage]="5">
+    <thead>
+    <tr>
+      <th>
+          <mfDefaultSorter by="name">Name</mfDefaultSorter>
+      </th>
+        <th style="width: 10%">
+            <mfDefaultSorter by="country">Location</mfDefaultSorter>
+        </th>
+        <th style="width: 10%">
+            <mfDefaultSorter by="where">OP Taker</mfDefaultSorter>
+        </th>
+        <th style="width:5%">
+            <mfDefaultSorter>Duration</mfDefaultSorter>
+        </th>
+        <th style="width:5%">
+            <mfDefaultSorter>Food</mfDefaultSorter>
+        </th>
+        <th style="width:5%">
+            <mfDefaultSorter>Lodge</mfDefaultSorter>
+        </th>
+        <th style="width: 5%;">
+            <mfDefaultSorter>h/day</mfDefaultSorter>
+        </th>
+        <th style="width: 5%">
+            <mfDefaultSorter by="numberOfApplicants">No. applicants</mfDefaultSorter>
+        </th>
+        <th style="width: 5%">
+            <mfDefaultSorter by="numberOfScholarships">No. Scholarships</mfDefaultSorter>
+        </th>
+        <th style="width: 10%">
+            <mfDefaultSorter>Status</mfDefaultSorter>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of mf.data">
+        <td>{{item.name}}</td>
+        <td>{{item.city}} - {{item.country}}</td>
+        <td>{{item.where}}</td>
+        <td>{{item.duration}}</td>
+        <td class="text-center">
+          <input style='width:22px; height: 22px;' type="checkbox" [ngModel]='item.food' disabled />
+        </td>
+        <td class="text-center">
+          <input style='width:22px; height: 22px;' type="checkbox" [ngModel]='item.lodge' disabled />
+        </td>
+        <td>
+          {{item.hours}}
+        </td>
+        <td>{{item.numberOfApplicants}}</td>
+        <td>{{item.numberOfScholarships}}</td>
+        <td>
+          <span class="pull-right-container">
+            <small class="label bg-green">IN PROGRESS</small></span>
+        </td>
+        <td>
+          <a class="btn btn-primary" routerLink='/exprogramdetails'>
+            <i class="fa fa-pencil"></i>
+            Show details 
+          </a>
+        </td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+        <td colspan="5">
+            <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+        </td>
+    </tr>
+    </tfoot>
+</table>
+</div>

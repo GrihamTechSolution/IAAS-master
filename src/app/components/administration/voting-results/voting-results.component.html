@@ -1,0 +1,141 @@
+<div class="container">
+
+    <h1 class="text-center padding-top-2pct">Voting name</h1>
+
+
+    <div class="row" *ngFor="let item of votingQuestionResults; let i = index;">
+        <div class="box box-success">
+            <div class="box-header">
+                <h2 class="box-title">{{item?.data?.votingQuestion}}</h2>
+            </div>
+
+            <div class="box-body">
+                <!-- TODO: Dynamic type -->
+                <table class="table table-striped table-bordered" [mfData]="" #mf="mfDataTable" [mfRowsOnPage]="2" *ngIf="item?.data?.votingQuestionTypeID == 3">
+                    <thead>
+                        <tr>
+                            <th style="width: 100%">
+                                <mfDefaultSorter by="name">Answer</mfDefaultSorter>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let answer of item?.data?.result">
+                            <td>{{answer}}</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="5">
+                                <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+
+                <div class="col-md-12" *ngIf="item?.data?.votingQuestionTypeID == 2 && labels[i] && barchartdata[i]">
+                    <div style="display: block;">
+                        <canvas baseChart [datasets]="barchartdata[i]" [labels]="labels[i]"
+                            [options]="barChartOptions" [plugins]="barChartPlugins" [legend]="barChartLegend"
+                            [chartType]="barChartType">
+                        </canvas>
+                    </div>
+                </div>
+
+                <div class="col-md-12" *ngIf="item?.data?.votingQuestionTypeID == 1 && labels[i] && piechartdata[i]">
+                    <div style="display: block;">
+                        <canvas baseChart [data]="piechartdata[i]" [labels]="labels[i]" [chartType]="pieChartType"
+                            [options]="pieChartOptions" [plugins]="pieChartPlugins" [legend]="pieChartLegend">
+                        </canvas>
+                    </div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+
+    <!-- <div class="row">
+        <div class="box box-success">
+            <div class="box-header">
+                <h2 class="box-title">Short answer example</h2>
+            </div>
+
+            <div class="box-body">
+                <table class="table table-striped table-bordered" [mfData]="" #mf="mfDataTable" [mfRowsOnPage]="2">
+                    <thead>
+                        <tr>
+                            <th style="width: 100%">
+                                <mfDefaultSorter by="name">Answer</mfDefaultSorter>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Answer 1</td>
+                        </tr>
+                        <tr>
+                            <td>Answer 2</td>
+                        </tr>
+                        <tr>
+                            <td>Answer 3</td>
+                        </tr>
+                        <tr>
+                            <td>Answer 4</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="5">
+                                <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <div class="box-footer">
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="box box-success">
+            <div class="box-header">
+                <h2 class="box-title">One choice example</h2>
+            </div>
+
+            <div class="box-body">
+                <div class="col-md-12">
+                    <div style="display: block;">
+                        <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType"
+                            [options]="pieChartOptions" [plugins]="pieChartPlugins" [legend]="pieChartLegend">
+                        </canvas>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="box box-success">
+            <div class="box-header">
+                <h2 class="box-title">Multiple choice example</h2>
+            </div>
+
+            <div class="box-body">
+                <div class="col-md-12">
+                    <div style="display: block;">
+                        <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels"
+                            [options]="barChartOptions" [plugins]="barChartPlugins" [legend]="barChartLegend"
+                            [chartType]="barChartType">
+                        </canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+</div>

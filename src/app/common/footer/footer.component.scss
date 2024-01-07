@@ -1,0 +1,269 @@
+// I am really not sure about this
+@media screen and (max-width: 720px) {
+    .menuzord li {
+      width: 100%;
+    }
+
+    .menuzord-menu li a
+    {
+        padding-left: 7px;
+    }
+}
+
+.iaas-footer {
+    // background-color: #111709 !important;
+    margin-left: 0 !important;
+    background-color: #56664B;
+}
+
+.dropdown-menu li {
+    padding: 5px;
+}
+
+.dropdown-menu li a {
+    background: #fff;
+    font-size: 14px;
+    color: #303030;
+}
+
+.dropdown-menu li a:hover {
+    background: #8dc63f;
+    color: #fff;
+}
+
+#firstLink {
+    padding-left: 20px !important;
+}
+
+.menuzord-menu[_ngcontent-xis-c2] > li[_ngcontent-xis-c2]:first-child a[_ngcontent-xis-c2] {
+    padding-left: 20px !important;
+}
+
+
+.boxed-wrapper {
+    background-color: #b3b3b3;
+}
+
+.footer-bottom li {
+    margin-left: 10px;
+}
+
+
+
+  .iaas-footer .footer-widget {
+    margin-top: 50px;
+  }
+  
+  .iaas-footer .section-title:after,
+  .iaas-footer .section-title:before {
+    display: none;
+  }
+  .iaas-footer .section-title h4 {
+    margin-bottom: 40px;
+    color: #fff;
+    padding-top: 18px;
+    padding-bottom: 10px;
+  }
+
+  .iaas-footer p {
+    color: #fff;
+  }
+  
+  .iaas-footer a{
+    color: #fff !important;
+  }
+
+  .iaas-footer .footer-logo {
+    margin-bottom: 40px;
+    padding-top: 5px;
+  }
+  
+  
+  
+  
+  /*============ about-column =================*/
+  
+  .iaas-footer .about-column .text{
+    color: white !important;
+    margin-bottom:20px;
+  }
+  .about-column li {
+    position: relative;
+    padding-left: 30px;
+    font-size: 15px;
+    color: #999;
+    line-height: 26px;
+    margin-bottom: 14px;
+  }
+  .about-column li span {
+    font-size: 18px;
+    color: #8dc63f;
+    position: absolute;
+    left: 0;
+    top: 6px;
+  }
+  
+  
+  /*============ link-column =================*/
+  
+  .iaas-footer .link-column li{
+    position:relative;
+    margin-bottom: 16px;
+  }
+  
+  .iaas-footer .link-column li a{
+    position:relative;
+    margin-left: 15px;
+    color:#999;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+  }
+  
+  
+  .iaas-footer .link-column li a:hover{
+    color: #8dc63f;
+  }
+  
+  .iaas-footer .link-column li a:before {
+      content: "\f0dd";
+      position: absolute;
+      font-size: 16px;
+      font-family: FontAwesome;
+      left: -19px;
+      top: 0px;
+      transform: rotate(-90deg);
+      -webkit-transition: .5s ease-in-out;
+      transition: .5s ease-in-out;
+  } 
+  
+  .iaas-footer .link-column li a:hover:before{
+    color: #8dc63f;
+    transition: .5s ease-in-out;
+  }
+  
+  .iaas-footer .link-column li a:after {
+      content: '';
+      position: absolute;
+      left: 0px;
+      background: transparent;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      transition: .5s ease-in-out;
+  }
+  .iaas-footer .link-column li a:hover:after {
+    background-color: #8dc63f;
+    transition: .5s ease;
+  }
+  
+  /*============ post-column =================*/
+  
+  .iaas-footer .post-column .post {
+    position: relative;
+    padding-left: 90px;
+    margin-bottom: 35px;
+    padding-bottom: 35px;
+    border-bottom: 1px solid #363636;
+  }
+  .iaas-footer .post-column .post:last-child {
+    border-bottom: 0px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+  }
+  .iaas-footer .post-column .post-thumb {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 70px; 
+    height: 70px;
+  }
+  
+  .iaas-footer .post-column h5 {
+    position: relative;
+    top: -5px;
+    font-size: 16px;
+    color: #999;
+    line-height: 26px;
+  }
+  
+  .iaas-footer .post-column .post-info {
+    color: #8dc63f;
+    font-size: 15px;
+  }
+  
+  
+  
+  
+  /*============ contact-column =================*/
+  
+  .iaas-footer .contact-column{
+    position:relative;
+  }
+  
+  .iaas-footer .contact-column h5 {
+    font-size: 16px;
+    color: #999;
+    margin-bottom: 18px;
+  }
+  
+  .iaas-footer .contact-column form {
+    position: relative;
+    margin-bottom: 25px;
+  }
+  .iaas-footer .contact-column input {
+    background: #2e2e2e;
+    border: 1px solid #363636;
+    width: 100%;
+    padding: 0 15px;
+    line-height: 40px;
+  }
+  
+  .iaas-footer .contact-column button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 42px;
+    width: 40px;
+    line-height: 42px;
+    background: #8dc63f;
+    color: #fff;
+  }
+  
+  .iaas-footer .contact-column p {
+    padding-bottom: 19px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #363636;
+  }
+  
+  
+  
+/*===========footer bottom ================*/
+
+.iaas-social-media {
+  background: #56664B;
+  padding: 21px 0;
+}
+.iaas-social-media .copy-text {
+  color: #fff;
+  font-size: 14px;
+}
+.iaas-social-media .copy-text a {
+  color: #fff;
+  font-size: 14px;
+}
+
+.iaas-social-media a {
+  color: #fff;
+  font-size: 16px;
+  transition: .3s ease;
+}
+
+.iaas-social-media .social li {
+  margin-left: 1em;
+}
+
+.social li a:hover {
+  color: #363636;
+}
