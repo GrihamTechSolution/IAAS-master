@@ -20,7 +20,7 @@ export const environment = {
   production: true,
   apiUrl: 'https://iaasworld.org/api',
   domainUrl: 'https://www.iaasworld.org',
-  imageSource: "https://iaas-world-space-prd.s3.ap-south-1.amazonaws.com",
-  uploadImageSource: "https://iaas-world-space-prd.s3.ap-south-1.amazonaws.com/uploads",
-  alumniCategoryID: 13
+  imageSource: 'https://iaas.blr1.digitaloceanspaces.com',
+  uploadImageSource: 'https://iaas.blr1.digitaloceanspaces.com/uploads',
+  alumniCategoryID: 13,
 };

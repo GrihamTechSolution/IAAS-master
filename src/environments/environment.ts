@@ -5,6 +5,6 @@ export const environment = {
   alumniCategoryID: 11,
   // apiUrl: 'https://iaasworld.org/api',
   domainUrl: 'https://www.iaasworld.org',
-  imageSource: "https://iaas-world-space-prd.s3.ap-south-1.amazonaws.com",
-  uploadImageSource: "https://iaas-world-space-prd.s3.ap-south-1.amazonaws.com/uploads"
+  imageSource: 'https://iaas.blr1.digitaloceanspaces.com',
+  uploadImageSource: 'https://iaas.blr1.digitaloceanspaces.com/uploads',
 };
