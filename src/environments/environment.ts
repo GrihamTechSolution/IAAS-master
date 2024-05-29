@@ -6,6 +6,6 @@ export const environment = {
   // apiUrl: 'https://iaasworld.org/api',
   domainUrl: 'https://www.iaasworld.org',
   imageSource: 'https://iaas.blr1.digitaloceanspaces.com',
-
+  // this is
   uploadImageSource: 'https://iaas.blr1.digitaloceanspaces.com/uploads',
 };
