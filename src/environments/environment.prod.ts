@@ -18,6 +18,7 @@
 
 export const environment = {
   production: true,
+
   apiUrl: 'https://iaasworld.org/api',
   domainUrl: 'https://www.iaasworld.org',
   imageSource: 'https://iaas.blr1.digitaloceanspaces.com',
