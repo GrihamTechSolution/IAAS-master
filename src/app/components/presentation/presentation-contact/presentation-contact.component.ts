@@ -4,74 +4,84 @@ import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-presentation-contact',
   templateUrl: './presentation-contact.component.html',
-  styleUrls: ['./presentation-contact.component.scss']
+  styleUrls: ['./presentation-contact.component.scss'],
 })
 export class PresentationContactComponent implements OnInit {
+  imageSource = environment.imageSource;
 
-  imageSource = environment.imageSource
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   executiveBoard = [
     {
-      name: "Rabi Raut",
-      title: "President of IAAS World",
+      name: 'Alperen Öztürk',
+      title: 'President of IAAS World',
       img: `/assets/img/president.png`,
-      instalink:'https://www.instagram.com/rabi_vk_18/?hl=en',
-      linkedinlink:'https://www.linkedin.com/in/rabi-raut-000792221/'
+      instalink:
+        'https://www.instagram.com/alperenozturrk?igsh=MTZrMW5kZW40NHB0eg==',
+      linkedinlink: 'https://www.linkedin.com/in/rabi-raut-000792221/',
     },
     {
-      name: "Yassirys Michelle Sanchez",
-      title: "VP of Exchange",
+      name: 'Marco Vinicio López Castillo',
+      title: 'VP of Exchange',
       img: `/assets/img/vp_exchange.png`,
-      instalink:'https://instagram.com/yassirys_sanchez?igshid=OGQ5ZDc2ODk2ZA==',
-      linkedinlink:'http://www.linkedin.com/in/yassirys-s%C3%A1nchez-5a6a301a2'
+      instalink:
+        'https://www.instagram.com/mark_lopez_aw?igsh=MXh2MzlyajcxNDQzNw==',
+      linkedinlink: null,
     },
     {
-      name: "Prem Prakash Budhathoki",
-      title: "VP of External Relations",
+      name: 'Sagar Paudel',
+      title: 'VP of External Relations',
       img: `/assets/img/vp_external.png`,
-      instalink:'https://instagram.com/prem_budhathoki174?igshid=NzZlODBkYWE4Ng==',
-      linkedinlink:'https://www.linkedin.com/in/prem-prakash-budhathoki'
+      instalink:
+        'https://www.instagram.com/radioactive_sagar?igsh=MXIxYWludWR1dGU5Zw==',
+      linkedinlink:
+        'https://www.linkedin.com/in/paudelsagar?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
     },
     {
-      name: "Anggela Diana Teresa Artica",
-      title: "VP of Communication",
-      img: `/assets/img/vp_comm.jpeg`,
-      instalink:'https://www.instagram.com/thepinkcranberry/?hl=en',
-      linkedinlink:'https://www.linkedin.com/in/anggela-artica-880b69113/'
+      name: 'S. M. Riaz-us Saleheen',
+      title: 'VP of Communication',
+      img: `/assets/img/vp_comm.png`,
+      instalink: 'https://www.instagram.com/smr_saleheen?igsh=Mmp1aGhod24zYzBv',
+      linkedinlink:
+        'https://www.linkedin.com/in/saleheen767?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
     },
     {
-      name: "Michele Tredesini",
-      title: "VP of Finance",
-      img: `/assets/img/vp_finance.jpg`,
-      instalink:'https://instagram.com/michele_tredesini?igshid=OGQ5ZDc2ODk2ZA==',
-      linkedinlink:null
+      name: 'Claudia Ximena Janampa Mallqui',
+      title: 'VP of Finance',
+      img: `/assets/img/vp_finance.png`,
+      instalink:
+        'https://www.instagram.com/claudi_janampa?igsh=YWplaGdjZndveG45',
+      linkedinlink:
+        'https://www.linkedin.com/in/claudia-ximena-janampa-mallqui-325682228?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
     },
     {
-      name: "Kulayman Conteh",
-      title: "Head of Control Board",
+      name: 'Yassirys Sánchez',
+      title: 'Head of Control Board',
       img: `assets/img/cb_head.png`,
-      instalink:null,
-      linkedinlink:'https://www.linkedin.com/in/kulayman-conteh-8a20b41a3'
+      instalink:
+        'https://www.instagram.com/yassirys_sanchez?igsh=aTIxeDBtcmJzbHZm',
+      linkedinlink:
+        'https://www.linkedin.com/in/yassirys-s%C3%A1nchez-5a6a301a2?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
     },
     {
-      name: "Ole Moors",
-      title: "CB of Membership",
+      name: 'Insaf Beri',
+      title: 'CB of Membership',
       img: `/assets/img/cb_membership.png`,
-      instalink:'https://www.instagram.com/ole_moors/',
-      linkedinlink:'https://www.linkedin.com/in/ole-moors-9443221b0/'
+      instalink:
+        'https://www.instagram.com/insafberi?igsh=MWU1MmkxeWFtMWRreQ==',
+      linkedinlink:
+        'https://www.linkedin.com/in/insaf-beri-a7222b219?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
     },
     {
-      name: "Khaoula Boukaici",
-      title: "CB of Finance",
+      name: 'Hajar Kouryani',
+      title: 'CB of Finance',
       img: `/assets/img/cb_finance.png`,
-      instalink:'https://www.instagram.com/khaoula.bk24/',
-      linkedinlink:'http://www.linkedin.com/in/khaoula-boukaici-52a142238'
+      instalink:
+        'https://www.instagram.com/hajar_kouryani?igsh=MTAzaW93YTYzZ3NzMw==',
+      linkedinlink:
+        'https://www.linkedin.com/in/hajar-kouryani-82b988254?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
     },
-  ]
-
+  ];
 }
