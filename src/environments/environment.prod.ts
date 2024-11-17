@@ -21,7 +21,17 @@ export const environment = {
 
   apiUrl: 'https://iaasworld.org/api',
   domainUrl: 'https://www.iaasworld.org',
-  imageSource: 'https://iaas.blr1.digitaloceanspaces.com',
-  uploadImageSource: 'https://iaas.blr1.digitaloceanspaces.com/uploads',
+  imageSource: 'https://pub-eeab86da7caf42fb862aa018f0d63eb1.r2.dev',
+  uploadImageSource:
+    'https://pub-eeab86da7caf42fb862aa018f0d63eb1.r2.dev/uploads',
   alumniCategoryID: 13,
 };
+// export const environment = {
+//   production: true,
+
+//   apiUrl: 'https://iaasworld.org/api',
+//   domainUrl: 'https://www.iaasworld.org',
+//   imageSource: 'https://iaas.blr1.digitaloceanspaces.com',
+//   uploadImageSource: 'https://iaas.blr1.digitaloceanspaces.com/uploads',
+//   alumniCategoryID: 13,
+// };
