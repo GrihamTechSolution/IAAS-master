@@ -1,0 +1,121 @@
+<div class="">
+    <div class="col-md-12 padding-top-2pct">
+        <div class="box box-success">
+            <div class="box-header">
+                <h3 class="box-title">Applications archive</h3>
+                <br/> <br/> 
+                <div class="row">
+                  <div class="col-md-3 col-sm-12">
+                    <div class="form-group">
+                        <label>Internship</label>
+                        <ng-select [items]="internships"
+                                    bindLabel="name"
+                                    bindValue="id"
+                                    name="filterInternshipID"
+                                    [(ngModel)]='selectedInternshipID'>
+                        </ng-select>
+                    </div>
+                  </div>
+                  <div class="col-md-3 col-sm-12">
+                    <div class="form-group">
+                        <label>Student</label>
+                        <input type="text" class="form-control" [(ngModel)]='filterStudentText' name="filterStudentText" />
+                    </div>
+                  </div>
+                  <div class="col-md-1 col-sm-12">
+                    <div class="form-group">
+                        <label>Search</label>
+                        <button class="btn btn-success" (click)='searchApplications()'>
+                            <i class="fa fa-search"></i> &nbsp; Search
+                        </button>
+                    </div>
+                  </div>
+                  <div class="col-md-2 col-sm-12">
+                      <div class="form-group">
+                          <label>Remove filters</label>
+                          <button class="btn btn-danger" (click)='removeFilters()'>
+                              <i class="fa fa-close"></i> &nbsp; Remove filters
+                          </button>
+                      </div>
+                  </div>
+                </div>
+            </div>
+            <div class="box-body">
+                <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th>
+                          Internship Name
+                        </th>
+                        <th>
+                          Country
+                        </th>
+                        <th>
+                          Student
+                        </th>
+                        <th>Date from</th>
+                        <th>Date to</th>
+                        <th>Motivational letter</th>
+                        <th>CV</th>
+                        <th>
+                          Status
+                        </th>
+                        <th>
+                          Timeline
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor='let app of applications'>
+                        <td>{{app.internship.name}}</td>
+                        <td>{{app.internship.country.name}}</td>
+                        <td>
+                          {{app.user.firstName}} {{app.user.lastName}} 
+                          <span *ngIf='app.status && app.status == 2' style="background-color: orangered;" class="badge badge-pill badge-danger">Archived</span>
+                          <span *ngIf='app.status && app.status == 1' style="background-color: red;" class="badge badge-pill badge-danger">Cancelled</span>
+                        </td>
+                        <td>{{app.from | date : "dd.MM.yyyy"}}</td>
+                        <td>{{app.to | date : "dd.MM.yyyy"}}</td>
+                        <td>
+                          <a class="btn btn-success" href="{{uploadImageSource}}/{{app.motivationalLetter}}" target="__blank">
+                            <i class="fa fa-download"></i> &nbsp; Download
+                          </a>
+                        </td>
+                        <td>
+                          <span *ngIf='app.user.students && app.user.students[0]'>
+                            <a *ngIf='app.user.students[0].bioPath' class="btn btn-success" href="{{uploadImageSource}}/{{app.user.students[0].bioPath}}" target="__blank">
+                              <i class="fa fa-download"></i> &nbsp; Download
+                            </a>
+                          </span>
+                          <span *ngIf='!app.user.students || !app.user.students[0]'>
+                            NO CV provided
+                          </span>
+                        </td>
+                        <td>
+                          <span style="color:red;" *ngIf='app.step <= 3'>
+                            <i class="fa fa-close"></i> &nbsp;
+                            RED LIGHT</span>
+
+                            <span style="color:orange;" *ngIf='app.step > 3 && app.step < 8'>
+                              <i class="fa fa-close"></i> &nbsp;
+                              ORANGE LIGHT</span>
+
+                              <span style="color:green;" *ngIf='app.step > 8'>
+                                <i class="fa fa-check"></i> &nbsp;
+                                GREEN LIGHT</span>
+                        </td>
+                        <td>
+                          <button class="btn btn-success" routerLink='/administration/internshipStatus/{{app.id}}'>
+                            <i class="fa fa-search">
+
+                            </i> &nbsp;
+                            View timeline
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
+</div>

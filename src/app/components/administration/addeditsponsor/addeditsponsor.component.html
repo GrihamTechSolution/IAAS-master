@@ -1,0 +1,62 @@
+<div class="">
+  <div class="col-md-6 margin-top-2pct">
+    <div class="box box-success">
+      <div class="box-header">
+        <h3 class="box-title">Add/edit sponsor</h3>
+      </div>
+        <form role="form">
+            <div class="box-body">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Name</label>
+                <input type="email" class="form-control" name="exampleInputEmail1" placeholder="Enter sponsor name" [(ngModel)]='sponsor.name'>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputDescription">Description</label>
+                <input type="text" class="form-control" name="exampleInputDescription" placeholder="Enter description" [(ngModel)]='sponsor.description'>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputWebsite">Website link</label>
+                <input type="text" class="form-control" name="exampleInputWebsite" placeholder="Enter website link" [(ngModel)]='sponsor.website'>
+              </div>
+              <div class="form-group">
+                <label>Country</label>
+                <ng-select [items]="countries"
+                            bindLabel="name"
+                            bindValue="id"
+                            name="selectedCountryID"
+                            [(ngModel)]='sponsor.countryID'>
+                </ng-select>
+              </div>
+              <div class="form-group">
+                <label>Logo</label>
+                <input type='file' name='doc' class="form-control"
+                        ng2FileSelect
+                        [uploader]='uploader' />
+                </div>
+                <div class='form-group' *ngIf='userData.userTypeID == 3 || userData.userTypeID == 4'>
+                  <label>Is shown on homepage</label>
+                  <select class="form-control" [(ngModel)]='sponsor.isShown' name="isShown">
+                    <option value="1">Yes</option>
+                    <option value="2">No</option>
+                  </select>
+                </div>
+              </div>
+            <!-- /.box-body -->
+        
+            <div class="box-footer">
+              <button type="submit" class="btn btn-success" (click)='validateInput()'>
+                <i class="fa fa-save"></i> &nbsp;
+                Save</button>
+            </div>
+          </form>
+    </div>
+  </div>
+  
+  <div class="col-md-6 margin-top-2pct" *ngIf='sponsor.imagePath'>
+    <h4>Current logo:</h4>
+    <img
+      class="current-logo"
+      src="{{uploadImageSource}}/{{sponsor.imagePath}}"
+    />
+  </div>  
+</div>

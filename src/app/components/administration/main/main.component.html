@@ -1,0 +1,96 @@
+<div class="wrapper hold-transition skin-green sidebar-mini">
+    <header class="main-header">
+        <a href="" class="logo">
+            <span class="logo-mini"></span>
+            <span class="logo-lg">
+            </span>
+            IAAS
+        </a>
+
+        <!-- <a _ngcontent-uce-c1="" class="sidebar-toggle" href="#"><span _ngcontent-uce-c1="" class="sr-only">Toggle navigation</span><span _ngcontent-uce-c1="" class="icon-bar"></span><span _ngcontent-uce-c1="" class="icon-bar"></span><span _ngcontent-uce-c1="" class="icon-bar"></span></a> -->
+        <nav class="navbar navbar-static-top" role="navigation">
+            <span class="main-header-title">&nbsp;</span>
+        </nav>
+    </header>
+    <aside class="main-sidebar">
+        <section class="sidebar">
+            <div class="user-panel">
+            
+            </div>
+            
+            <ul class="sidebar-menu" data-widget="tree">
+            
+            <li>
+                <a routerLink='countries'><i class="fa fa-flag"></i> <span>Countries</span></a>
+            </li>
+            <li *ngIf='userTypeID != 5 && userTypeID != 6'>
+                <a routerLink='sponsors'><i class="fa fa-list"></i> <span>Sponsors</span></a>
+            </li>
+            <li *ngIf='userTypeID != 5 && userTypeID != 6'>
+                <a routerLink='partners'><i class="fa fa-list"></i> <span>Partners</span></a>
+            </li>
+            <li *ngIf='userTypeID == 4'>
+                <a routerLink='articlecategories'><i class="fa fa-cogs"></i> <span>Article Categories</span></a>
+            </li>
+            <li *ngIf='userTypeID == 4'>
+                <a routerLink='articles'><i class="fa fa-list"></i> <span>Articles</span></a>
+            </li>
+            <li *ngIf='userTypeID == 4'>
+                <a routerLink='downloads'><i class="fa fa-download"></i> <span>Downloads</span></a>
+            </li>
+            <li *ngIf='userTypeID == 4'>
+                <a routerLink='studyAbroad'><i class="fa fa-download"></i> <span>Study Abroad</span></a>
+            </li>
+            <li >
+                <a routerLink='optakers'><i class="fa fa-list"></i> <span>OP Takers</span></a>
+            </li>
+            <li>
+                <a routerLink='students'><i class="fa fa-users"></i> <span>Students</span></a>
+            </li>
+            <li *ngIf='userTypeID == 4'>
+                <a routerLink='iaas-users'><i class="fa fa-users"></i> <span>IAAS Users</span></a>
+            </li>
+            <li>
+                <a routerLink='internships'><i class="fa fa-users"></i> <span>Internships</span></a>
+            </li>
+            <li>
+                <a routerLink='applications'><i class="fa fa-users"></i> <span>Applications</span></a>
+            </li>
+            <li>
+                <a routerLink='applicationsArchive'><i class="fa fa-users"></i> <span>Archived/Cancelled Applications</span></a>
+            </li>
+            <li *ngIf='userTypeID == 4'>
+                <a routerLink='faqs'><i class="fa fa-list"></i> <span>FAQ's</span></a>
+            </li>
+            <li *ngIf='userTypeID == 4'>
+                <a routerLink='faqcategories'><i class="fa fa-list"></i> <span>FAQ Categories</span></a>
+            </li>
+            <li *ngIf='userTypeID == 4'>
+                <a routerLink='languages'><i class="fa fa-users"></i> <span>Languages</span></a>
+            </li>
+            <li *ngIf='userTypeID == 4'>
+                <a routerLink='fields'><i class="fa fa-list"></i> <span>Background Fields</span></a>
+            </li>
+            <li *ngIf='userTypeID == 3 || userTypeID == 4'>
+                <a routerLink='votings'><i class="fa fa-flag"></i> <span>Votings</span></a>
+            </li>
+            <li *ngIf='userTypeID == 3 || userTypeID == 4'>
+                <a routerLink='newslettergeneration'><i class="fa fa-file"></i> <span>Newsletter generation</span></a>
+            </li>
+            <li  *ngIf='userTypeID == 3 || userTypeID == 4 || userTypeID == 5 || userTypeID == 6 || userTypeID == 7'>
+                <a routerLink="events"><i class="fa fa-file"></i>Events</a>
+            </li>
+            <li>
+                <a routerLink='/'> <i class="fa fa-angle-left"></i> <span>Back to presentation part</span></a>
+            </li>
+            <li><a class='cursor-pointer' (click)='logout()'><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
+            </ul>
+        </section>
+    </aside>
+    <div class="content-wrapper">
+        <router-outlet></router-outlet>
+    </div>
+    <footer class="main-footer">
+        <strong>Copyright &copy; 2020 <a href="#">IAAS</a></strong>
+    </footer>
+</div>

@@ -1,0 +1,41 @@
+<div class="">
+    <div class="col-md-12 padding-top-2pct">
+      <div class="box box-success">
+        <div class="box-header">
+          <h3 class="box-title">Add/edit FAQ</h3>
+        </div>
+          <form role="form">
+              <div class="box-body">
+                <div class="row">
+                  <div class="form-group col-md-6">
+                    <label>Title</label>
+                    <input type="email" class="form-control" name="title" [(ngModel)]='faq.faqTitle' placeholder="Enter faq title">
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label>FAQ Category</label>
+                    <ng-select [items]="faqCategories"
+                              bindLabel="title"
+                              bindValue="id"
+                              name="faqCategoryID"
+                              [(ngModel)]='faq.faqCategoryID'>
+                    </ng-select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Content</label>
+                  <ckeditor class="height-80pct" name='editor' [(ngModel)]="faq.faqContent" [editor]="Editor" [config]="ckconfig"></ckeditor>
+                </div>
+              </div>
+              <!-- /.box-body -->
+          
+              <div class="box-footer">
+                <button type="submit" class="btn btn-success" (click)='validateInput()'>
+                  <i class="fa fa-save"></i> &nbsp;
+                  Save</button>
+              </div>
+            </form>
+      </div>
+    </div>
+  </div>
+  
+  

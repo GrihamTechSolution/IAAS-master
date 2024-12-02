@@ -1,0 +1,15 @@
+<section class="contact-section" style="background-color: #f3f9fe">
+  <div class="container" *ngIf="event">
+    <h1 class="text-center margin-top-2pct">
+      {{ event.title }}
+    </h1>
+    <img
+      src="{{ uploadImageSource }}/{{ event.imagePath }}"
+      class="margin-top-2pct margin-bottom-2pct"
+      style="width: 100%" />
+    <h4 class="margin-bottom-2pct" style="font-weight: bold">
+      {{ event.dateLocation }}
+    </h4>
+    <section [innerHTML]="event.content" class="margin-bottom-2pct"></section>
+  </div>
+</section>

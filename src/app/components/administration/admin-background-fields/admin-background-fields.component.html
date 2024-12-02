@@ -1,0 +1,61 @@
+<div class="content-inner">
+    <section class="content">
+  <div>
+      <div>
+        <!-- <a class="btn btn-success" >
+          <i class="fa fa-plus"></i>
+          Add Background Field
+        </a>
+        <br /> <br /> -->
+        <h2>Background Fields</h2>
+        <br/>
+      </div>
+      <div class="col-md-8">
+        <table class="table table-striped table-bordered" [mfData]="backgroundFields" #mf="mfDataTable" [mfRowsOnPage]="5">
+            <thead>
+            <tr>
+                <th style="width: 20%">
+                    <mfDefaultSorter by="name">Name</mfDefaultSorter>
+                </th>
+                <th style="width: 15%">
+                    <mfDefaultSorter >Action</mfDefaultSorter>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let item of mf.data">
+                <td>{{item.name}}</td>
+                <td>
+                  <button class="btn btn-success" (click)='prepareForEdit(item)'> 
+                    <i class="fa fa-pencil"></i>
+                    Edit
+                  </button>
+                </td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+                <td colspan="5">
+                    <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+                </td>
+            </tr>
+            </tfoot>
+        </table>
+      </div>
+      <div class="col-md-4">
+        <h3>Add/Edit  Background field</h3>
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" [(ngModel)]='field.name' name="name" class="form-control" />
+        </div>
+        <div class="form-group">
+            <button class="btn" [ngClass]='edit ? "btn-warning" : "btn-success"' (click)='validateInput()'>
+                <i class="fa fa-save"></i>
+                Save</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  </div>
+  
+    

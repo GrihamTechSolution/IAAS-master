@@ -1,0 +1,113 @@
+$imageSource: "https://iaas-world-space-prd.s3.ap-south-1.amazonaws.com";
+
+.about-us-jumbo {
+    // background: url('#{$imageSource}/assets/img/about_us_1.png');
+    background: url('/assets/img/cover2.jpg');
+    background-size: cover;
+    min-height: 700px;
+    background-position: bottom;
+}
+
+.about-us-content {
+    // background: url('#{$imageSource}/assets/img/background.jpg');
+    background-color: #F3F9FE;;
+}
+
+@media only screen and (min-width: 720px){
+    .about-right-border {
+        border-right: solid 15px #70ad47;
+        margin-bottom: 2%;
+    }
+}
+
+.about-right-border h1 {
+    font-weight: bold;
+    color: #70ad47;
+}
+
+.carousel {
+    margin-bottom: 1%;
+}
+
+.carousel-inner div {
+    vertical-align: middle !important;
+    height: 300px;
+}
+
+.carousel-inner img {
+    max-height: 300px;
+}
+
+.about-text {
+    color: #70ad47 !important;
+    font-weight: bold;
+}
+
+@media only screen and (min-width: 720px){
+    .aims-section {
+        background: url('#{$imageSource}/assets/img/aims.jpg');
+        background-size: cover;
+        padding: 10px;
+        min-height: 700px;
+    }
+}
+
+@media only screen and (max-width: 720px){
+    .aims-section {
+        background: url('#{$imageSource}/assets/img/aims.jpg');
+        background-repeat: no-repeat;
+        background-size: 100%;
+    }
+}
+
+@media only screen and (min-width: 720px){
+    .aims {
+        background-color: rgba($color: #000000, $alpha: 0.4);
+        color: white;
+        font-weight: bold;
+        padding: 2%;
+        height: 700px;
+    }
+}
+
+@media only screen and (max-width: 720px){
+    .aims {
+        background-color: rgba($color: #000000, $alpha: 0.4);
+        color: white;
+        position: relative;
+        margin-top: 50%;
+        padding: 20px;
+    }
+}
+
+.aims li {
+    margin: 1%;
+    font-size: 22px;
+}
+
+.aims h1 {
+    color: white !important;
+    font-weight: bold;
+    font-size: 35px;
+}
+
+.ambitions-jumbo {
+    background-color: #70ad47;
+    color: white; 
+    font-weight: bold;
+}
+
+.ambitions-jumbo p {
+    color: white; 
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 600px) {
+    .about-us-jumbo {
+      min-height: 200px;
+    }
+
+    .aims-section {
+        min-height: 200px;
+    }
+}

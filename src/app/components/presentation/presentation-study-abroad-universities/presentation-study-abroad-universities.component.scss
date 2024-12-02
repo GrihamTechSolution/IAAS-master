@@ -1,0 +1,139 @@
+$imageSource: "https://iaas-world-space-prd.s3.ap-south-1.amazonaws.com";
+
+.pg {
+    background: url('#{$imageSource}/assets/img/background.jpg')
+}
+
+// img{
+//     padding-top: 40px;
+//     padding-bottom: 40px;
+// }
+
+.colorize{
+    color: #70ad47;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.underline{
+    text-decoration: underline;
+}
+
+h3{
+    color: #70ad47;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-weight: bold;
+}
+
+p{
+    color: black;
+}
+
+@media only screen and (min-width: 720px){
+    .iaas-back-color {
+        background-color: #70ad47 !important;
+        padding: 30px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+}
+
+@media only screen and (max-width: 720px){
+    .iaas-back-color {
+        background-color: #70ad47 !important;
+        padding: 20px;
+        font-size: 12px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+}
+
+.bg {
+    background-color: rgba(112, 173, 71, 0.3) !important;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.package {
+    background-color: rgba(242, 241, 241, 1) !important;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+table, th, td {
+    border: 2px solid black;
+    border-collapse: collapse;
+  }
+
+  th, td {
+    padding: 15px;
+  }
+
+  td {
+    width: 25%;
+    background: white;
+  }
+  table {
+    width: 100% ;
+    font-weight: bold;
+  }
+
+  th {
+    text-align: center;
+    color: #70ad47;
+    background: white;
+  }
+
+  th > div:first-of-type {
+    text-decoration-line: underline;
+  }
+
+  tr > td:first-of-type {
+    text-align: left;
+    background: grey;
+    color: white;
+  }
+
+  tr > td:nth-of-type(4) {
+    background: #a5d091;
+  }
+
+  tr:not(:last-child) > td:nth-of-type(3) {
+    background: #c3e0b5;
+  }
+
+  tr:nth-child(-n+3) > td:nth-of-type(2) {
+    background: #e0efda;
+  }
+
+  .contact {
+    max-width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5em;
+  }
+
+  .contact > div {
+    margin-top: 2em;
+  }
+
+  .eb {
+    margin-bottom: 2em;
+    margin-top: 2em;
+  }
+
+  .contact > .eb > p {
+    font-weight: bold;
+  }
+
+  .contact > .eb > p {
+    // font-size: large;
+  }
+
+  .contact > .eb > p:nth-of-type(2) {
+    margin-top: 0.2em;
+    text-decoration-line: underline;
+  }

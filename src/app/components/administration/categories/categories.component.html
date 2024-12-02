@@ -1,0 +1,63 @@
+<div class="content-inner">
+  <section class="content">
+    <div class="box box-success">
+      <div class="box-header">
+        <h2 class="box-title">Article categories</h2>
+        <br/> <br/>
+        <button class="btn btn-success" routerLink='/administration/addeditcategory'>
+          <i class="fa fa-plus"></i>
+          Add category
+        </button>
+      </div>
+      <div class="box-body">
+        <div class="row">
+
+        </div>
+        <table class="table table-striped table-bordered" [mfData]="categories" #mf="mfDataTable" [mfRowsOnPage]="5">
+          <thead>
+          <tr>
+              <th style="width: 20%">
+                  <mfDefaultSorter by="name">Name</mfDefaultSorter>
+              </th>
+              <th style="width: 25%">
+                  <mfDefaultSorter by="description">Description</mfDefaultSorter>
+              </th>
+              <th style="width: 15%">
+                  <mfDefaultSorter >Action</mfDefaultSorter>
+              </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let item of mf.data">
+              <td>{{item.name}}</td>
+              <td>{{item.description}}</td>
+              <td>
+                <a class="btn btn-success" routerLink='/administration/addeditcategory/{{item.id}}'> 
+                  <i class="fa fa-pencil"></i>
+                  Edit
+                </a>
+    
+                <br/> <br/>
+    
+                <button  class="btn btn-danger" (click)='deleteArticleCategory(item.id)'>
+                  <i class="fa fa-trash"></i>
+                  Delete
+                </button>
+              </td>
+          </tr>
+          </tbody>
+          <tfoot>
+          <tr>
+              <td colspan="5">
+                  <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+              </td>
+          </tr>
+          </tfoot>
+      </table>
+      </div>
+      <div class="box-footer">
+
+      </div>
+    </div>
+</section>
+</div>

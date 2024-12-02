@@ -1,0 +1,32 @@
+// $imageSource: "https://iaas-world-space-prd.s3.ap-south-1.amazonaws.com";
+
+.jumbotron {
+    background-color: #70ad47 !important;
+    // margin-bottom: 0 !important;
+}
+
+.jumbotron .container {
+    // text-align: center !important;
+    color: white !important;
+}
+
+.display-3 {
+    color: white !important;
+}
+
+.network-page {
+    // background: url('#{$imageSource}/assets/img/background.jpg');
+    // background-size: cover;
+    background-color: #F3F9FE;
+}
+
+.modal-content {
+    width: 80% !important;
+}
+
+@media only screen and (max-width: 720px){
+    h1.display-3{
+        text-align: center;
+        margin-bottom: 20px;
+    }
+}

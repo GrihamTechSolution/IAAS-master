@@ -1,0 +1,65 @@
+$imageSource: "https://iaas-world-space-prd.s3.ap-south-1.amazonaws.com";
+
+.jumbotron {
+    // background-color: #00a54f !important;
+    // margin-bottom: 0 !important;
+    background: url('#{$imageSource}/assets/img/study-abroad-home.png');
+    height: 300px !important;
+}
+
+.display-3 {
+    font-weight: bold;
+    color: #70ad47;
+}
+
+.content-hub-jumbotron-inner {
+    text-align:center; 
+    position: absolute; 
+    width: 50%; 
+    left: 25%; 
+    top:40%;
+    color: white;
+    font-weight: bold;
+    background-color: rgba($color: #000000, $alpha: 0.5);
+}
+
+.content-hub-jumbotron-inner a {
+    font-weight: bold !important;
+    margin-bottom: 5px !important;
+    font-size: 22px;
+}
+
+.content-hub-jumbo {
+    background-color: #70ad47;
+    color: white; 
+    font-weight: bold;
+}
+
+.pg {
+    background: url('#{$imageSource}/assets/img/background.jpg');
+}
+
+.learn-more-button {
+    background-color: #70ad47;
+    color: white; 
+    font-weight: bold;
+    border-color: #70ad47 !important;
+    align-items: center;
+    vertical-align: middle;
+}
+
+.study-abroad-program {
+    border: 1px solid lightgray;
+    margin-bottom: 1%;
+    padding: 25px;
+    background-color: white;
+    border-radius: 2px;
+}
+
+.study-abroad-location, .study-abroad-description {
+    color: black;
+}
+
+.fa-map-marker {
+    color: #70ad47 !important;
+}

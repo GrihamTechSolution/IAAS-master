@@ -1,0 +1,293 @@
+/* You can add global styles to this file, and also import other style files */
+// @import url('https://fonts.googleapis.com/css?family=Poppins');
+@import url('https://fonts.googleapis.com/css?family=Rubik');
+@import '../node_modules/bootstrap/dist/css/bootstrap.css';
+@import '../node_modules/font-awesome/css/font-awesome.min.css';
+@import '../node_modules/ionicons/dist/css/ionicons.min.css';
+@import '../src/assets/css/menu.css';
+@import '../src/assets/css/iaas-style.css';
+@import '../src/assets/css/iaas-responsive.css';
+@import '../src/assets/css/AdminLTE.min.css';
+@import '../src/assets/css/skins/_all-skins.min.css';
+@import '../src/assets/css/skins/skin-green.min.css';
+@import '../node_modules/@ng-select/ng-select/themes/default.theme.css';
+@import '../node_modules/angular-notifier/styles/core.css';
+@import '../node_modules/angular-notifier/styles/themes/theme-material.css';
+@import '../node_modules/angular-notifier/styles/types/type-error.css';
+@import '../node_modules/angular-notifier/styles/types/type-success.css';
+@import '../node_modules/angular-notifier/styles/types/type-info.css';
+@import '../node_modules/icomoon/style.css';
+@import '../node_modules/daterangepicker/daterangepicker.css';
+@import './assets/css/jquery-jvectormap-2.0.5.css';
+
+.width-100pct {
+  width: 100% !important;
+}
+
+.margin-top-2pct {
+  margin-top: 2%;
+}
+
+.margin-bottom-2pct {
+  margin-bottom: 2%;
+}
+
+.padding-top-2pct {
+  padding-top: 2%;
+}
+
+.btn-danger {
+  color: white !important;
+}
+html,
+body {
+  height: 100%;
+  color: #333;
+}
+// body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.notifier__notification-message {
+  color: white !important;
+}
+
+.content-wrapper {
+  min-height: 1500px !important;
+  overflow: auto;
+}
+
+.color-333 {
+  color: #333;
+}
+
+.margin-bottom-10px {
+  margin-bottom: 10px;
+}
+
+.jumbo-text {
+  padding: 50px;
+  color: white;
+  font-weight: bold;
+}
+
+.bg-orange {
+  background-color: orange;
+}
+
+.bg-green {
+  background-color: orange;
+}
+
+.lds-roller {
+  left: 0 !important;
+}
+
+a.text-nowrap {
+  color: #00a65a !important;
+}
+
+.page-item.active a {
+  background-color: #00a65a !important;
+  border-color: #00a65a !important;
+}
+
+.padding-top-10px {
+  padding-top: 10px !important;
+}
+
+.jumbo-back-color {
+  background-color: #00a54f !important;
+}
+
+.margin-bottom-5pct {
+  margin-bottom: 5%;
+}
+
+.no-margin {
+  margin: 0 !important;
+}
+
+.page-title {
+  color: #70ad47 !important;
+}
+
+.padding-bottom-2pct {
+  padding-bottom: 2%;
+}
+
+.content-hub-title {
+  padding: 1% !important;
+  font-weight: bold;
+  text-align: center;
+}
+
+.width-50pct {
+  width: 50%;
+}
+
+.top-80pct {
+  top: 80% !important;
+}
+
+.btn-success {
+  background-color: #70ad47 !important;
+  border-color: #70ad47 !important;
+}
+
+.full-width {
+  width: 100% !important;
+}
+
+.services-img {
+  width: 60% !important;
+  margin-left: 20% !important;
+}
+
+.accordion-box .accordion .acc-content p {
+  color: black !important;
+}
+
+// Table from editor - is this safe because of other tables
+// It was neccessary to put styles here in global file
+
+figure table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px double #b3b3b3;
+}
+
+figure table td,
+figure table th {
+  min-width: 2em;
+  padding: 0.4em;
+  border: 1px solid #bfbfbf;
+}
+
+// We had to add a separate style, because in general in this project lists are with list-style-type: none
+
+.ck.ck-content ul {
+  list-style-type: circle;
+  margin-left: 20px;
+}
+
+// This class was added to make a difference between ck lists and other existing lists
+
+.setCKListStyle ul {
+  list-style-type: circle;
+  margin-left: 20px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.iaas-color-back {
+  background-color: #70ad47 !important;
+  border-color: #70ad47 !important;
+}
+
+.margin-bottom-5pct {
+  margin-bottom: 5%;
+}
+
+.margin-top-5pct {
+  margin-top: 5%;
+}
+
+.display-inline {
+  display: inline;
+}
+
+/*------------PROJECT CSS START -----------------*/
+.village_img {
+  width: 50%;
+}
+.common_main_div {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.common_sub_div {
+  width: 60%;
+  text-align: justify;
+  line-height: 25px;
+}
+.common_right_img_div {
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.common_down_imgs {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.common_img_padding_div {
+  padding: 10px;
+}
+.common_p_color p {
+  color: black;
+}
+.common_img_styling {
+  width: 100%;
+  height: 120px;
+}
+.sustainable-goals {
+  padding-top: 10px;
+}
+
+.goal-number {
+  /* Styles for the numbers (1, 8, 10) */
+  display: flex;
+  width: 20px; /* Adjust the width as needed */
+  margin-right: 10px; /* Add spacing between the numbers and text */
+}
+
+.sustainable-goals p {
+  /* Styles for the text (No poverty, Decent work and economic growth, Reduced inequalities) */
+  display: flex;
+  font-weight: normal; /* Reset font-weight for the text */
+}
+
+.no-food_waste {
+  padding-top: 10px;
+}
+
+.no-food_waste p {
+  /* Styles for the text (No poverty, Decent work and economic growth, Reduced inequalities) */
+  display: flex;
+  font-weight: normal; /* Reset font-weight for the text */
+  color: black;
+}
+.common_h4 {
+  font-weight: 600; 
+  padding: 1rem 4rem 1rem 1rem;
+  color: white; 
+  background-color: #6fad46;
+  width: fit-content;
+  margin-bottom: 1rem;
+}
+.common_outside_margin {
+  margin: 5rem 0 0 0;
+  padding-bottom: 5rem;
+}
+/* Media query for small screens */
+@media (max-width: 768px) {
+  .common_right_img_div {
+    width: 100%; /* Change the width to 100% for small screens */
+  }
+  .small_screen_common_img{
+    margin: 20px 0 !important;
+  }
+  
+  .common_down_imgs {
+    width: 100%; /* Change the width to 100% for small screens */
+  }
+  .common_sub_div {
+    width: 100%;
+  }
+}
+/*------------PROJECT CSS END -----------------*/

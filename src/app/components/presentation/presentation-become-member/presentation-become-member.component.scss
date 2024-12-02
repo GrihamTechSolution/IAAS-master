@@ -1,0 +1,104 @@
+$imageSource: "https://iaas-world-space-prd.s3.ap-south-1.amazonaws.com";
+
+@media only screen and (min-width: 720px){
+    .member-jumbotron-inner {
+        text-align:center; 
+        position: absolute; 
+        width: 50%; 
+        left: 25%; 
+        top:40%;
+        color: white;
+        font-weight: bold;
+        background-color: rgba($color: #000000, $alpha: 0.5);
+    }
+}
+
+@media only screen and (max-width: 720px){
+    .member-jumbotron-inner {
+        text-align:center; 
+        position: absolute; 
+        width: 100%; 
+        left: 0; 
+        top:50%;
+        color: white;
+        font-weight: bold;
+        background-color: rgba($color: #000000, $alpha: 0.5);
+    }
+}
+
+.member-jumbotron-inner a {
+    font-weight: bold !important;
+    margin-bottom: 5px !important;
+    font-size: 22px;
+}
+
+.member-jumbo {
+    background-color: #70ad47;
+    color: white; 
+    font-weight: bold;
+}
+
+@media only screen and (min-width: 720px){
+    .display-3 {
+        color: white !important;
+        font-weight: bold !important;
+    }
+}
+
+@media only screen and (max-width: 720px){
+    .display-3 {
+        color: white !important;
+        // font-weight: bold !important;
+        // text-align: center;
+        
+    }
+}
+
+.acc-content {
+    color: black !important;
+}
+
+.acc-content p {
+    color: black !important;
+}
+
+.contact-section {
+    // background-color: #F3F9FE;
+    background-size: cover;
+}
+
+.accordion-box a {
+    color: #70ad47 !important;
+}
+
+.accordion-box a:hover{
+    color:#70ad47 !important;
+}
+
+.page-title {
+    font-weight: bold;
+}
+
+@media only screen and (min-width: 720px){
+    .check-button {
+        background-color: #70ad47 !important;
+        border-color: #70ad47 !important;
+        display: block;
+        width: 20% !important;
+        margin-left: 40%;
+        margin-bottom: 10px;
+        font-size: 16px;
+    }
+}
+
+@media only screen and (max-width: 720px){
+    .check-button {
+        background-color: #70ad47 !important;
+        border-color: #70ad47 !important;
+        display: block;
+        width: 80% !important;
+        margin-left: 10%;
+        margin-bottom: 10px;
+        font-size: 16px;
+    }
+}

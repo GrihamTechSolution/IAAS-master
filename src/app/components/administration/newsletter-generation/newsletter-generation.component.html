@@ -1,0 +1,174 @@
+<div class="">
+  <div class="col-md-12 padding-top-2pct">
+    <div class="box box-success">
+      <div class="box-header">
+        <h3 class="box-title">Newsletter generation</h3>
+      </div>
+      <div class="box-body">
+        <form role="form">
+          <div class="box-body">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Date of start</label>
+                  <input type="date" name="dateOfStart" class="form-control" placeholder="Date of start"
+                    [(ngModel)]='dateOfStart' />
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Date of end</label>
+                  <input type="date" name="dateOfEnd" class="form-control" placeholder="Date of end"
+                    [(ngModel)]='dateOfEnd' />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="box-footer">
+            <button type="submit" class="btn btn-success" (click)='fetchArticles()'>
+              Fetch Articles</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-12 padding-top-2pct">
+    <div class="box-body">
+      <table class="table table-striped table-bordered" [mfData]="articles" #mf="mfDataTable" [mfRowsOnPage]="10"
+        *ngIf="articles && articles.length > 0">
+        <thead>
+          <tr>
+            <th style="width: 20%">
+              <mfDefaultSorter by="name">Title</mfDefaultSorter>
+            </th>
+            <th style="width: 25%">
+              <mfDefaultSorter by="category">Category</mfDefaultSorter>
+            </th>
+            <th style="width: 15%">
+              <mfDefaultSorter>Action</mfDefaultSorter>
+            </th>
+            <th style="width: 15%" class="text-center">
+              <mfDefaultSorter>Include</mfDefaultSorter>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of mf.data">
+            <td>{{item.id}}</td>
+            <td>{{item.article_category.name}}</td>
+            <td>
+              <a class="btn btn-success" (click)="showDetails(item)">
+                <i class="fa fa-pencil"></i>
+                Article details
+              </a>
+            </td>
+            <td style="text-align: center;">
+              <input type="checkbox" [checked]="contains(item.id)" style="margin-left: 50%; translate: -50%;"
+                (change)="addRemoveArticleId(item.id)" />
+            </td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="5">
+              <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+
+  </div>
+
+
+  <div class="col-md-12 padding-top-2pct" *ngIf="articles && articles.length > 0">
+    <button type="submit" class="btn btn-success" (click)="generateNewsletter()">
+      <i class="fa fa-file"></i> &nbsp;
+      Preview</button>
+  </div>
+
+  <!-- <div id="newsletter" hidden>
+    <h2 style="margin-left: 50%; transform: translateX(-50%)">Newsletter</h2>
+    <h6>{{currentDate | date: "dd.MM.yyyy"}}</h6>
+    <p></p>
+  </div> -->
+
+  <!-- <div class="col-md-12 padding-top-2pct" #previewNewsletterElem id="previewNewsletterElem"
+    *ngIf="selectedArticles && selectedArticles.length > 0" style="margin-top: 40px; background-color: white;">
+    <h2>Newsletter</h2>
+    <h6>{{currentDate | date: "dd.MM.yyyy"}}</h6>
+    <div>
+      <article>
+        <div class="container" #previewNewsletterTable>
+          <table>
+            <tr *ngFor='let a of selectedArticles'>
+              <td>
+                <img class='img-responsive' [src]="a.image" alt="News" style="width: 300px;">
+              </td>
+              <td>
+                <div>{{a.created | date: "dd.MM.yyyy"}}</div>
+                <h4>{{a.title}}</h4>
+                <strong>Hello</strong>
+                <p [innerHTML]='a.content | safeHtml'></p>
+              </td>
+            </tr>
+          </table>
+
+        </div>
+
+      </article>
+
+
+    </div>
+  </div> -->
+</div>
+
+<ng-template #articleModal>
+  <div class="modal-header">
+    <h3><span>Article details</span></h3>
+  </div>
+  <div class="modal-body">
+    <div class="acc-content">
+      <div class="row">
+        <div class="form-group col-md-12 padding-top-2pct">
+          <label>Title</label>
+          <input type="text" class="form-control" name="title" [(ngModel)]='article.title' disabled>
+        </div>
+        <div class="form-group col-md-12 padding-top-2pct">
+          <label>Category</label>
+          <input type="text" class="form-control" name="articleCategory" [(ngModel)]='article.article_category.name'
+            disabled>
+        </div>
+        <!-- <div class="form-group col-md-4">
+          <label>Status</label>
+          <select class="form-control" name="status" [(ngModel)]='article.status' disabled>
+            <option selected='selected' value="0">Not approved</option>
+            <option value="1">Approved</option>
+          </select>
+        </div> -->
+      </div>
+      <div *ngIf='article.imagePath' class="padding-top-2pct">
+        <label>Preview image</label> <br /> <br />
+        <img src='{{uploadImageSource}}/{{article.imagePath}}' />
+      </div>
+      <div class="form-group padding-top-2pct">
+        <label>Content</label>
+        <!-- <ckeditor class="height-80pct" name='editor' 
+                      [(ngModel)]="article.content" 
+                      id='editor'
+                      [editor]='Editor'
+                      [config]='ckconfig'
+                    
+                     ></ckeditor> -->
+        <div [innerHTML]="article.content | safeHtml" class="p-3"></div>
+      </div>
+
+
+    </div>
+  </div>
+  <div class="modal-footer">
+
+  </div>
+</ng-template>

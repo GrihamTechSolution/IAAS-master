@@ -1,0 +1,69 @@
+<div class="">
+  <div class="col-md-6 padding-top-2pct">
+    <div class="box box-success">
+      <div class="box-header">
+        <h3 class="box-title">Add/edit download item</h3>
+      </div>
+        <form role="form">
+            <div class="box-body">
+              <div class="form-group">
+                <label>Category</label>
+                <select class='form-control' [(ngModel)]='download.categoryID' name="categoryID">
+                  <option value="1">Brand Resources</option>
+                  <option value="2">IAAS Booklets and Guides</option>
+                  <option value="3">Publications</option>
+                  <option value="4">Other</option>
+                  <option value="5">ExPro</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Title</label>
+                <input type="email" class="form-control" name="title" [(ngModel)]='download.title' placeholder="Enter download title">
+              </div>
+              <div class="form-group">
+                <label>Description</label>
+                <input type="text" class="form-control" name="description" [(ngModel)]='download.description' placeholder="Enter description">
+              </div>
+              <div class="form-group">
+                <label>Visibility</label>
+                <select class='form-control' [(ngModel)]='download.isPrivate' name="isPrivate">
+                  <option value="1">Private</option>
+                  <option value="0">Public</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Preview Image</label>
+                <input type='file' name='doc' class="form-control"
+                        ng2FileSelect
+                        [uploader]='previewImgUploader' />
+                        <div *ngIf='download.imagePath'>
+                          <h3>Current Image preview:</h3>
+                          <img src='{{uploadImageSource}}/{{download.imagePath}}' />
+                        </div>
+                </div>
+              <div class="form-group">
+                <label>Download File</label>
+                <input type='file' name='doc' class="form-control"
+                        ng2FileSelect
+                        [uploader]='uploader' />
+              </div>
+            </div>
+            <!-- /.box-body -->
+        
+            <div class="box-footer">
+              <button type="submit" class="btn btn-success" (click)='validateInput()'>
+                <i class="fa fa-save"></i> &nbsp;
+                Save</button>
+            </div>
+          </form>
+    </div>
+  </div>
+  <div class="col-md-6 padding-top-2pct" *ngIf='edit'>
+    <h4>View current file</h4>
+    <a target="__blank" href="{{uploadImageSource}}/{{download.downloadPath}}">
+      <i class="fa fa-download"></i>
+      download
+    </a>
+  </div>
+</div>
+

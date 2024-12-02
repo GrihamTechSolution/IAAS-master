@@ -1,0 +1,98 @@
+<div class="col-md-12">
+    <div class="box box-success">
+      <div class="box-header">
+          <h3 class="box-title">Exchange program details: <a>{{exprogram.name}}</a></h3>
+      </div>
+        <form role="form">
+            <div class="box-body">
+              <div class="col-md-3">
+                  <div class="form-group">
+                      <label for="exampleInputEmail1">Name</label>
+                      <input type="text" 
+                            class="form-control" 
+                            id="exampleInputEmail1" name='names'
+                            [(ngModel)]='exprogram.name' disabled>
+                    </div>
+                    <div class="form-group">
+                      <label>Duration</label>
+                      <input class="form-control" type="text" name="duration" disabled [(ngModel)]='exprogram.duration' />
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">Location</label>
+                      <input type="text" class="form-control" 
+                            id="exampleInputPassword1"
+                            name='location'
+                            [(ngModel)]='exprogram.city + ", " + exprogram.country' disabled>
+                    </div>
+                    <div class="form-group">
+                      <label>Description</label>
+                      <textarea class="form-control" disabled>This will be the description of the intern work.</textarea>
+                    </div>
+                    <div class="form-group">
+                      <label>Requirements</label>
+                      <textarea class="form-control" disabled>This will be the requirements of the intern work.</textarea>
+                    </div>
+              </div>
+              <div class="col-md-3">
+                <div class="col-md-6 text-center">
+                  <label>Food</label> <br/>
+                  <input disabled style="width: 22px; height: 22px;" type="checkbox" [(ngModel)]='exprogram.food' name='food' />
+                </div>
+                <div class="col-md-6 text-center">
+                  <label>Lodge</label> <br/>
+                  <input disabled style="width: 22px; height: 22px;" type="checkbox" [(ngModel)]='exprogram.lodge' name='food' />
+                </div>
+                <div class="col-md-6 text-center">
+                    <hr/>
+                  <label>Hours per day:</label> {{exprogram.hours}}
+                </div>
+                <div class="col-md-6 text-center">
+                    <hr/>
+                  <label>Weekly hours:</label> {{exprogram.weeklyHours}}
+                </div>
+                <div class="col-md-6 text-center">
+                  <hr/>
+                <label>House distance:</label> 1.5km
+                </div>
+                <div class="col-md-6 text-center">
+                    <hr/>
+                  <label>Salary:</label> &euro;
+                </div>
+               
+                <div class="col-md-12">
+                    <hr/>
+                  <label>Languages</label> <br/>
+                  <span class="pull-right-container">
+                    <small class="label bg-green">ENG</small>
+                  </span> &nbsp; &nbsp;
+                  <span class="pull-right-container">
+                    <small class="label bg-green">ITA</small>
+                  </span>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <img style="width: 100%" src="{{imageSource}}/assets/img/internship.jpg" /> 
+              </div>
+            </div>
+            <!-- /.box-body -->
+        
+            <div class="box-footer">
+              <button type="button" class="btn btn-primary">
+                <i class="fa fa-save"></i> &nbsp; Save
+              </button> &nbsp; &nbsp;
+              <button type="button" class="btn btn-warning">
+                <i class="fa fa-edit"></i> &nbsp; Edit
+              </button> &nbsp; &nbsp;
+              <button type="button" class="btn btn-success">
+                <i class="fa fa-cogs"></i> &nbsp; Apply
+              </button> &nbsp; &nbsp;
+              <a type="button" class="btn btn-success" routerLink='/applicants'>
+                <i class="fa fa-users"></i> &nbsp; Applicants
+              </a>
+            </div>
+          </form>
+    </div>
+  </div>
+  
+
+  

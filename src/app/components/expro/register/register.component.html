@@ -1,0 +1,178 @@
+<div class="full-size">
+  <img
+    src="{{ imageSource }}/assets/img/iaas-logo-vertical.png"
+    class="back-img" />
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <div class="login-box">
+        <!-- /.login-logo -->
+        <div class="login-box-body">
+          <div class="login-logo">
+            <a href="#"> WELCOME TO</a>
+
+            <img
+              src="{{ imageSource }}/assets/img/iaas-logo.png"
+              class="width-100pct" />
+            EXCHANGE PROGRAM
+          </div>
+          <p class="login-box-msg">We are lucky to have you here!</p>
+
+          <div class="col-md-12 col-sm-12">
+            <div class="form-group has-feedback">
+              <label>You register as: </label>
+              <select
+                class="form-control"
+                name="userTypeID"
+                [(ngModel)]="user.userTypeID">
+                <option value="1">
+                  Student - <b>I want to do an internship</b>
+                </option>
+                <option value="2">
+                  OP Taker - <b>I want to offer an Internship</b>
+                </option>
+              </select>
+            </div>
+            <div class="form-group has-feedback">
+              <label>Country</label>
+              <ng-select
+                [items]="allCountries"
+                bindLabel="name"
+                bindValue="code"
+                name="selectedCountryID"
+                [(ngModel)]="user.originalCountryCode">
+              </ng-select>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-sm-12">
+            <div class="form-group has-feedback">
+              <input
+                type="email"
+                class="form-control"
+                placeholder="Email"
+                [(ngModel)]="user.email"
+                name="email" />
+              <span
+                class="glyphicon glyphicon-envelope form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Name"
+                [(ngModel)]="user.firstName"
+                name="name" />
+              <span
+                class="glyphicon glyphicon-user form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback" *ngIf="user.userTypeID == 1">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Last Name"
+                [(ngModel)]="user.lastName"
+                name="lastName" />
+              <span
+                class="glyphicon glyphicon-user form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback" *ngIf="user.userTypeID == 1">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Phone number"
+                [(ngModel)]="student.phoneNumber"
+                name="phoneNumber" />
+              <span
+                class="glyphicon glyphicon-earphone form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback" *ngIf="user.userTypeID == 1">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="University"
+                [(ngModel)]="student.university"
+                name="university" />
+              <span
+                class="glyphicon glyphicon-book form-control-feedback"></span>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-12">
+            <div class="form-group has-feedback">
+              <input
+                type="password"
+                class="form-control"
+                placeholder="Password"
+                [(ngModel)]="user.password"
+                name="password" />
+              <span
+                class="glyphicon glyphicon-lock form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
+              <input
+                type="password"
+                class="form-control"
+                placeholder="Confirm Password"
+                [(ngModel)]="user.confirmPassword"
+                name="confirmPass" />
+              <span
+                class="glyphicon glyphicon-lock form-control-feedback"></span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-8"></div>
+            <!-- /.col -->
+            <div class="col-xs-4 center">
+              <div class="text-center margin-top-5pct">
+                <input
+                  class="display-inline"
+                  type="checkbox"
+                  [(ngModel)]="acceptedTerms" />
+                I agree that my personal information is available for IAAS
+                internally and for the OP Takers (internship places) when I
+                apply for an Exchange Program (ExPro), until I erase my personal
+                information or delete my account. I confirm that I read the IAAS
+                Privacy Policy.
+              </div>
+              <button
+                [disabled]="!acceptedTerms"
+                type="button"
+                (click)="register()"
+                class="text-center btn btn-success btn-block btn-flat margin-top-5pct">
+                Apply
+              </button>
+
+              <label></label>
+              <p>
+                Check out
+                <a style="cursor: pointer" (click)="showPrivacyModal()"
+                  >Privacy Policy</a
+                >.
+              </p>
+              <br />
+              Already have an account?
+              <a routerLink="/login">Login!</a>
+            </div>
+            <!-- /.col -->
+          </div>
+
+          <br />
+          <br />
+        </div>
+        <!-- /.login-box-body -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #policyModal>
+  <div class="modal-header">
+    <h1>IAAS World Privacy Policy</h1>
+  </div>
+  <div class="modal-body" [innerHTML]="policyHtml | safeHtml"></div>
+  <div class="modal-footer">
+    <button class="btn btn-success" (click)="policyModalRef.hide()">
+      <i class="fa fa-close"></i> &nbsp; Close
+    </button>
+  </div>
+</ng-template>

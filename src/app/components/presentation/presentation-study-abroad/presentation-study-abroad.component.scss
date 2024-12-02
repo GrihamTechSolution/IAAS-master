@@ -1,0 +1,89 @@
+$imageSource: "https://iaas-world-space-prd.s3.ap-south-1.amazonaws.com";
+
+@media only screen and (min-width: 720px){
+    .jumbotron {
+        // background-color: #00a54f !important;
+        // margin-bottom: 0 !important;
+        background: url('#{$imageSource}/assets/img/study-abroad-home.png');
+        
+    }
+}
+
+@media only screen and (max-width: 720px){
+    .jumbotron {
+        // background-color: #00a54f !important;
+        // margin-bottom: 0 !important;
+        background: url('#{$imageSource}/assets/img/study-abroad-home.png');
+        background-repeat: no-repeat;
+        background-size: 100%;
+        
+    }
+}
+
+.pg {
+    // background: url('#{$imageSource}/assets/img/background.jpg')
+    background-color: #F3F9FE;
+}
+
+@media only screen and (min-width: 720px){
+    .iaas-back-color {
+        background-color: #70ad47 !important;
+        padding: 30px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+}
+
+@media only screen and (max-width: 720px){
+    .iaas-back-color {
+        background-color: #70ad47 !important;
+        padding: 20px;
+        font-size: 12px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+}
+
+.item {
+    vertical-align: middle !important;
+}
+
+@media only screen and (min-width: 720px){
+    .jumbotron .container {
+        // text-align: center !important;
+        height: 400px;
+        color: white !important;
+    }
+}
+
+@media only screen and (max-width: 720px){
+    .jumbotron .container {
+        height: 180px;
+        color: white !important;
+    }
+}
+
+body {
+    color: black !important;
+}
+
+p {
+    color: black !important;
+}
+
+.why-promote{
+    background-color: #70ad47 !important;
+    padding: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white !important;
+}
+
+.why-promote h1 {
+    color: white !important;
+    // font-size: 24px;
+}
+
+.carousel-inner img {
+    max-height: 300px;
+}

@@ -1,0 +1,67 @@
+<div class="">
+  <div class="col-md-6 padding-top-2pct">
+    <div class="box box-success">
+      <div class="box-header">
+        <h3 class="box-title">Add/edit partner</h3>
+      </div>
+        <form role="form">
+            <div class="box-body">
+              <div class="form-group">
+                <label>Name</label>
+                <input type="email" class="form-control" name="name" [(ngModel)]='partner.name' placeholder="Enter partner name">
+              </div>
+              <div class="form-group">
+                <label>Description</label>
+                <input type="text" class="form-control" name='description' [(ngModel)]='partner.description' placeholder="Enter description">
+              </div>
+              <div class="form-group">
+                <label>Website</label>
+                <input type="text" class="form-control" name='website' [(ngModel)]='partner.website' placeholder="Enter website">
+              </div>
+              <div class="form-group">
+                <label>Country</label>
+                <ng-select [items]="countries"
+                            bindLabel="name"
+                            bindValue="id"
+                            name="selectedCountryID"
+                            [(ngModel)]='partner.countryID'>
+                </ng-select>
+              </div>
+              <div class='form-group' *ngIf='userData.userTypeID == 3 || userData.userTypeID == 4'>
+                <label>Is shown on Homepage</label>
+                <select class="form-control" name="isShown" [(ngModel)]='partner.isShown'>
+                  <option value="1">Yes</option>
+                  <option value="0">No</option>
+                </select>
+              </div>
+              <div class='form-group' *ngIf='userData.userTypeID == 3 || userData.userTypeID == 4'>
+                <label>Study Abroad</label>
+                <select class="form-control" name="studyAbroad" [(ngModel)]='partner.studyAbroad'>
+                  <option value="1">Yes</option>
+                  <option value="0">No</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Logo</label>
+                <input type='file' name='doc' class="form-control"
+                        ng2FileSelect
+                        [uploader]='uploader' />
+              </div>
+            </div>
+            <!-- /.box-body -->
+        
+            <div class="box-footer">
+              <button type="submit" class="btn btn-success" (click)='validateInput()'>
+                <i class="fa fa-save"></i> &nbsp;
+                Save</button>
+            </div>
+          </form>
+    </div>
+  </div>
+  <div class="col-md-6 padding-top-2pct" *ngIf='partner.imagePath'>
+    <h4>Current logo:</h4>
+    <img class="width-100pct" src="{{uploadImageSource}}/{{partner.imagePath}}" />
+  </div>
+</div>
+
+  

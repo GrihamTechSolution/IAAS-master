@@ -1,0 +1,36 @@
+<div class="text-center" style="margin-top: 70px;">
+  <button type="submit" class="btn btn-success" id="printButton" (click)="print()">
+    <i class="fa fa-file"></i> &nbsp;
+    Print</button>
+</div>
+
+<div id="newsl">
+  <div class="container">
+
+    <div style="margin-top: 70px;">
+      <img src="{{imageSource}}/assets/img/iaas-logo.png">
+      <h5 class="text-center">International Association of Students in Agricultural and Related Sciences</h5>
+    </div>
+
+    <h1 class="text-center">
+      <span class="titlefirst">News</span>
+      <span class="titlesecond">letter</span>
+    </h1>
+
+    <h3 class="text-center">{{monthNames[currentDate.getMonth()]}} / {{currentDate.getFullYear()}}</h3>
+
+    <div *ngFor="let a of selectedArticles; let i=index" class="selectedarticle">
+      <hr>
+      <h4 class="text-center">{{a.title}}</h4>
+      <hr>
+      <img class='img-responsive text-center' src="{{uploadImageSource}}/{{a.imagePath}}" alt="News">
+      <p [innerHTML]='a.content | safeHtml'></p>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="container padding-top-2pct padding-bottom-2pct">
+  <button type="submit" class="btn btn-success" (click)="openPdf()">
+    <i class="fa fa-file"></i> &nbsp;
+    Open Pdf</button>
+</div> -->

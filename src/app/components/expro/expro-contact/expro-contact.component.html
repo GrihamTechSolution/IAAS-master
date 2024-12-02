@@ -1,0 +1,141 @@
+<section class="contact-section">
+  <div class="container">
+    <div class="row">
+      <h1 class="text-center padding-top-10px contact-us-heading">
+        CONTACT US
+      </h1>
+
+      <section class="contact-form-area">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="default-form-area">
+                <form
+                  id="contact-form"
+                  name="contact_form"
+                  class="default-form"
+                  action="inc/sendmail.php"
+                  method="post">
+                  <div class="row clearfix">
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                      <div class="form-group">
+                        <input
+                          type="text"
+                          [(ngModel)]="exproMail.name"
+                          name="form_name"
+                          class="form-control"
+                          value=""
+                          placeholder="Your Name *"
+                          required="" />
+                      </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                      <div class="form-group">
+                        <input
+                          type="email"
+                          [(ngModel)]="exproMail.email"
+                          name="form_email"
+                          class="form-control required email"
+                          value=""
+                          placeholder="Your Mail *"
+                          required="" />
+                      </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                      <div class="form-group">
+                        <input
+                          type="text"
+                          [(ngModel)]="exproMail.phoneNumber"
+                          name="form_phone"
+                          class="form-control"
+                          value=""
+                          placeholder="Phone" />
+                      </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                      <div class="form-group">
+                        <input
+                          type="text"
+                          [(ngModel)]="exproMail.subject"
+                          name="form_subject"
+                          class="form-control"
+                          value=""
+                          placeholder="Subject" />
+                      </div>
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                      <div class="form-group">
+                        <textarea
+                          [(ngModel)]="exproMail.message"
+                          name="form_message"
+                          class="form-control textarea required"
+                          placeholder="Your Message...."></textarea>
+                      </div>
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                      <div class="form-group center">
+                        <input
+                          id="form_botcheck"
+                          name="form_botcheck"
+                          class="form-control"
+                          type="hidden"
+                          value="" />
+                        <button
+                          (click)="sendExproMail()"
+                          class="thm-btn style-2"
+                          data-loading-text="Please wait...">
+                          send message
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="form-right-box text-center">
+                <div class="img-box">
+                  <img
+                    src="/assets/img/vp_exchange.png"
+                    alt="Awesome Image"
+                    style="
+                      height: 300px;
+                      width: 200px;
+                      object-fit: cover;
+                      background: #70ad47;
+                      border-radius: 10px;
+                    " />
+                </div>
+                <h4>Marco Vinicio López Castillo</h4>
+                <span>Vice President of Exchange</span>
+                <p>
+                  If you have any question or comment, contact the Expro team.
+                  We do our best to make the Expro of every student a great
+                  experience
+                </p>
+                <p>
+                  <a>vpexchange@iaasworld.org</a>
+                </p>
+                <div class="border"></div>
+                <ul class="social-links">
+                  <!-- <li><a href="https://www.facebook.com/madison.eduardo/" target="__blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li> -->
+                  <li>
+                    <a
+                      href="https://www.instagram.com/mark_lopez_aw?igsh=MXh2MzlyajcxNDQzNw=="
+                      target="__blank"
+                      ><i class="fa fa-instagram" aria-hidden="true"></i
+                    ></a>
+                  </li>
+                  <!-- <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li> -->
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>

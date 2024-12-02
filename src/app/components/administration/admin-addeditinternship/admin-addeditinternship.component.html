@@ -1,0 +1,220 @@
+<div class="">
+    <div class="col-md-12 padding-top-2pct">
+      <div class="box box-success">
+        <div class="box-header">
+          <h3 class="box-title">Add/edit internship</h3>
+        </div>
+        <div class="box-body">
+            <form role="form">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea class="form-control" 
+                                      [(ngModel)]='internship.description' 
+                                      name="description" 
+                                      placeholder="Description of the internship" 
+                                      rows="5" 
+                                      style="overflow-y: scroll; resize: none;">
+                            </textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input placeholder="Internship name" type="text" name="name" [(ngModel)]='internship.name' class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label>Internship Type</label>
+                            <select class="form-control" [(ngModel)]='internship.typeID' name="typeID">
+                                <option value="1">Archimedes</option>
+                                <option value="2">Libertas</option>
+                                <option value="3">Ceres</option>
+                            </select>    
+                        </div>
+                        <div class="form-group">
+                            <label>Background fields</label>
+                            <ng-select [items]="backgroundFields"
+                                        aria-placeholder="Country"
+                                        bindLabel="name"
+                                        bindValue="name"
+                                        name="fieldList"
+                                        [multiple]='true'
+                                        [addTag]='true'
+                                        maxSelectedItems='3'
+                                        [(ngModel)]='internship.backgroundFieldsArr'>
+                            </ng-select>
+                        </div>
+                        <div class="form-group">
+                            <label>Working hours per day</label>
+                            <input type="number" name="workingHours" [(ngModel)]='internship.workingHours' class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label>Working days per week</label>
+                            <input type="number" name="workingHoursPerWeek" [(ngModel)]='internship.workingHoursPerWeek' class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label>Salary?</label>
+                            <input type="checkbox" name="salary" [(ngModel)]='internship.salary' />
+                        </div>
+                        <div class="form-group" *ngIf='internship.salary'>
+                            <label>Salary amount ($)</label>
+                            <input type="number" step="0.01" name="salaryInfo" [(ngModel)]='internship.salaryInfo' class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label>Language requirement</label>
+                            <ng-select [items]="languages"
+                                        aria-placeholder="Languages"
+                                        bindLabel="name"
+                                        bindValue="id"
+                                        [multiple]='true'
+                                        name="selectedLanguageID"
+                                        [(ngModel)]='internship.languagesArr'>
+                            </ng-select>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12">
+                        <div class="form-group">
+                            <label>Country</label>
+                            <ng-select [items]="countries"
+                                        aria-placeholder="Country"
+                                        bindLabel="name"
+                                        bindValue="id"
+                                        name="selectedCountryID"
+                                        [(ngModel)]='internship.countryID'>
+                            </ng-select>
+                        </div>
+                        <div class="form-group">
+                            <label>Min Duration (in days)</label>
+                            <input class="form-control" type="number" name="minLen" step="1" [(ngModel)]='internship.minLength'>
+                        </div>
+                        <div class="form-group">
+                            <label>Max Duration (in days)</label>
+                            <input class="form-control" type="number" name="maxLen" step="1" [(ngModel)]='internship.maxLength'>
+                        </div>
+                        <div class="form-group">
+                            <label>Spot availability</label>
+                            <input class="form-control" type="text" name="spotAvailability" [(ngModel)]='internship.spotAvailability' placeholder="DD/MM - DD/MM"/>
+                        </div>
+                        <div class="form-group">
+                            <label>Is contract signing mandatory?</label>
+                            <input type="checkbox" name="contract" [(ngModel)]='internship.contract' />
+                            <hr/>
+                        </div>
+                        <div class="form-group">
+                            <label>Are students with little experience accepted?</label>
+                            <input type="checkbox" name="littleExperience" [(ngModel)]='internship.littleExperience' />
+                            <hr/>
+                        </div>
+                        <div class="form-group">
+                            <label>Is driving licence needed?</label>
+                            <input type="checkbox" name="drivingLicence" [(ngModel)]='internship.drivingLicence' />
+                            <hr/>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12">
+                        <div class="form-group">
+                            <label>OP Taker</label>
+                            <ng-select [items]="opTakers"
+                                        bindLabel="name"
+                                        bindValue="id"
+                                        name="selectedOPTakerID"
+                                        [(ngModel)]='internship.opTakerID'>
+                            </ng-select>
+                        </div>
+                        <div class="form-group">
+                            <label>Food/meals included?</label>
+                            <input type="checkbox" name="foodIncluded" [(ngModel)]='internship.food' />
+                        </div>
+                        <div class="form-group" *ngIf='internship.food'>
+                            <label>Meals per day</label>
+                            <input type="number" name="mealsPerDay" [(ngModel)]='internship.mealsPerDay' class="form-control" />
+                        </div>
+                        <!-- <div class="form-group">
+                            <label>No of people</label>
+                            <input type="number" step="1" min="1" name="people" [(ngModel)]='internship.studentsNumber' class="form-control"/>
+                        </div> -->
+                        <div class="form-group">
+                            <label>Does student need to be capable to drive a tractor?</label>
+                            <input type="checkbox" name="drivingTractor" [(ngModel)]='internship.drivingTractor' />
+                            <hr/>
+                        </div>
+                        <div class="form-group">
+                            <label>Does student need to be physicaly fit?</label>
+                            <input type="checkbox" name="fit" [(ngModel)]='internship.fit' />
+                            <hr/>
+                        </div>
+                        <div class="form-group" *ngIf='userData?.userTypeID == 3 || userData?.userTypeID == 4'>
+                            <label>Is featured internship?</label>
+                            <input type="checkbox" name="isFeatured" [(ngModel)]='internship.isFeatured' />
+                            <hr/>
+                        </div>
+                        <div class="form-group" *ngIf='userData?.userTypeID == 3 || userData?.userTypeID == 4'>
+                            <label>Is shown internship?</label>
+                            <input type="checkbox" name="isShown" [(ngModel)]='internship.isShown' />
+                            <hr/>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12">
+                         
+                        <div class="form-group">
+                            <label>Social aspects</label>
+                            <textarea   class="form-control" 
+                                        [(ngModel)]='internship.socialAspects' 
+                                        name="socialAspects" 
+                                        placeholder="Social aspects of internship"></textarea>
+                        </div> 
+                        <div class="form-group">
+                            <label>Any other info</label>
+                            <textarea   class="form-control" 
+                                        [(ngModel)]='internship.other' 
+                                        name="other" 
+                                        placeholder="Other details"></textarea>
+                        </div> 
+                        <div class="form-group">
+                            <label>Accomodation?</label>
+                            <input type="checkbox" name="accomodation" [(ngModel)]='internship.accomodation' />
+                            <hr/>
+                        </div>
+                        <div class="form-group">
+                            <label>Gender Preference</label>
+                            <select name="gender" [(ngModel)]='internship.gender' class="form-control">
+                                <option value="1">Male</option>
+                                <option value="2">Female</option>
+                                <option value="3">No preference</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="box-footer">
+            <button type="button" class="btn btn-success" (click)='saveInternship()'>
+                <i class="fa fa-save"></i> &nbsp;
+                Save</button>
+        </div>
+        <div class="box-footer" *ngIf='internship.id'>
+            <h2>Add images</h2>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group col-md-4">
+                        <label>Add image</label>
+                        <input type='file' name='doc' class="form-control"
+                                ng2FileSelect
+                                [uploader]='uploader' />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="text-center col-md-4 col-sm-6 col-xs-12" *ngFor='let i of internship.images'>
+                    <img src="{{uploadImageSource}}/{{i.imagePath}}" style="width: 90%; margin-left: 5%;" />
+                    <button (click)='removeImage(i.id)' class="btn btn-danger" style="margin-top: 5px;">
+                        <i class="fa fa-trash"></i> &nbsp;
+                        Remove image
+                    </button>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>

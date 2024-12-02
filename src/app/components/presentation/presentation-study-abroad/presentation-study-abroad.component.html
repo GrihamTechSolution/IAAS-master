@@ -1,0 +1,222 @@
+<div class="pg">
+
+<!-- <div class="jumbotron network-jumbo">
+    <div class="container">
+        <h1 class="display-3">Study Abroad</h1>
+        <h3 class="display-3">
+            
+        </h3>
+        <br/>
+    </div>
+</div> -->
+<img class="img-responsive margin-top-2pct margin-bottom-2pct" src="{{imageSource}}/assets/img/sap/Current_Opportunities.png" />
+
+<div class="container">
+    <p>
+        The IAAS Study Abroad Program encourages members of IAAS and their fellow students from all 
+        around the world to study abroad in Faculties and Universities related with the field 
+        of Agriculture, Food Sciences, Bioscience Engineering and Environmental Sciences. 
+        Via  the IAAS Study Abroad Program, you are invited to discover the best universities 
+        and study programs in your field. 
+    </p>
+
+    <div class="row">
+        <hr/>
+        <div class="col-md-6 text-center col-sm-12">
+            <a class="btn btn-success iaas-back-color" routerLink='/studyAbroadList'>
+                Check the available programs now!
+            </a>
+        </div>
+        <div class="col-md-6 text-center col-sm-12">
+            <button class="btn btn-success iaas-back-color" routerLink="/becomePartner">
+                Want to promote your study abroad programs?
+            </button>
+        </div>
+    </div>
+
+    <!-- <div class="row">
+        <hr/>
+        <h3 class="text-center">
+            Contact US
+        </h3>
+        <div class="col-md-6 col-sm-12 text-center">
+            <img src="{{imageSource}}/assets/img/marie-agnes-fine.png" style="height: 300px; border-radius: 150px;" />
+            
+            <div class="row">
+                <p>Marie-Agnès Fine</p>
+                <p> vppartnership@iaasworld.org</p>
+                <p> Global VP of External Relations</p>
+            </div>
+        
+        </div>
+        <div class="col-md-6 col-sm-12 text-center">
+            <img src="{{imageSource}}/assets/img/festus.jpg" style="height: 300px; border-radius: 150px;" />
+            <div class="row">
+                <p>Festus S. Yoesafat</p>
+                <p>sap@iaasworld.org</p>
+                <p> Study Abroad Program Coordinator</p>
+            </div>
+        </div>
+    </div> -->
+</div>
+
+<div class="row">
+    <hr/>
+    <h3 class="page-title text-center margin-bottom-5pct">Our University Partners</h3>
+    <div class="col-md-12" style="background-color: white !important;">
+        <div class="carousel carousel-showmanymoveone slide" id="carousel-tilenav" data-interval="false">
+            <div class="carousel-inner">
+                <div class="item" [ngClass]='i == 0 ? "active" : ""' *ngFor='let p of studyAbroadPartners; let i = index'>
+                    <div  class="col-xs-12 col-sm-6 col-md-6 col-md-offset-3 text-center">
+                       <a href="{{p.website}}" target="__blank">
+                         <img src="{{uploadImageSource}}/{{p.imagePath}}" class="img-responsive">
+                     </a>
+                    </div>
+                 </div>
+               <!-- <div class="item active">
+                  <div class="col-xs-12 col-sm-6 col-md-2">
+                     <a href="https://www.biw.kuleuven.be/english/index" target="__blank">
+                       <img src="./{{imageSource}}/assets/img/partners-sponsors/kuleuven.png" class="img-responsive">
+                   </a>
+                  </div>
+               </div>
+               <div class="item">
+                  <div class="col-xs-12 col-sm-6 col-md-2">
+                     <a href="https://www.syngenta.com/" target="__blank">
+                       <img src="./{{imageSource}}/assets/img/partners-sponsors/syngenta.png" class="img-responsive">
+                   </a>
+                  </div>
+               </div>
+               <div class="item">
+                  <div class="col-xs-12 col-sm-6 col-md-2">
+                     <a href="http://www.fao.org/" target="__blank">
+                         <img src="./{{imageSource}}/assets/img/partners-sponsors/fao.jpg" class="img-responsive">
+                       </a>
+                  </div>
+               </div>
+               <div class="item">
+                  <div class="col-xs-12 col-sm-6 col-md-2">
+                     <a href="http://www.studyportals.eu/" target="__blank">
+                         <img src="./{{imageSource}}/assets/img/partners-sponsors/studyportals.png" class="img-responsive">
+                       </a>
+                  </div>
+               </div>
+               <div class="item">
+                  <div class="col-xs-12 col-sm-6 col-md-2">
+                     <a href="http://www.ifsa.net/" target="__blank">
+                         <img src="./{{imageSource}}/assets/img/partners-sponsors/IFSA.png" class="img-responsive">
+                       </a>
+                  </div>
+               </div>
+               <div class="item">
+                  <div class="col-xs-12 col-sm-6 col-md-2">
+                     <a href="http://www.unep.org/" target="__blank">
+                       <img src="./{{imageSource}}/assets/img/partners-sponsors/UNEP_Logo.jpg" class="img-responsive">
+                   </a>
+                  </div>
+               </div>
+               <div class="item">
+                  <div class="col-xs-12 col-sm-6 col-md-2">
+                     <a href="http://www.unesco.org/" target="__blank">
+                       <img src="./{{imageSource}}/assets/img/partners-sponsors/UNESCO.jpg" class="img-responsive">
+                   </a>
+                  </div>
+               </div>
+               <div class="item">
+                  <div class="col-xs-12 col-sm-6 col-md-2">
+                     <a href="https://www.thinkyoung.eu/" target="__blank">
+                       <img src="./{{imageSource}}/assets/img/partners-sponsors/ThinkYoung-Logo.jpg" class="img-responsive">
+                   </a>
+                  </div>
+               </div>
+               <div class="item">
+                   <div class="col-xs-12 col-sm-6 col-md-2">
+                      <a href="http://www.ica-ls.com/" target="__blank">
+                        <img src="./{{imageSource}}/assets/img/partners-sponsors/icalogo.jpg" class="img-responsive">
+                    </a>
+                   </div>
+                </div>
+                <div class="item">
+                   <div class="col-xs-12 col-sm-6 col-md-2">
+                      <a href="http://www.ypard.net/" target="__blank">
+                        <img src="./{{imageSource}}/assets/img/partners-sponsors/ypard_logo.jpg" class="img-responsive">
+                    </a>
+                   </div>
+                </div>
+                <div class="item">
+                   <div class="col-xs-12 col-sm-6 col-md-2">
+                      <a href="http://www.egea.eu/" target="__blank">
+                        <img src="./{{imageSource}}/assets/img/partners-sponsors/EGEALogo_IAAS.png" class="img-responsive">
+                    </a>
+                   </div>
+                </div>
+                <div class="item">
+                   <div class="col-xs-12 col-sm-6 col-md-2">
+                      <a href="http://www.careersinternational.com/" target="__blank">
+                        <img src="./{{imageSource}}/assets/img/partners-sponsors/ci_logo_newgrey_rgb_web.jpg" class="img-responsive">
+                    </a>
+                   </div>
+                </div>
+                <div class="item">
+                   <div class="col-xs-12 col-sm-6 col-md-2">
+                      <a href="http://isleassociation.wixsite.com/sdnetwork" target="__blank">
+                        <img src="./{{imageSource}}/assets/img/partners-sponsors/ISLE-LOGO-RGB-HI-RES-black.jpg" class="img-responsive">
+                    </a>
+                   </div>
+                </div>
+                <div class="item">
+                   <div class="col-xs-12 col-sm-6 col-md-2">
+                      <a href="http://www.zerogeneration.org/" target="__blank">
+                        <img src="./{{imageSource}}/assets/img/partners-sponsors/zaerogen.png" class="img-responsive">
+                    </a>
+                   </div>
+                </div>
+                <div class="item">
+                   <div class="col-xs-12 col-sm-6 col-md-2">
+                      <a href="https://thoughtforfood.org//" target="__blank">
+                        <img src="./{{imageSource}}/assets/img/partners-sponsors/thoughtfood.jpg" class="img-responsive">
+                    </a>
+                   </div>
+                </div>
+                <div class="item">
+                   <div class="col-xs-12 col-sm-6 col-md-2">
+                      <a href="https://iaeste.org/" target="__blank">
+                        <img src="./{{imageSource}}/assets/img/partners-sponsors/iaeste.jpg" class="img-responsive">
+                    </a>
+                   </div>
+                </div> -->
+            </div>
+            <a class="left carousel-control" href="#carousel-tilenav" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+            <a class="right carousel-control" href="#carousel-tilenav" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+         </div>
+    </div>
+</div>
+
+<div class="row why-promote" id='whyPromote'>
+    <div class="container">
+        <br/>
+        <h1>Why promote study abroad
+program with us? </h1> <br/> <br/>
+We are the biggest student organization in agricultural and related sciences worldwide. We want to give our members an
+opportunity to access a higher level of study with the universities that we have partnered up with.
+<br/> <br/>
+<h1>What are the benefits of studying abroad? </h1>
+<br/>
+<br/>
+In today's world, language and intercultural skills are key to success. Discovering new places, immersing yourself in a new
+culture and making new friends from all over the world are proven factors for long-term success. <br/> <br/>
+For us, progress isn’t just a possibility; it’s a promise. Studying abroad has challenges and rewards, and we support you in every
+step of the way so you know your investment will pay off. The learning doesn’t stop when you return home: you’ll stay
+connected to your study abroad program through online learning tools and student communities. <br/> <br/>
+What’s more, you go home with documented proof of your language proficiency if you've studied in another language: an academic portfolio of certifications and exam results that are recognized by employers, universities and
+governments around the world. <br/> <br/>  You won’t find a more reliable, more experienced study abroad program anywhere. Other
+benefits of studying abroad are: <br/> <br/> 
+• Learn a new language <br/>
+• Discover a new culture <br/>
+• Meet new people from all over the world <br/>
+• Gain valuable experiences, both personally and professionally <br/>
+    </div>
+    
+</div>
+
+</div>

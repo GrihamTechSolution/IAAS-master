@@ -1,0 +1,121 @@
+/* Base Styles */
+.aim-list {
+    list-style-type: square;
+    padding-left: 1rem;
+}
+
+.expro-banner {
+    margin: 2em 0;
+    flex-wrap: wrap;
+}
+
+.apply-process {
+    margin: 2em 0;
+}
+
+.expro-link {
+    text-decoration: none;
+    color: #70ad47;
+    font-weight: bold;
+}
+
+.row-fluid {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.exchange-logo {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 1em;
+}
+
+.exchange-logo-img, .exchange-logo-text {
+    flex: 1 1 100%;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.carousel-caption {
+    width: 90%;
+    left: 5%;
+    background-color: rgba(255, 255, 255, 0.7);
+    color: black;
+    padding: 1em;
+    border-radius: 0.5em;
+}
+
+/* Responsive Styles for Mobile View */
+@media only screen and (max-width: 720px) {
+    .jumbotron {
+        padding: 20px;
+        text-align: center;
+    }
+
+    .display-3 {
+        font-size: 1.5em;
+    }
+
+    .btn-success {
+        font-size: 12px;
+        padding: 0.5em 1em;
+    }
+
+    .img-slider {
+        width: 100%;
+        margin: 0;
+    }
+
+    .carousel-inner {
+        height: 300px !important;
+    }
+
+    .row-fluid {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .col-md-4, .col-md-6 {
+        flex: 1 1 100%;
+        margin-bottom: 1em;
+    }
+
+    .aim-list li {
+        padding: 3px;
+        font-size: 0.9em;
+    }
+
+    .apply-process img {
+        width: 100%;
+    }
+
+    .exchange-logo {
+        flex-direction: column;
+    }
+
+    .exchange-logo-img, .exchange-logo-text {
+        flex: 1 1 auto;
+        margin-bottom: 1em;
+    }
+
+    .section-title h2 {
+        font-size: 1.5em;
+    }
+
+    table.table {
+        font-size: 0.8em;
+    }
+
+    .table th, .table td {
+        padding: 0.5em;
+        word-wrap: break-word;
+    }
+
+    .row.apply-process img {
+        width: 100%;
+        height: auto;
+    }
+}

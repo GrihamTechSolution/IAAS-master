@@ -1,0 +1,144 @@
+<div class="content-inner">
+    <section class="content">
+      <div class="box box-success">
+        <div class="box-header">
+          <h2 class="box-title">OP Takers</h2> 
+          <br/> <br/> 
+          <button class="btn btn-success" routerLink='/administration/addeditoptaker'>
+            <i class="fa fa-plus"></i> &nbsp;
+            Add OP Taker
+          </button>
+        </div>
+        <div class="box-body">
+          <div class="row"> 
+            <div class="col-md-2 col-sm-12">
+              <div class="form-group">
+                <label>
+                  Name
+                </label>
+                <input type="text" name="name" [(ngModel)]='name' class="form-control" placeholder="Name" />
+              </div>
+            </div>
+            <div class="col-md-2 col-sm-12">
+              <div class="form-group">
+                <label>
+                  Country
+                </label>
+                <ng-select [items]="countries"
+                            bindLabel="name"
+                            bindValue="id"
+                            name="filterCountryID"
+                            [(ngModel)]='countryID'
+                            placeholder="Country">
+                </ng-select>
+              </div>
+            </div>
+            <div class="col-md-1 col-sm-12">
+              <div class="form-group">
+                  <label>Search</label>
+                  <button class="btn btn-success" (click)='searchOPTakers()'>
+                      <i class="fa fa-search"></i> &nbsp; Search
+                  </button>
+              </div>
+            </div>
+            <div class="col-md-2 col-sm-12">
+                <div class="form-group">
+                    <label>Remove filters</label>
+                    <button class="btn btn-danger" (click)='removeFilters()'>
+                        <i class="fa fa-close"></i> &nbsp; Remove filters
+                    </button>
+                </div>
+            </div>
+          </div>
+          <table class="table table-striped table-bordered" [mfData]="filteredOPTakers" #mf="mfDataTable" [mfRowsOnPage]="10">
+            <thead>
+            <tr>
+                <th style="width: 10%">
+                    <mfDefaultSorter by="name">Name</mfDefaultSorter>
+                </th>
+                <th style="width: 15%">
+                    <mfDefaultSorter by="description">Logo</mfDefaultSorter>
+                </th>
+                <th style="width: 10%">
+                  <mfDefaultSorter by="website">Website</mfDefaultSorter>
+              </th>
+                <th style="width: 15% !important">
+                    <mfDefaultSorter >Country</mfDefaultSorter>
+                </th>
+                <th style="width: 10%">
+                  <mfDefaultSorter >Status</mfDefaultSorter>
+                </th>
+                <th style="width: 10%">
+                  <mfDefaultSorter >Approve</mfDefaultSorter>
+                </th>
+                <th style="width: 10%">
+                    <mfDefaultSorter>Edit</mfDefaultSorter>
+                </th>
+                <th style="width: 10%">
+                  <mfDefaultSorter>Delete</mfDefaultSorter>
+              </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let item of mf.data">
+                <td>{{item.user.firstName}}</td>
+                <td>
+                    <img src="{{uploadImageSource}}/{{item.logo}}" alt="No current photo"/>
+                </td>
+                <td>
+                  <a href="{{item.website}}" target="__blank">
+                    {{item.website}}
+                  </a>
+                </td>
+                <td>
+                  {{item.user.country?.name}}
+                </td>
+                <td>
+                  <span *ngIf='item.user.isActive == 1'>
+                    <i class="fa fa-check" style="color:green"></i> &nbsp; 
+                    Approved
+                  </span>
+                  <span *ngIf='item.user.isActive == 0'>
+                    <i class="fa fa-close" style="color:red"></i> &nbsp; 
+                    NOT Approved
+                  </span>
+                </td>
+                <td>
+                  <a class="btn btn-success" (click)='approveOPTaker(item)' *ngIf='item.user.isActive == 0'> 
+                    <i class="fa fa-check"></i> &nbsp;
+                    Approve
+                  </a>
+                  <a class="btn btn-danger" (click)='disapproveOPTaker(item)' *ngIf='item.user.isActive == 1'> 
+                    <i class="fa fa-close"></i> &nbsp;
+                    Disapprove
+                  </a>
+                </td>
+                <td>
+                  <a class="btn btn-warning" routerLink='/administration/addeditoptaker/{{item.id}}'> 
+                    <i class="fa fa-list"></i> &nbsp;
+                    View details
+                  </a>
+                </td>
+                <td>
+                  <a class="btn btn-danger" (click)='deleteOPTaker(item.id)'> 
+                    <i class="fa fa-trash"></i> &nbsp;
+                    Delete
+                  </a>
+                </td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+                <td colspan="5">
+                    <mfBootstrapPaginator [rowsOnPageSet]="[10,25]"></mfBootstrapPaginator>
+                </td>
+            </tr>
+            </tfoot>
+        </table>
+        </div>
+        <div class="box-footer">
+
+        </div>
+      </div>
+    </section>    
+  </div>

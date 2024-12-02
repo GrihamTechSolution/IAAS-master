@@ -1,0 +1,139 @@
+<!-- <div class="pg">
+    <div class="jumbotron">
+        <div class="container">
+            Study Abroad
+        </div>
+    </div>
+    <div class="container study-abroad-program">
+        <div class="row margin-top-2pct">
+            <h1>{{program.title}}</h1> <br/>
+            <h5>
+                <i class="fa fa-2x fa-map-marker"></i> &nbsp; {{program.location}}
+            </h5>  <br/>
+            <div class="col-md-12">
+                <div class="col-md-4 col-sm-12 text-center"  *ngIf='program.siteLink'>
+                    <a class="btn btn-success learn-more-button" [href]='program.siteLink' target="_blank">
+                        <i class="fa fa-list"></i> &nbsp; Visit Site!
+                    </a>
+                </div>
+                <div class="col-md-4 col-sm-12 text-center" *ngIf='program.applyLink'>
+                    <a class="btn btn-success learn-more-button" [href]='program.applyLink' target="_blank">
+                        <i class="fa fa-upload"></i> &nbsp; Apply Now!
+                    </a>
+                </div>
+                <div class="col-md-4 col-sm-12 text-center">
+                    <button *ngIf='!hasItInFavourite' class="btn btn-success learn-more-button" (click)='saveToFavourites()'>
+                        <i class="fa fa-save"></i> &nbsp; 
+                        Save to Favourites!
+                    </button>
+
+                    <button *ngIf='hasItInFavourite' class="btn btn-danger" (click)='removeFromFavourites()'>
+                        <i class="fa fa-close"></i> &nbsp; 
+                        Remove from favourites
+                    </button>
+                </div> <br/> <br/>
+            </div>
+            <div class="col-md-12 margin-top-2pct" *ngIf='program.videoLink'>
+                <iframe [src]="program.videoLink | safe" style="width: 100% !important; height: 500px;">
+
+                </iframe>
+            </div>
+            <div class="col-md-12 margin-top-2pct" *ngIf="program.images && program.images.length > 0">
+                <div class="col-md-2">
+                    <i (click)='decreaseCurrent()' class="fa fa-3x fa-angle-left"></i>
+                </div>  
+                <div class="col-md-8">
+                    <img src="{{apiUrl}}/{{program.images[current].path}}" class="img-responsive full-width" />
+                </div>
+                <div class="col-md-2">
+                    <i (click)='increaseCurrent()' class="fa fa-3x fa-angle-right"></i>
+                </div> 
+            </div>
+            <div class="col-md-12 about-section margin-top-2pct">
+                <hr/>
+                <h1>About</h1>
+                <p class="justified study-abroad-program-about" [innerHTML]="program.about">
+                    
+                </p>
+            </div>
+        </div>
+        
+    
+    </div>
+</div> -->
+
+<div class="pg">
+    <div class="jumbotron">
+        <div class="container">
+            Study Abroad
+        </div>
+    </div>
+    <div class="container study-abroad-program">
+        <div class="row margin-top-2pct">
+            <h1>{{program.title}}</h1> <br/>
+           
+            <h5>
+                <i class="fa fa-2x fa-map-marker"></i> &nbsp; {{program.location}}
+            </h5>  <br/>
+            
+            
+
+            <!-- About && Images  -->
+            <div class="col-md-6 about-section margin-top-2pct">
+                <hr/>
+                <h1>About</h1>
+                <p class="justified study-abroad-program-about" [innerHTML]="program.about">
+                    
+                </p>
+            </div>
+            <div class="col-md-6 margin-top-2pct" *ngIf="program.images && program.images.length > 0">
+                <div class="col-md-2">
+                    <i (click)='decreaseCurrent()' class="fa fa-3x fa-angle-left"></i>
+                </div>  
+                <div class="col-md-8">
+                    <img src="{{uploadImageSource}}/{{program.images[current].path}}" class="img-responsive full-width" />
+                </div>
+                <div class="col-md-2">
+                    <i (click)='increaseCurrent()' class="fa fa-3x fa-angle-right"></i>
+                </div> 
+            </div>
+            <br/>
+
+            <!-- Buttons -->
+            <div class="col-md-12">
+                <div class="col-md-12 col-sm-12 text-center margin-top-2pct"  *ngIf='program.siteLink'>
+                    <a class="btn btn-success learn-more-button" [href]='program.siteLink' target="_blank">
+                        <i class="fa fa-list"></i> &nbsp; Visit Site!
+                    </a><br/>
+                </div>
+                <div class="col-md-12 col-sm-12 text-center margin-top-2pct" *ngIf='program.applyLink'>
+                    <a class="btn btn-success learn-more-button" [href]='program.applyLink' target="_blank">
+                        <i class="fa fa-upload"></i> &nbsp; Apply Now!
+                    </a><br/>
+                </div>
+                <div class="col-md-12 col-sm-12 text-center margin-top-2pct">
+                    <button *ngIf='!hasItInFavourite' class="btn btn-success learn-more-button" (click)='saveToFavourites()'>
+                        <i class="fa fa-save"></i> &nbsp; 
+                        Save to Favourites!
+                    </button>
+
+                    <button *ngIf='hasItInFavourite' class="btn btn-danger margin-top-2pct" (click)='removeFromFavourites()'>
+                        <i class="fa fa-close"></i> &nbsp; 
+                        Remove from favourites
+                    </button>
+                </div> <br/> <br/>
+            </div>
+
+            <!-- Video -->
+            <div class="col-md-12 margin-top-2pct margin-bottom-2pct" *ngIf='program.videoLink'>
+                <iframe [src]="program.videoLink | safe" style="width: 100% !important; height: 500px;">
+
+                </iframe>
+            </div><br/>
+            
+        </div>
+        
+    
+    </div>
+</div> 
+

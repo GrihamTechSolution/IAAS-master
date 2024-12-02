@@ -1,0 +1,46 @@
+<div *ngIf="!canVote">
+    <h2 class="text-center margin-top-5pct margin-bottom-2pct" style="color: red;">ERROR:</h2>
+    <h3 class="text-center margin-bottom-5pct">{{errorMessage}}</h3>
+</div>
+
+<div *ngIf="votingCompleted">
+    <h2 class="text-center margin-top-5pct margin-bottom-2pct" style="color: green;">SUCCESS:</h2>
+    <h3 class="text-center margin-bottom-5pct">{{successMessage}}</h3>
+</div>
+
+<div *ngIf="canVote && !votingCompleted">
+    <h1 class="text-center margin-top-2pct margin-bottom-2pct">Welcome to voting: {{voting.name}}</h1>
+
+    <div class="container">
+        <div *ngFor="let question of voting.votingQuestions; let i = index;" class="margin-top-2pct margin-bottom-2pct">
+            <h3 class="margin-bottom-2pct">{{i+1}}. {{question.question}}</h3>
+
+            <!-- One choice -->
+            <div *ngIf="question.votingQuestionTypeID == 1">
+                <div *ngFor="let opt of question.votingQuestionOptions">
+                    <input type="radio" [id]="opt.votingQuestionOption" [name]="question.id" [value]="opt.id"
+                        [(ngModel)]="question.votingQuestionAnswerID">
+                    <label [for]="opt.votingQuestionOption">{{opt.votingQuestionOption}}</label><br>
+                </div>
+            </div>
+
+            <div *ngIf="question.votingQuestionTypeID == 2">
+                <div *ngFor="let opt of question.votingQuestionOptions; let i = index;">
+                    <input type="checkbox" [id]="opt.votingQuestionOption" [name]="question.id"
+                        [(ngModel)]="question.votingQuestionAnswers[i]">
+                    <label [for]="opt.votingQuestionOption">{{opt.votingQuestionOption}}</label><br>
+                </div>
+            </div>
+
+            <div *ngIf="question.votingQuestionTypeID == 3">
+                <textarea class="margin-bottom-2pct width-100pct"
+                    [(ngModel)]="question.votingQuestionAnswer"></textarea>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-success margin-top-2pct margin-bottom-2pct" (click)="submitVoting()">
+            <i class="fa fa-check"></i> &nbsp; Submit
+        </button>
+    </div>
+
+</div>

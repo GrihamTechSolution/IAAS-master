@@ -1,0 +1,38 @@
+// $imageSource: "https://iaas-world-space-prd.s3.ap-south-1.amazonaws.com";
+
+.contact-section {
+  // background: url('#{$imageSource}/assets/img/background.jpg');
+  background-color: #f3f9fe;
+}
+
+.text-center {
+  color: #70ad47;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+h3 {
+  font-weight: bold;
+}
+
+h4 {
+  margin-top: 1em;
+  font-weight: bold;
+}
+
+p {
+  color: black !important;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+ul {
+  list-style-type: circle;
+}
+
+li {
+  list-style-position: inside;
+  margin-left: 1.5em;
+  text-indent: -1.5em;
+  margin-top: 10px;
+}

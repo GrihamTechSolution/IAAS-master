@@ -1,0 +1,48 @@
+$imageSource: "https://iaas-world-space-prd.s3.ap-south-1.amazonaws.com";
+
+.mat-expansion-panel {
+    margin-bottom: 5px;
+}
+
+.service-item {
+    padding: 20px;
+    border: 1px solid transparent;
+}
+
+.service-item:hover {
+    border: 1px solid  #70ad47;
+}
+
+.faq-jumbo {
+    background-color: #70ad47 !important;
+    text-align: center;
+}
+
+.faq-jumbo h1 {
+    color: white !important;
+}
+
+.faq-section {
+    background: url('#{$imageSource}/assets/img/background.jpg');
+}
+
+.acc-content p {
+    color: black !important;
+}
+
+.accordion-box .accordion .acc-content p {
+    color: black !important;
+}
+
+.btn-success {
+    background-color:  #70ad47 !important;
+    border-color:  #70ad47 !important;
+}
+
+table {
+    color: black !important;
+}
+
+.text table {
+    color: black !important;
+}

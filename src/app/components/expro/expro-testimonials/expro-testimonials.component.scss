@@ -1,0 +1,98 @@
+$imageSource: 'https://iaas-world-space-prd.s3.ap-south-1.amazonaws.com';
+
+.contact-us-heading {
+  color: #70ad47;
+}
+
+.img-box {
+  height: 300px !important;
+  width: 200px !important;
+  border-radius: 20px !important;
+}
+
+.contact-section {
+  background: url('#{$imageSource}/assets/img/background.jpg');
+  background-size: cover;
+}
+
+table,
+th,
+td {
+  border: 2px solid black;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 15px;
+}
+
+td {
+  width: 25%;
+  background: white;
+}
+table {
+  width: 100%;
+  font-weight: bold;
+}
+
+th {
+  text-align: center;
+  color: #70ad47;
+  background: white;
+}
+
+th > div:first-of-type {
+  text-decoration-line: underline;
+}
+
+tr > td:first-of-type {
+  text-align: center;
+  background: #c3e0b5;
+}
+
+tr > td:last-child {
+  background: #a5d091;
+}
+
+p {
+  margin-top: 1em;
+}
+
+h4 {
+  margin-top: 1em;
+}
+
+.jumbotron {
+  background-color: #70ad47;
+  padding: 50px !important;
+}
+
+.display-3 {
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
+
+.image-container {
+  height: 200px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.image-container img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.testimonial-details {
+  padding: 1em;
+  text-align: center;
+}
+
+.testimonial-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}

@@ -1,0 +1,18 @@
+.login-page {
+  overflow: hidden;
+  min-height: 100%;
+}
+
+.green-link {
+  color: green;
+}
+
+.full-size {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: lightgray;
+}
+

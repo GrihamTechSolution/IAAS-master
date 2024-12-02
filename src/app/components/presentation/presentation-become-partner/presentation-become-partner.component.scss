@@ -1,0 +1,51 @@
+$imageSource: "https://iaas-world-space-prd.s3.ap-south-1.amazonaws.com";
+
+.contact-section {
+    // background-color: #F3F9FE;
+    // background-size: cover;
+    background-color: #F3F9FE;
+}
+
+.jumbotron {
+    background-color: #70ad47 !important;
+    text-align: center;
+    margin: 0 !important;
+    margin-bottom: 3% !important;
+}
+
+.display-3 {
+    color: white; 
+    font-weight: bold;
+}
+
+a {
+    color:#70ad47 !important;
+}
+
+a:hover {
+    color: #70ad47 !important;
+}
+
+.partner-container {
+    border: 1px solid lightgray;
+    margin-bottom: 1%;
+    padding: 25px;
+    background-color: white;
+    border-radius: 2px;
+}
+
+.partner-container, .partner-container-description {
+    color: black;
+}
+
+.fa-map-marker {
+    color: #70ad47 !important;
+}
+
+@media only screen and (max-width: 720px){
+    #become-partner {
+        width: 60%;
+        margin-left: 20%;
+        margin-bottom: 10px;
+    }
+}

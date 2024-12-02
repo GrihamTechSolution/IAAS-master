@@ -1,0 +1,319 @@
+<section class="faq-section">
+  <div class="jumbotron faq-jumbo">
+    <h1>Frequently Asked Questions</h1>
+  </div>
+    <div class="container">
+        <div class="row categoryList">
+            <div class="service-item text-center col-md-4 col-xs-12" *ngFor='let cat of faqCategories'>
+                <i class="fa fa-3x {{cat.iconClass}}" style="color: #70ad47">
+
+                </i>
+
+                <h3>{{cat.name}}</h3>
+                <br/>
+                <h3 [innerHTML]='cat.description'>
+                   
+                </h3>
+                <br/>
+                <button class="btn btn-success" (click)='selectCat(cat.id); scroll(faqAnswers)'>
+                    View FAQ’s
+                </button>
+            </div>
+        </div>
+        <br/> <br/>
+        <div class="accordion-box style-one" #faqAnswers>
+          <!--Start single accordion box-->        
+          <div class='accordion animated out' data-delay="0" data-animation="fadeInUp">
+            <div class="acc-btn">
+                <p class="title">Full timeline of application process</p>
+                <div class="toggle-icon">
+                    <span class="plus fa fa-chevron-circle-right"></span><span class="minus fa fa-chevron-circle-down"></span>
+                </div>
+            </div>
+            <div class="acc-content" style="display: none;">
+                <div class="text">    
+                    <div class="row">
+                        <div class="col-md-12">
+                            <!-- The time line -->
+                            <ul class="timeline">
+                              <!-- timeline time label -->
+                              <li class="time-label">
+                                    <span class="bg-red">
+                                      10 Feb. 2014
+                                    </span>
+                              </li>
+                              <!-- /.timeline-label -->
+                              <!-- timeline item -->
+                              <li>
+                                <i class="fa fa-cogs bg-blue"></i>
+                  
+                                <div class="timeline-item">
+                                  <span class="time"><i class="fa fa-user"></i> 12:05</span>
+                  
+                                  <h3 class="timeline-header"><a >Student</a> registered for internships</h3>
+                                  <div class="timeline-body">
+                                    Student applied for internships. Waiting for interwview with ExCo. - Status: <span style="color: red">
+                                    <i class="fa fa-2x fa-close">
+    
+                                    </i></span>
+                                  </div>
+                                </div>
+                              </li>
+                              <!-- END timeline item -->
+                          <li class="time-label">
+                                <span class="bg-red">
+                                  10 Feb. 2014
+                                </span>
+                          </li>
+                          <!-- /.timeline-label -->
+                          <!-- timeline item -->
+                          <li>
+                            <i class="fa fa-cogs bg-blue"></i>
+              
+                            <div class="timeline-item">
+                              <span class="time"><i class="fa fa-user"></i> 12:05</span>
+              
+                              <h3 class="timeline-header"><a >ExCo</a> did the interview</h3>
+                              <div class="timeline-body">
+                                ExCo did the interview with the student and the student passed. Status: <span style="color: red">
+                                <i class="fa fa-2x fa-close">
+    
+                                </i></span>
+                              </div>
+                            </div>
+                          </li>
+                      <li class="time-label">
+                        <span class="bg-red">
+                          10 Feb. 2014
+                        </span>
+                      </li>
+                      <!-- /.timeline-label -->
+                      <!-- timeline item -->
+                      <li>
+                        <i class="fa fa-cogs bg-blue"></i>
+          
+                        <div class="timeline-item">
+                          <span class="time"><i class="fa fa-user"></i> 12:05</span>
+          
+                          <h3 class="timeline-header"><a >Invoice and outgoing student contract sent</a> </h3>
+                          <div class="timeline-body">
+                            <a> <i class="fa fa-download"></i> &nbsp; Invoice</a> &nbsp; <a> <i class="fa fa-download"></i> &nbsp; Contract</a> <br/> 
+                            Invoice is sent to the student. Status: <span style="color: red">
+                            <i class="fa fa-2x fa-close">
+    
+                            </i></span>
+                          </div>
+                        </div>
+                      </li>
+    
+                      <li class="time-label">
+                        <span class="bg-red">
+                          10 Feb. 2014
+                        </span>
+                      </li>
+                      <!-- /.timeline-label -->
+                      <!-- timeline item -->
+                      <li>
+                        <i class="fa fa-cogs bg-blue"></i>
+          
+                        <div class="timeline-item">
+                          <span class="time"><i class="fa fa-user"></i> 12:05</span>
+          
+                          <h3 class="timeline-header"><a >Payment has been made and the outgoing student Contract signed</a> </h3>
+                          <div class="timeline-body">
+                            <a> <i class="fa fa-download"></i> &nbsp; Payment</a> &nbsp; <a> <i class="fa fa-download"></i> &nbsp; Contract</a> <br/>
+                            Student sent the payment. Status: <span style="color: orange">
+                            <i class="fa fa-2x fa-close">
+    
+                            </i></span>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="time-label">
+                        <span class="bg-orange">
+                          11 Feb. 2014
+                        </span>
+                      </li>
+                      <li>
+                        <i class="fa fa-cogs bg-blue"></i>
+          
+                        <div class="timeline-item">
+                          <span class="time"><i class="fa fa-user"></i> 12:05</span>
+          
+                          <h3 class="timeline-header"><a >Student</a> applied for internship</h3>
+                          <div class="timeline-body">
+                            Student sent the application for the internship with all neccessary data. 
+                            Status: <span style="color: orange">
+                            <i class="fa fa-2x fa-close">
+    
+                            </i></span>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="time-label">
+                        <span class="bg-orange">
+                          12 Feb. 2014
+                        </span>
+                      </li>
+                      <li>
+                        <i class="fa fa-cogs bg-blue"></i>
+          
+                        <div class="timeline-item">
+                          <span class="time"><i class="fa fa-user"></i> 12:05</span>
+          
+                          <h3 class="timeline-header"><a >Interview</a> done by Receiving ExCo</h3>
+                          <div class="timeline-body">
+                            Interview was done, and it was successfull.  
+                            Status: <span style="color: orange">
+                            <i class="fa fa-2x fa-close">
+    
+                            </i></span>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="time-label">
+                        <span class="bg-orange">
+                          12 Feb. 2014
+                        </span>
+                      </li>
+                      <li>
+                        <i class="fa fa-cogs bg-blue"></i>
+          
+                        <div class="timeline-item">
+                          <span class="time"><i class="fa fa-user"></i> 12:05</span>
+          
+                          <h3 class="timeline-header"><a >OP Taker</a> reserved the student!</h3>
+                          <div class="timeline-body">
+                            OP Taker successfully reserved the student for the internship!  
+                            Status: <span style="color: green">
+                            <i class="fa fa-2x fa-check">
+    
+                            </i></span>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="time-label">
+                        <span class="bg-green">
+                          13 Feb. 2014
+                        </span>
+                      </li>
+                      <li>
+                        <i class="fa fa-cogs bg-blue"></i>
+          
+                        <div class="timeline-item">
+                          <span class="time"><i class="fa fa-user"></i> 12:05</span>
+          
+                          <h3 class="timeline-header"><a >Contract</a> is signed!</h3>
+                          <div class="timeline-body">
+                            A contract between OP taker and student has been signed! 
+                            Status: <span style="color: green">
+                            <i class="fa fa-2x fa-check">
+    
+                            </i></span>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="time-label">
+                        <span class="bg-green">
+                          13 Feb. 2014
+                        </span>
+                      </li>
+                      <li>
+                        <i class="fa fa-cogs bg-blue"></i>
+          
+                        <div class="timeline-item">
+                          <span class="time"><i class="fa fa-user"></i> 12:05</span>
+          
+                          <h3 class="timeline-header"><a >Student</a> arrived for the internship!</h3>
+                          <div class="timeline-body">
+                            ExCo verified students' arrival for the internship! 
+                            Status: <span style="color: green">
+                            <i class="fa fa-2x fa-check">
+    
+                            </i></span>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="time-label">
+                        <span class="bg-green">
+                          13 Feb. 2014
+                        </span>
+                      </li>
+                      <li>
+                        <i class="fa fa-cogs bg-blue"></i>
+          
+                        <div class="timeline-item">
+                          <span class="time"><i class="fa fa-user"></i> 12:05</span>
+          
+                          <h3 class="timeline-header"><a >Intenrship</a> successfull!</h3>
+                          <div class="timeline-body">
+                            ExCo verified that students' Intenrship was successfull!
+                            Status: <span style="color: green">
+                            <i class="fa fa-2x fa-check">
+    
+                            </i></span>
+                          </div>
+                        </div>
+                      </li>
+                      <li class="time-label">
+                        <span class="bg-green">
+                          13 Feb. 2014
+                        </span>
+                      </li>
+                      <li>
+                        <i class="fa fa-cogs bg-blue"></i>
+          
+                        <div class="timeline-item">
+                          <span class="time"><i class="fa fa-user"></i> 12:05</span>
+          
+                          <h3 class="timeline-header"><a>Student sent testimonial and a review</a></h3>
+                          <div class="timeline-body">
+                            It was a big pleasure going on the internship!
+                            <img src="{{imageSource}}/assets/img/featured_ops1.png" />
+                          </div>
+                        </div>
+                      </li>
+                      <li class="time-label">
+                        <span class="bg-green">
+                          13 Feb. 2014
+                        </span>
+                      </li>
+                      <li>
+                        <i class="fa fa-cogs bg-blue"></i>
+          
+                        <div class="timeline-item">
+                          <span class="time"><i class="fa fa-user"></i> 12:05</span>
+          
+                          <h3 class="timeline-header"><a>Certificate</a> sent to the student!</h3>
+                          <div class="timeline-body">
+                            <a>
+                              <i class="fa fa-download"></i> &nbsp; 
+                              Certificate
+                            </a>
+                          </div>
+                        </div>
+                      </li>
+                            </ul>
+                          </div>
+                    </div>              
+                </div>
+            </div>
+          </div>
+          <ng-container *ngFor='let faq of selectedFAQs'>
+          <div class="accordion animated out" data-delay="0" data-animation="fadeInUp" >
+              <div class="acc-btn">
+                  <p class="title">{{faq.faqTitle}}</p>
+                  <div class="toggle-icon">
+                      <span class="plus fa fa-chevron-circle-right"></span><span class="minus fa fa-chevron-circle-down"></span>
+                  </div>
+              </div>
+              <div class="acc-content" style="display: none;">
+                  <div class="text" [innerHTML]='faq.faqContent | safeHtml'>    
+                                      
+                </div>
+              </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+</section>

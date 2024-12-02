@@ -1,0 +1,362 @@
+<div class="jumbotron exproint-jumbo" style="margin-bottom: 0 !important">
+    <div class="container">
+        <h1 class="display-3">Internship Hub</h1>
+        <br>
+        <p>Check out our great internships!</p>
+    </div>
+</div>
+<div style="background: url('{{imageSource}}/assets/img/background.jpg'); margin-top: 0 !important;">
+
+
+<section class="content container" >
+    <div class="">
+        <div class="col-md-12 applicatons-remaining">
+            <p class="pull-right" style="color:black; font-weight: bold;">
+                <button class="btn btn-success" *ngIf='userData && !hasItInFavourite' (click)='saveInternshipToFavourites()'>
+                    <i class="fa fa-save"></i> &nbsp; 
+                    Save to Favourites
+                </button> &nbsp;
+                <button class="btn btn-danger" *ngIf='userData && hasItInFavourite' (click)='removeInternshipFromFavourites()'>
+                    <i class="fa fa-trash"></i> &nbsp; 
+                    Remove from Favourites
+                </button> &nbsp;
+                <span *ngIf='userData'>You have {{remainingApplications}} applications remaining.</span>
+            </p>
+        </div>
+        <div class="col-md-12 padding-top-2pct">
+          <div class="box box-success" style="border-top-color: #70ad47 !important;">
+            <div class="box-header">
+              <h2>Internship details - {{internship.name}}</h2>
+              <div class="row" style="margin-top: 2em;">
+                <!-- <div id="logo" class="col-md-2">
+                    <img src="{{uploadImageSource}}/{{internship.op_taker.logo}}" style="max-height: 200px;"/>
+                </div> -->
+                <div id="logo" class="col-md-2">
+                    <img *ngIf="internship.typeID === 1" src="{{imageSource}}/assets/img/Program Archimedes Type-B.png" style="max-height: 300px"/>
+                    <img *ngIf="internship.typeID === 2" src="{{imageSource}}/assets/img/Program Libertas Type-B.png" style="max-height: 300px" />
+                    <img *ngIf="internship.typeID === 3" src="{{imageSource}}/assets/img/Porgram Ceres Type-B.png" style="max-height: 300px" />
+                </div>
+                <div id="logo" class="col-md-10">
+                    <p>{{ internship.description }}</p>
+                </div>
+               
+              </div>
+            </div>
+            <div id="main-information">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h5>Meals per day</h5>
+                        <p *ngIf="internship.mealsPerDay > 0">{{internship.mealsPerDay}}</p>
+                        <p *ngIf="internship.mealsPerDay === 0 || !internship.mealsPerDay">NOT PROVIDED</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h5>Spot availability</h5>
+                        <p>{{internship.spotAvailability}}</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h5>Working Hours</h5>
+                        <p>{{internship.workingHours}}</p>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 1em;">
+                    <div class="col-md-4">
+                        <h5>Accomodation</h5>
+                        <p *ngIf="internship.accomodation===1">YES</p>
+                        <p *ngIf="internship.accomodation===0 || !internship.accomodation">NO</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h5>Duration</h5>
+                        <p>{{internship.minLength}} (min) - {{ internship.maxLength }} (max) days</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h5>Working Hours per week</h5>
+                        <p>{{internship.workingHoursPerWeek}}</p>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 1em">
+                    <div class="col-md-4">
+                        <h5>Salary</h5>
+                        <p *ngIf="internship.salary===1">${{internship.salaryInfo}}</p>
+                        <p *ngIf="internship.salary===0 || !internship.salary">NO</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h5>Language</h5>
+                        <p>{{mapIdToLanguages(internship.languages)}}</p>
+                    </div>
+                    <div class="col-md-4">
+                       
+                    </div>
+                </div>
+            </div>
+            
+            <div id="additional-information" style="margin-top: 2em;">
+                <h3 style="font-weight: bold; margin-bottom: 1em;">Additional Information</h3>
+                <div class="row" style="margin-top: 1em">
+                    <div class="col-md-4">
+                        <h5>Social Aspects</h5>
+                        <p>{{internship.socialAspects}}</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h5>Other info</h5>
+                        <p>{{internship.other}}</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h5>Background Fields</h5>
+                        <p>{{ internship.backgroundFieldsArr }}</p>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 1em">
+                    <div class="col-md-4">
+                        <h5>Does student need to be capable to drive a tractor?</h5>
+                        <p *ngIf="internship.drivingTractor===1">YES</p>
+                        <p *ngIf="internship.drivingTractor===0 || !internship.drivingTractor">NO </p>
+                    </div>
+                    <div class="col-md-4">
+                        <h5>Is contract signing mandatory?</h5>
+                        <p *ngIf="internship.contract===1">YES</p>
+                        <p *ngIf="internship.contract===0 || !internship.contract">NO </p>
+                    </div>
+                    <div class="col-md-4">
+                        <h5>Does student need to be physicaly fit?</h5>
+                        <p *ngIf="internship.fit===1">YES</p>
+                        <p *ngIf="internship.fit===0 || !internship.fit">NO </p>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 1em">
+                    <div class="col-md-4">
+                        <h5>Gender Preference</h5>
+                        <p *ngIf="internship.gender===1">MALE</p>
+                        <p *ngIf="internship.gender===2">FEMALE</p>
+                        <p *ngIf="internship.gender===3 || !internship.gender">NO</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h5>Are students with little experience accepted?</h5>
+                        <p *ngIf="internship.littleExperience===1">YES</p>
+                        <p *ngIf="internship.littleExperience===0 || !internship.littleExperience">NO </p>
+                    </div>
+                    <div class="col-md-4">
+                        <h5>Is driving licence needed?</h5>
+                        <p *ngIf="internship.drivingLicence===1">YES</p>
+                        <p *ngIf="internship.drivingLicence===0 || !internship.drivingLicence">NO </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 2em;">
+                <div class="col-md-4 col-sm-6 col-xs-12" *ngFor='let i of internship.images'>
+                    <img src="{{uploadImageSource}}/{{i.imagePath}}" style="width: 100%;">
+                </div>
+            </div>
+            <!-- <div class="box-body">
+                
+                <form role="form">
+                    <div class="row">
+                       
+                        <div class="col-md-3 col-sm-12">
+                        
+
+                            <div class="form-group">
+                                <label>Background fields</label>
+                                <ng-select  [items]="backgroundFields"
+                                            aria-placeholder="Country"
+                                            bindLabel="name"
+                                            bindValue="name"
+                                            name="fieldList"
+                                            [multiple]='true'
+                                            [addTag]='true'
+                                            maxSelectedItems='3'
+                                            [(ngModel)]='internship.backgroundFieldsArr'
+                                            disabled='disabled'>
+                                </ng-select>
+                            </div>
+                            <div class="form-group">
+                                <label>Working hours per day</label>
+                                <input disabled='disabled' type="number" name="workingHours" [(ngModel)]='internship.workingHours' class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label>Working days per week</label>
+                                <input disabled='disabled' type="number" name="workingHoursPerWeek" [(ngModel)]='internship.workingHoursPerWeek' class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label>Salary?</label>
+                                <input disabled='disabled' type="checkbox" name="salary" [(ngModel)]='internship.salary' />
+                            </div>
+                            <div class="form-group" *ngIf='internship.salary'>
+                                <label>Salary amount ($)</label>
+                                <input disabled='disabled' type="number" step="0.01" name="salaryInfo" [(ngModel)]='internship.salaryInfo' class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label>Language requirement</label>
+                                <ng-select class='cursor-not-allowed' disabled='disabled' [items]="languages"
+                                            aria-placeholder="Country"
+                                            bindLabel="name"
+                                            bindValue="id"
+                                            [multiple]='true'
+                                            name="selectedLanguageID"
+                                            [(ngModel)]='internship.languagesArr'>
+                                </ng-select>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-12">
+                            <div class="form-group">
+                                <label>Country</label>
+                                <ng-select class='cursor-not-allowed' [items]="countries"
+                                            aria-placeholder="Country"
+                                            bindLabel="name"
+                                            bindValue="id"
+                                            [(ngModel)]='internship.countryID'
+                                            name='country'
+                                            [disabled]='true'
+                                            >
+                                </ng-select>
+                            </div>
+                          
+                            
+                            <div class="form-group">
+                                <label>Min Duration (in days)</label>
+                                <input class="form-control" type="number" name="minLen" step="1" [(ngModel)]='internship.minLength' disabled='disabled'>
+                            </div>
+                            <div class="form-group">
+                                <label>Max Duration (in days)</label>
+                                <input class="form-control" type="number" name="maxLen" step="1" [(ngModel)]='internship.maxLength' disabled='disabled'>
+                            </div>
+                            <div class="form-group">
+                                <label>Spot availability</label>
+                                <input class="form-control" type="text" name="spot" [(ngModel)]='internship.spotAvailability' disabled='disabled'/>
+                            </div>
+                            <div class="form-group">
+                                <label>Is contract signing mandatory?</label>
+                                <input disabled='disabled' type="checkbox" name="contract" [(ngModel)]='internship.contract' />
+                                <hr/>
+                            </div>
+                            <div class="form-group">
+                                <label>Are students with little experience accepted?</label>
+                                <input disabled='disabled' type="checkbox" name="food" [(ngModel)]='internship.littleExperience' />
+                                <hr/>
+                            </div>
+                            <div class="form-group">
+                                <label>Is driving licence needed?</label>
+                                <input disabled='disabled' type="checkbox" name="food" [(ngModel)]='internship.drivingLicence' />
+                                <hr/>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-12">
+                            <div class="form-group">
+                                <label>OP Taker</label>
+                                <ng-select [items]="opTakers"
+                                            aria-placeholder="Country"
+                                            bindLabel="name"
+                                            bindValue="id"
+                                            name="opTaker"
+                                            [(ngModel)]='internship.opTakerID'
+                                            [disabled]='true'>
+                                </ng-select>
+                            </div>
+                            <div class="form-group">
+                                <label>Food/meals included?</label>
+                                <input disabled='disabled' type="checkbox" name="food" [(ngModel)]='internship.food' />
+                            </div>
+                            <div class="form-group" *ngIf='internship.food'>
+                                <label>Meals per day</label>
+                                <input disabled='disabled' type="number" name="mealsPerDay" [(ngModel)]='internship.mealsPerDay' class="form-control" />
+                            </div>
+                           
+                            <div class="form-group">
+                                <label>Does student need to be capable to drive a tractor?</label>
+                                <input disabled='disabled' type="checkbox" name="drivingTractor" [(ngModel)]='internship.drivingTractor' />
+                                <hr/>
+                            </div>
+                            <div class="form-group">
+                                <label>Does student need to be physicaly fit?</label>
+                                <input disabled='disabled' type="checkbox" name="food" [(ngModel)]='internship.fit' />
+                                <hr/>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-12">
+                            <div class="form-group">
+                                <label>Social aspects</label>
+                                <textarea disabled='disabled'  class="form-control" 
+                                            [(ngModel)]='internship.socialAspects' 
+                                            name="socialAspects" 
+                                            placeholder="Social aspects of internship"></textarea>
+                            </div> 
+                            <div class="form-group">
+                                <label>Any other info</label>
+                                <textarea disabled='disabled'  class="form-control" 
+                                            [(ngModel)]='internship.other' 
+                                            name="other" 
+                                            placeholder="Other details"></textarea>
+                            </div> 
+                            <div class="form-group">
+                                <label>Accomodation?</label>
+                                <input disabled='disabled' type="checkbox" name="food" [(ngModel)]='internship.accomodation' />
+                                <hr/>
+                            </div>
+                            <div class="form-group">
+                                <label>Gender Preference</label>
+                                <select disabled='disabled' name="gender" [(ngModel)]='internship.gender' class="form-control">
+                                    <option value="1">Male</option>
+                                    <option value="2">Female</option>
+                                    <option value="3">No preference</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div class="row">
+                    <div class="col-md-4 col-sm-6 col-xs-12 text-center" *ngFor='let i of internship.images'>
+                        <img src="{{uploadImageSource}}/{{i.imagePath}}" style="width: 90%; margin-left: 5%;">
+                    </div>
+                </div>
+            </div> -->
+            <div class="box-footer" style="margin-top: 2em;">
+                <div *ngIf='!canApply' style="font-size: 20px;">
+                    <b>IMPORTANT NOTICE: </b>
+                    You cannot apply until you fill complete data about your profile. 
+                    Go to <a href="/profile">My profile</a> section and fill everything from Account Data (First Name and Last Name), Student Info and Emergency Contact sections. 
+                    <hr />
+                </div>
+                <button type="button" class="btn btn-success" (click)='showApplyModal()' [disabled]='remainingApplications == 0 || !canApply'>
+                    <i class="fa fa-upload"></i> &nbsp;
+                    Apply</button> &nbsp; &nbsp; 
+
+                    <button type="button" class="btn btn-success" routerLink='/expro/internships'>
+                        <i class="fa fa-arrow-left"></i> &nbsp;
+                        Back to internships</button>
+            </div>
+          </div>
+        </div>
+    </div>
+    
+</section>
+</div>
+<ng-template #applyModal>
+    <div class="modal-header">
+        <h1>You are applying for:</h1>
+        <h3 class="green-heading">{{internship.name}}</h3>
+    </div>
+    <div class="modal-body">
+        <p style="color: black;">
+            We wish you good luck! 
+            In order to complete the application, upload motivational letter.
+        </p>
+        <hr/>
+        <div class="form-group">
+            <label>Motivational Letter</label>
+            <input ng2FileSelect
+            [uploader]='uploader' type="file" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>When you can start? </label>
+            <input type="date" class="form-control" [(ngModel)]='application.from' />
+        </div>
+        <div class="form-group">
+            <label>Until when are you available? </label>
+            <input type="date" class="form-control" [(ngModel)]='application.to' />
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-success" (click)='apply()'>
+            <i class="fa fa-upload"></i> &nbsp;
+            Apply</button>
+    </div>
+</ng-template>

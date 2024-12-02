@@ -1,0 +1,135 @@
+<div class="">
+  <div class="col-md-12 padding-top-2pct">
+    <div class="box box-success">
+      <div class="box-header">
+        <h3 class="box-title">Add/edit voting</h3>
+      </div>
+      <div class="box-body">
+        <form role="form">
+          <div class="box-body">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Name</label>
+                  <input type="text" name="name" class="form-control" placeholder="Name" [(ngModel)]='voting.name' />
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Date of start</label>
+                  <input type="datetime-local" name="dateOfStart" class="form-control" placeholder="Date of start"
+                    [ngModel]="voting.dateOfStart | date:'yyyy-MM-ddTHH:mm'" (ngModelChange)="voting.dateOfStart=$event" />
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label>Date of end</label>
+                  <input type="datetime-local" name="dateOfEnd" class="form-control" placeholder="Date of end"
+                    [ngModel]="voting.dateOfEnd | date:'yyyy-MM-ddTHH:mm'" (ngModelChange)="voting.dateOfEnd=$event"/>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label>Description <i>(this will be sent to voters by email)</i></label>
+                  <textarea type="text" name="description" class="form-control" placeholder="Description"
+                    [(ngModel)]='voting.description' style="overflow-y: scroll;"></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Voting type</label>
+                  <ng-select [items]="votingTypes" bindLabel="name" bindValue="id" name="selectedVotingTypeID"
+                    [(ngModel)]='voting.votingTypeID'>
+                  </ng-select>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Region</label>
+                  <ng-select [items]="regions" bindLabel="name" bindValue="id" name="selectedRegionID"
+                    [(ngModel)]='voting.regionID' [disabled]="voting.votingTypeID != 2">
+                  </ng-select>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="box-footer">
+            <button type="submit" class="btn btn-success" (click)='validateInput()' [disabled]="voting.isActive">
+              <i class="fa fa-save"></i>&nbsp;Save</button>
+
+            <button type="submit" class="btn btn-success" (click)='confirmVoting()' style="margin-left: 20px;" [disabled]="voting.isActive">
+              <i class="fa fa-check"></i>&nbsp;Confirm</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-12 padding-top-2pct" *ngIf="voting.id">
+    <div class="box box-success">
+      <div class="box-header">
+        <h3 class="box-title">Questions</h3>
+        <br /> <br />
+        <button class="btn btn-success"
+          [routerLink]="['/administration', 'addeditvoting', voting.id, 'addeditvotingquestion']"
+          *ngIf='userData?.userTypeID == 3 || userData?.userTypeID == 4' [disabled]="voting.isActive">
+          <i class="fa fa-plus"></i>&nbsp;Add voting question
+        </button>
+      </div>
+
+      <div class="box-body">
+        <table class="table table-striped table-bordered" [mfData]="voting.votingQuestions" #mf="mfDataTable"
+          [mfRowsOnPage]="5">
+          <thead>
+            <tr>
+              <th style="width: 40%">
+                <mfDefaultSorter by="code">Type</mfDefaultSorter>
+              </th>
+              <th style="width: 50%">
+                <mfDefaultSorter by="region">Question</mfDefaultSorter>
+              </th>
+              <th style="width: 10%" *ngIf="!voting.isActive">
+                <mfDefaultSorter>Action</mfDefaultSorter>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of mf.data">
+              <td>{{item.votingQuestionType.name}}</td>
+              <td>{{item.question}}</td>
+              <td>
+                <button class="btn btn-primary" *ngIf="!voting.isActive"
+                  [routerLink]="['/administration', 'addeditvoting', voting.id, 'addeditvotingquestion', item.id]">
+                  <i class="fa fa-pencil"></i>&nbsp;Edit
+                </button>
+                <button class="btn btn-warning" *ngIf="voting.isActive"
+                  [routerLink]="['/administration', 'addeditvoting', voting.id, 'addeditvotingquestion', item.id]">
+                  <i class="fa fa-list"></i>&nbsp;View
+                </button>
+                <br /> <br />
+                <button *ngIf='userData?.userTypeID == 3 || userData?.userTypeID == 4' class="btn btn-danger"
+                  (click)='deleteQuestion(item)' [disabled]="voting.isActive">
+                  <i class="fa fa-trash"></i>&nbsp;Delete
+                </button>
+              </td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="5">
+                <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</div>

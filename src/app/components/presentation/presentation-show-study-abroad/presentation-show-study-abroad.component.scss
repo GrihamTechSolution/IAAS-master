@@ -1,0 +1,55 @@
+$imageSource: "https://iaas-world-space-prd.s3.ap-south-1.amazonaws.com";
+
+.pg {
+    background: url('#{$imageSource}/assets/img/background.jpg');
+}
+
+.fa-map-marker {
+    color: #70ad47;
+}
+
+@media only screen and (min-width: 720px){
+    .learn-more-button {
+        background-color: #70ad47;
+        font-size: 20px;
+        color: white; 
+        font-weight: bold;
+        border-color: #70ad47 !important;
+        align-items: center;
+        vertical-align: middle;
+    }
+}
+
+@media only screen and (max-width: 720px){
+    .learn-more-button {
+        background-color: #70ad47;
+        font-size: 20px;
+        color: white; 
+        font-weight: bold;
+        border-color: #70ad47 !important;
+        align-items: center;
+        vertical-align: middle;
+        margin: 5px;
+    }
+}
+
+.jumbotron {
+    background-color: #70ad47;
+    font-size: 3em;
+    color: white; 
+    font-weight: bold;
+}
+
+.justified {
+    text-align: justify;
+    justify-items: center;
+}
+
+.study-abroad-program-about {
+    // color: black;
+}
+
+.about-section {
+    background-color: white;
+    border-radius: 10px;;
+}

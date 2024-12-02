@@ -1,0 +1,444 @@
+<div class="profile-component">
+  <section class="content container">
+    <div class="box box-success">
+      <div class="box-header">
+        <h2>My profile</h2>
+      </div>
+        <div class="box-body">
+            <div class="row">
+                <!-- <div class="col-md-3"> -->
+          
+                  <!-- Profile Image -->
+                  <!-- <div class="box box-success">
+                    <div class="box-body box-profile">
+                      <img class="profile-user-img img-responsive img-circle" src="./../../assets/img/user1-128x128.jpg" alt="User profile picture">
+          
+                      <h3 class="profile-username text-center">My profile</h3>
+          
+                      <p *ngIf='user.userTypeID == 2' class="text-muted text-center">OP Taker</p>
+                      <p *ngIf='user.userTypeID == 1' class="text-muted text-center">Student
+                    </div> -->
+                    <!-- /.box-body -->
+                  <!-- </div> -->
+                  <!-- /.box -->
+          
+                <!-- </div> -->
+                <!-- /.col -->
+                <div class="col-md-12">
+                  <div class="nav-tabs-custom">
+                    <ul class="nav nav-tabs">
+                      <li id='accountInfoLi' class="active"><a href="#account" data-toggle="tab" aria-expanded="false">Account</a></li>
+                      <li class="" *ngIf='userData.userTypeID == 2'><a href="#genInfo" data-toggle="tab" aria-expanded="false">General Info</a></li>
+                      <li class="" *ngIf='userData.userTypeID == 2'><a href="#contacts" data-toggle="tab" aria-expanded="true">Contacts</a></li>
+                      <li class="" *ngIf='userData.userTypeID == 1'><a href="#studentInfo" data-toggle="tab" aria-expanded="false">Student Info</a></li>
+                      <li class="" *ngIf='userData.userTypeID == 1'><a href="#emergencyContact" data-toggle="tab" aria-expanded="false">Emergency Contact</a></li>
+                      <li id='internshipInfoLi' class="" *ngIf='userData.userTypeID == 1'><a href="#internships" data-toggle="tab" aria-expanded="false">My Internships</a></li>
+                      <li class="" *ngIf='userData.userTypeID == 2'><a href="#opTakerInternships" data-toggle="tab" aria-expanded="false">My Internships</a></li>
+                      <li><a href="#deleteAccount" data-toggle="tab" aria-expanded="false">Delete Account</a></li>
+                     
+                    </ul>
+                    <div class="tab-content">
+                      <div class="tab-pane active" id="account">
+                        <div class="row">
+                          <div class="col-md-6">
+                            <h3 style="color:#00a65a;">Account data</h3>
+                            <div class="form-group">
+                              <label>Email</label>
+                              <input disabled type="email" [(ngModel)]='user.email' class='form-control' name="email"/>
+                            </div>
+                            <div class="form-group">
+                              <label>Name</label>
+                              <input type="text" [(ngModel)]='user.firstName' class='form-control' name="name"/>
+                            </div>
+                            <!-- <div class="form-group" *ngIf='user.userTypeID == 1'> -->
+                            <div class="form-group">
+                              <label>Last Name</label>
+                              <input type="text" class='form-control' [(ngModel)]='user.lastName' name="lastName"/>
+                            </div>
+                            <div class="form-group">
+                              <button class="btn btn-success" (click)='updateUser()'>
+                                <i class="fa fa-save"></i>
+                                Save
+                              </button>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <h3 style="color:#00a65a;">Change Password</h3>
+                            <div class="form-group">
+                              <label>Current Password:</label>
+                              <input type="password" class='form-control' name="password" [(ngModel)]='user.password'  />
+                            </div>
+                            <div class="form-group">
+                              <label>New Password:</label>
+                              <input type="password" name="pass" class='form-control' [(ngModel)]='user.newPassword' />
+                            </div>
+                            <div class="form-group">
+                              <label>Confirm Password:</label>
+                              <input type="password" name="confirmPass" class='form-control' [(ngModel)]='user.confirmPassword' />
+                            </div>
+                          </div>
+                        </div>
+                        
+                      </div>
+                      
+                      <div class="tab-pane" id="genInfo">
+                        <div class="row">
+                          <div class='col-md-6'>
+                            <div class="form-group">
+                              <label>OPTaker Type</label>
+                              <ng-select [items]="opTakerTypes"
+                                        bindLabel="name"
+                                        bindValue="name"
+                                        name="selectedCountryID"
+                                        [(ngModel)]='opTaker.opTakerType'>
+                            </ng-select>
+                            </div>
+                            <div class="form-group">
+                              <label>Website</label>
+                              <input type="text" [(ngModel)]="opTaker.website" class="form-control" name="website" />
+                            </div>
+                            <div class="form-group">
+                              <label>Region/State</label>
+                              <input type="text" [(ngModel)]='opTaker.region' class="form-control" name="region" />
+                            </div>
+                            <div class="form-group">
+                              <label>Town/City</label>
+                              <input type="text" [(ngModel)]='opTaker.town' class="form-control" name="town" />
+                            </div>
+                            <div class="form-group">
+                              <label>About</label>
+                              <textarea class="form-control" rows="10" [(ngModel)]='opTaker.aboutUs' name="about"></textarea>
+                            </div>
+                            <div class="form-group">
+                              <button type="button" (click)='initSaveOPTaker()' class="btn btn-success">
+                                <i class="fa fa-save"></i>
+                                Save</button>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label>Upload new photo</label>
+                              <input type='file' name='doc' class="form-control"
+                              ng2FileSelect
+                              [uploader]='uploader' />
+                            </div>
+                            <div class="row">
+                              <h4>Current photo</h4>
+                              <img src="{{uploadImageSource}}/{{opTaker.logo}}" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- /.tab-pane -->
+                      <div class="tab-pane" id="contacts">
+                        <div class="row" *ngFor='let contact of contacts'>
+                          <div class="col-md-12"  *ngIf='contact.status != 3'>
+                            <div class="col-md-4">
+                              <label>Name</label>
+                              <input type="text" name="name" [(ngModel)]='contact.name' class="form-control" />
+                            </div>
+                            <div class="col-md-4">
+                              <label>Email</label>
+                              <input type="email" name="email" [(ngModel)]='contact.email' class="form-control"/>
+                            </div>
+                            <div class="col-md-4">
+                              <label>Phone Number (with country code)</label>
+                              <input type="text" name="phone" [(ngModel)]='contact.phoneNumber' class="form-control"/>
+                            </div>
+                            <div class="col-md-4">
+                              <label>Country</label>
+                              <ng-select [items]="countries"
+                                        bindLabel="name"
+                                        bindValue="id"
+                                        name="selectedCountryID"
+                                        [(ngModel)]='contact.countryID'></ng-select>
+                            </div>
+                            <div class="col-md-4">
+                              <label>Town/City</label>
+                              <input type="text" name="town" [(ngModel)]='contact.town' class="form-control" />
+                            </div>
+                            <div class="col-md-4">
+                              <label>Remove</label> <br/>
+                              <button class="btn btn-danger" (click)='removeContact(contact.id);'>
+                                <i class="fa fa-trash"></i> &nbsp;
+                                Remove contact
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                        <hr />
+                        <div class="row container">
+                          <button class="btn btn-primary" (click)='addContact()'>
+                            <i class="fa fa-plus"></i>
+                            Add Contact
+                          </button> &nbsp; &nbsp;
+
+                          <button class="btn btn-success" (click)='saveContacts()'>
+                            <i class="fa fa-save"></i> 
+                            Save contacts
+                          </button>
+                        </div>
+                      </div>
+                      <!-- /.tab-pane -->
+          
+                      <div class="tab-pane" id="internships">
+                        <br/>
+                        <h5>My applications</h5>
+                        <br/>
+                        <table class="table table-striped">
+                          <thead>
+                            <tr>
+                              <th>
+                                Name
+                              </th>
+                              <th>
+                                Country
+                              </th>
+                              <th>
+                                Status
+                              </th>
+                              <th>
+                                Timeline
+                              </th>
+                              <th></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor='let app of studentApplications'>
+                              <td>{{app.internship.name}}</td>
+                              <td>{{app.internship.country.name}}</td>
+                              <td>
+                                <span style="color:red;" *ngIf='app.step <= 3'>
+                                  <i class="fa fa-close"></i> &nbsp;
+                                  RED LIGHT</span>
+
+                                  <span style="color:orange;" *ngIf='app.step > 3 && app.step < 8'>
+                                    <i class="fa fa-close"></i> &nbsp;
+                                    ORANGE LIGHT</span>
+
+                                    <span style="color:green;" *ngIf='app.step > 8'>
+                                      <i class="fa fa-check"></i> &nbsp;
+                                      GREEN LIGHT</span>
+                              </td>
+                              <td>
+                                <button class="btn btn-success" routerLink='/internshipStatus/{{app.id}}'>
+                                  <i class="fa fa-search">
+
+                                  </i> &nbsp;
+                                  View timeline
+                                </button>
+                              </td>
+                              <td>
+                                <span *ngIf='app.status && app.status == 2' style="background-color: orangered;" class="badge badge-pill badge-danger">Archived</span>
+                                <span *ngIf='app.status && app.status == 1' style="background-color: red;" class="badge badge-pill badge-danger">Cancelled</span>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+
+                      <div class="tab-pane" id='opTakerInternships'>
+                        <br/>
+                        <h5>My Internships</h5>
+                        <button class="btn btn-success pull-right">
+                          <i class="fa fa-plus">
+                            
+                          </i>
+                          &nbsp;
+                          Add new Internship
+                        </button>
+                        <br/> <br/> <br/>
+                        <table class="table table-striped">
+                          <thead>
+                            <tr>
+                              <th>
+                                Name
+                              </th>
+                              <th>
+                                Student Name
+                              </th>
+                              <th>
+                                Student Last Name
+                              </th>
+                              <th>
+                                Motivational Letter
+                              </th>
+                              <th>
+                                Status
+                              </th>
+                              <th>
+                                Timeline
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            
+                          </tbody>
+                        </table>
+                      </div>
+
+                      <div class="tab-pane" id='emergencyContact'>
+                        <div class="row">
+                          <div class="col-md-3 col-sm-12">
+                            <div class="form-group">
+                              <label>First Name</label>
+                              <input type="text" name="name" [(ngModel)]='student.ecName' class="form-control"/>
+                            </div>
+                            <div class="form-group">
+                              <label>Address</label>
+                              <textarea name="ecAddress" [(ngModel)]='student.ecAddress' class="form-control"></textarea>
+                            </div>
+                            <div class="form-group">
+                              <button class="btn btn-success" (click)='updateStudent()'>
+                                <i class="fa fa-save"></i> &nbsp;
+                                Save
+                              </button>
+                            </div>
+                          </div>
+                          <div class="col-md-3 col-sm-12">
+                            <div class="form-group">
+                              <label>Last Name</label>
+                              <input type="text" name="surname" [(ngModel)]='student.ecSurname' class="form-control"/>
+                            </div>
+                            <div class="form-group">
+                              <label>Relation with student</label>
+                              <textarea name="ecRelation" [(ngModel)]='student.ecRelation' class="form-control"></textarea>
+                            </div>
+                          </div>
+                          <div class="col-md-3 col-sm-12">
+                            <div class="form-group">
+                              <label>Phone Number (with country code)</label>
+                              <input type="text" name="ecPhone" [(ngModel)]='student.ecPhone' class="form-control" />
+                            </div>
+                          </div>
+                          <div class="col-md-3 col-sm-12">
+                            <div class="form-group">
+                              <label>Email</label>
+                              <input type="text" name="ecEmail" [(ngModel)]='student.ecEmail' class="form-control" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="tab-pane" id='studentInfo'>
+                        <div class="row">
+                          <div class="col-md-4 col-sm-12">
+                            <label>Photo</label>
+                            <img style="width:100%" src="{{uploadImageSource}}/{{student.imagePath}}" alt="No current photo" />
+
+                            <br/> <br/>
+                            <div class="form-group">
+                              <label>Upload new photo</label>
+                              <input type="file"   ng2FileSelect
+                              [uploader]='studentImgUploader'/>
+                            </div>
+                            <hr/>
+                            <div class="form-group">
+                              <label>CV</label> <br/>
+                              <a *ngIf='student.bioPath' target="__blank" href="{{uploadImageSource}}/{{student.bioPath}}" download>
+                                <i class="fa fa-download"></i> &nbsp;
+                                Download
+                              </a>
+                            </div>
+                            <div class="form-group">
+                              <label>Upload new CV</label>
+                              <input type="file"  ng2FileSelect
+                              [uploader]='studentBioUploader' />
+                            </div>
+                            <hr/>
+                            <div class="form-group">
+                              <label>University - Proof of enrollment</label> <br/>
+                              <a *ngIf='student.proofPath' target="__blank" href="{{uploadImageSource}}/{{student.proofPath}}" download>
+                                <i class="fa fa-download"></i> &nbsp;
+                                Download
+                              </a>
+                            </div>
+                            <div class="form-group">
+                              <label>Upload proof of enrollment (Add your diploma if you 
+                                already graduated)</label>
+                              <input type="file"  ng2FileSelect
+                              [uploader]='studentProofUploader' />
+                            </div>
+                            <hr/>
+                            <div class="form-group">
+                              <button type="button" (click)='saveStudent()' class="btn btn-success">
+                                <i class="fa fa-save"></i>
+                                Save</button>
+                            </div>
+                          </div>
+                          <div class="col-md-4 col-sm-12">
+                            <div class="form-group">
+                              <label>Phone Number (with country code)</label>
+                              <input type="text" class="form-control" [(ngModel)]='student.phoneNumber' name="studentPhone" />
+                            </div>
+                            <div class="form-group">
+                              <label>
+                                How did you hear for expro? 
+                              </label>
+                              <select class="form-control" [(ngModel)]='student.infoAboutExpro' name="infoAboutExpro">
+                                <option value="1">Email</option>
+                                <option value="2">Website</option>
+                                <option value="3">Friend</option>
+                                <option value="4">Facebook</option>
+                                <option value="5">Instagram</option>
+                                <option value="6">LinkedIn</option>
+                                <option value="7">Other</option>
+                              </select>
+                            </div>
+                            <div class="form-group">
+                              <label>Do you want to receive emails regarding ExPro?</label>
+                              <input type="checkbox" [(ngModel)]='student.emails' name="emails" />
+                              <hr/>
+                            </div>
+                          </div>
+                          <div class="col-md-4 col-sm-12">
+                            <div class="form-group">
+                              <label>University</label>
+                              <input type="text" class="form-control" [(ngModel)]='student.university' name="university" />
+                            </div>
+                            <div class="form-group">
+                              <label>LinkedIn</label>
+                              <input type="text" class="form-control" [(ngModel)]='student.linkedIn' name="linkedIn" />
+                            </div>
+                            <div class="form-group">
+                              <label>Are you a IAAS member?</label>
+                              <input type="checkbox" [(ngModel)]='student.iaasMember' name="iaasMember" />
+                              <hr/>
+                            </div>
+                            <div class="form-group">
+                              <label>About me</label>
+                              <textarea class="form-group" name="biography" class="form-control" [(ngModel)]='student.biography'></textarea>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="tab-pane" id='deleteAccount'>
+                        <h3 style="color: #70ad47">Important Notice</h3>
+                        <p style="color: black;">
+                          By deleting account you will delete all data you used on the platform, that includes
+                          profile data, internship data, your articles and comments, as well as all the contributions
+                          you made to our organization. 
+                        </p>
+                        <div class="pull-right">
+                          <br/>
+                          <input type="checkbox" [(ngModel)]='confirmDelete' /> I am aware of the consequences, I want to delete my account
+                          <button [disabled]='!confirmDelete' class="btn btn-default" (click)='deleteUser()'>
+                            <i class="fa fa-trash"></i> &nbsp; Delete Account
+                          </button>
+                        </div>
+                      </div>
+                      <!-- /.tab-pane -->
+                    </div>
+                    <!-- /.tab-content -->
+                  </div>
+                  <!-- /.nav-tabs-custom -->
+                </div>
+                <!-- /.col -->
+              </div>
+        </div>
+    
+    <!-- /.row -->
+</div>
+</section>
+</div>

@@ -1,0 +1,56 @@
+<section class="contact-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-12 col-xs-12">
+        <img id="become-partner" src="/assets/img/vp_external.png" />
+      </div>
+      <div class="col-md-9 col-sm-12 col-xs-12">
+        <div class="jumbotron partner-jumbo no-margin">
+          <div class="container">
+            <h1 class="display-3">Become our Sponsor</h1>
+            <h3 class="display-3">Let's make a better world in agriculture!</h3>
+          </div>
+        </div>
+
+        <div>
+          <h3>Contact:</h3>
+          <a href="mailto:vppartnership@iaasworld.org">
+            vppartnership@iaasworld.org
+          </a>
+        </div>
+
+        <div class="">
+          <h2
+            class="page-title text-center"
+            style="color: #00a45f; margin-bottom: 15px">
+            Our sponsors
+          </h2>
+          <div class="row">
+            <div
+              class="col-md-12 col-sm-12 partner-container"
+              *ngFor="let s of sponsors">
+              <div class="col-md-4 col-sm-12">
+                <img src="{{ uploadImageSource }}/{{ s.imagePath }}" />
+              </div>
+              <div class="col-md-6 col-sm-12">
+                <h1>{{ s.name }}</h1>
+                <p class="partner-container-description">
+                  {{ s.description }}
+                </p>
+              </div>
+              <div class="col-md-2 col-sm-12">
+                <a
+                  style="color: white !important"
+                  class="learn-more-button btn btn-success"
+                  target="__blank"
+                  href="{{ s.website }}">
+                  Visit Website!
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

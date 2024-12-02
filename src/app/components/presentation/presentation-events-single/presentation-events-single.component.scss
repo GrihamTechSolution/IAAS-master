@@ -1,0 +1,84 @@
+$imageSource: "https://iaas-world-space-prd.s3.ap-south-1.amazonaws.com";
+
+.content-hub-jumbotron-inner {
+    text-align:center; 
+    position: absolute; 
+    width: 50%; 
+    left: 25%; 
+    top:40%;
+    color: white;
+    font-weight: bold;
+    background-color: rgba($color: #000000, $alpha: 0.5);
+}
+
+.content-hub-jumbotron-inner a {
+    font-weight: bold !important;
+    margin-bottom: 5px !important;
+    font-size: 22px;
+}
+
+.default-blog-news .date {
+    background: #70ad47 !important;
+}
+
+.content-hub-jumbo {
+    background-color: #70ad47;
+    color: white; 
+    font-weight: bold;
+}
+
+.display-3 {
+    color: white !important;
+    font-weight: bold !important;
+}
+
+.all-blog {
+    background: url('#{$imageSource}/assets/img/background.jpg');
+    background-size: cover;
+}
+
+.category-button {
+    border: solid 2px #70ad47; 
+    border-radius: 0;
+    background-color: white;
+    color: #70ad47;
+    font-weight: bold;
+}
+
+.category-button.selected, .category-button:hover {
+    background-color: #70ad47;
+    color: white;
+}
+
+.content-hub-title {
+    padding: 2% !important;
+}
+
+.default-blog-news {
+    margin-bottom: 15px !important;
+}
+
+.inner-banner {
+    background: url('#{$imageSource}/assets/img/expro-jumbo.png');
+}
+
+.facebook-feed {
+    padding-bottom: 20px;
+}
+
+.single-comment {
+    padding-left: 0 !important;
+}
+
+.blog-single-post {
+    background: url('#{$imageSource}/assets/img/background.jpg');
+    background-size: contain;;
+}
+
+.text p {
+    color: black !important;
+}
+
+.delete-comment-button {
+    color: red !important;
+}

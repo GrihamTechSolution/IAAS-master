@@ -1,0 +1,721 @@
+<div class="internship-status-component">
+  <section class="content container">
+    <div class="box box-success">
+      <div class="box-header">
+        <h2>
+          <!-- APPLICATION STEP = {{ application.step }} -->
+          My internship status -
+          <span style="color: #00a65a">{{ application.internship.name }}</span>
+        </h2>
+        <h3>
+          Student:
+          <span style="color: #00a65a">
+            {{ application.user.firstName }}
+            {{ application.user.lastName }}</span
+          >
+        </h3>
+        <div
+          style="margin-top: 10px"
+          *ngIf="
+            userData.userTypeID == 3 ||
+            userData.userTypeID == 4 ||
+            userData.userTypeID == 5 ||
+            userData.userTypeID == 6 ||
+            userData.userTypeID == 7
+          ">
+          <span *ngIf="userData.userTypeID > 2 && !application.status">
+            <button
+              *ngIf="application.step <= 10"
+              (click)="cancelApplication()"
+              class="btn btn-primary">
+              <i class="fa fa-close"></i> &nbsp; Cancel Application
+            </button>
+            &nbsp; &nbsp;
+            <button (click)="archiveApplication()" class="btn btn-danger">
+              <i class="fa fa-trash"></i> &nbsp; Archive Application
+            </button>
+          </span>
+        </div>
+      </div>
+      <div class="box-body">
+        <div class="row">
+          <section class="content">
+            <!-- row -->
+            <div class="row">
+              <div class="col-md-12">
+                <!-- The time line -->
+                <ul class="timeline">
+                  <!-- timeline time label -->
+                  <ng-container *ngIf="application.step >= 1">
+                    <li class="time-label">
+                      <span class="bg-red">
+                        {{ application.created | date : 'dd. MMM. yyyy' }}
+                      </span>
+                    </li>
+                    <li>
+                      <i class="fa fa-cogs bg-blue"></i>
+
+                      <div class="timeline-item">
+                        <h3 class="timeline-header">
+                          <a>Student</a> registered for internships
+                        </h3>
+                        <div class="timeline-body">
+                          Student applied for internships. Waiting for interview
+                          with ExCo. - Status:
+                          <span
+                            *ngIf="application.step == 1"
+                            style="color: red">
+                            <i class="fa fa-close"> </i
+                          ></span>
+                          <span
+                            *ngIf="application.step > 1"
+                            style="color: green">
+                            <i class="fa fa-check"></i>
+                          </span>
+                        </div>
+                        <div
+                          *ngIf="
+                            application.step == 1 &&
+                            excoUserIds.includes(userData.userTypeID)
+                          ">
+                          <button
+                            class="btn btn-success"
+                            (click)="successfulStep(1)">
+                            <i class="fa fa-check"></i> &nbsp; Successful ExCo
+                            Interview
+                          </button>
+                          &nbsp; &nbsp;
+                          <button
+                            class="btn btn-danger"
+                            (click)="denyApplication()">
+                            <i class="fa fa-close"></i> &nbsp; Unsuccessful ExCo
+                            Interview
+                          </button>
+                          &nbsp; &nbsp;
+                        </div>
+                      </div>
+                    </li>
+                  </ng-container>
+                  <ng-container *ngIf="application.step >= 2">
+                    <li class="time-label">
+                      <span class="bg-red">
+                        {{ application.created | date : 'dd. MMM. yyyy' }}
+                      </span>
+                    </li>
+                    <li>
+                      <i class="fa fa-cogs bg-blue"></i>
+
+                      <div class="timeline-item">
+                        <h3 class="timeline-header">
+                          <a>Student</a> applied for internship
+                        </h3>
+                        <div class="timeline-body">
+                          Student sent the application for the internship with
+                          all neccessary data. Status:
+                          <span
+                            *ngIf="application.step == 2"
+                            style="color: orange">
+                            <i class="fa fa-close"> </i
+                          ></span>
+                          <span
+                            *ngIf="application.step > 2"
+                            style="color: green">
+                            <i class="fa fa-check"> </i
+                          ></span>
+                          <p *ngIf="application.step == 2">
+                            Waiting for the interview with the receiving ExCo
+                          </p>
+                          <button
+                            class="btn btn-success"
+                            *ngIf="
+                              application.step == 2 &&
+                              excoUserIds.includes(userData.userTypeID)
+                            "
+                            (click)="successfulStep(2)">
+                            <i class="fa fa-check"></i> &nbsp; Successful
+                            Receiving ExCo Interview
+                          </button>
+                          &nbsp; &nbsp;
+
+                          <button
+                            class="btn btn-danger"
+                            *ngIf="
+                              application.step == 2 &&
+                              excoUserIds.includes(userData.userTypeID)
+                            "
+                            (click)="denyApplication()">
+                            <i class="fa fa-close"></i> &nbsp; Unsuccessful
+                            Receiving ExCo Interview
+                          </button>
+                          &nbsp; &nbsp;
+                        </div>
+                      </div>
+                    </li>
+                  </ng-container>
+                  <ng-container *ngIf="application.step >= 3">
+                    <li class="time-label">
+                      <span class="bg-red">
+                        {{ thirdStep.created | date : 'dd. MMM. yyyy' }}
+                      </span>
+                    </li>
+                    <li>
+                      <i class="fa fa-cogs bg-blue"></i>
+                      <div class="timeline-item">
+                        <h3 class="timeline-header">
+                          <a>Interview</a> done by Receiving ExCo
+                        </h3>
+                        <div class="timeline-body">
+                          Interview was done, and it was successful. Status:
+                          <span
+                            *ngIf="application.step == 3"
+                            style="color: orange">
+                            <i class="fa fa-close"> </i
+                          ></span>
+
+                          <span
+                            *ngIf="application.step > 3"
+                            style="color: green">
+                            <i class="fa fa-check"> </i
+                          ></span>
+                        </div>
+
+                        <p *ngIf="application.step == 3">
+                          Waiting for OP Taker to reserve the student
+                        </p>
+                        <div>
+                          <button
+                            class="btn btn-success"
+                            *ngIf="
+                              application.step == 3 &&
+                              excoUserIds.includes(userData.userTypeID)
+                            "
+                            (click)="successfulStep(3)">
+                            <i class="fa fa-check"></i> &nbsp; Successful OP
+                            Taker Reservation
+                          </button>
+                          &nbsp; &nbsp;
+
+                          <button
+                            class="btn btn-danger"
+                            *ngIf="
+                              application.step == 3 &&
+                              excoUserIds.includes(userData.userTypeID)
+                            "
+                            (click)="denyApplication()">
+                            <i class="fa fa-close"></i> &nbsp; Unsuccessful OP
+                            taker reservation
+                          </button>
+                          &nbsp; &nbsp;
+                        </div>
+                      </div>
+                    </li>
+                  </ng-container>
+                  <ng-container *ngIf="application.step >= 4">
+                    <li class="time-label">
+                      <span class="bg-red">
+                        {{ fourthStep.created | date : 'dd. MMM. yyyy' }}
+                      </span>
+                    </li>
+                    <li *ngIf="application.step >= 4">
+                      <i class="fa fa-cogs bg-blue"></i>
+                      <div class="timeline-item">
+                        <h3 class="timeline-header">
+                          <a>ExCo</a> did the interview
+                        </h3>
+                        <div class="timeline-body">
+                          ExCo did the interview with the student and the
+                          student passed. Waiting for ExCo to upload invoice and
+                          contract. Status:
+                          <span
+                            *ngIf="application.step == 4"
+                            style="color: red">
+                            <i class="fa fa-close"> </i
+                          ></span>
+                          <span
+                            *ngIf="application.step > 4"
+                            style="color: green">
+                            <i class="fa fa-check"> </i
+                          ></span>
+                        </div>
+                        <ng-container
+                          *ngIf="
+                            application.step == 4 &&
+                            excoUserIds.includes(userData.userTypeID)
+                          ">
+                          <div>
+                            <label>Invoice</label>
+                            <input
+                              type="file"
+                              class="form-control"
+                              ng2FileSelect
+                              [uploader]="invoiceUploader" />
+                          </div>
+
+                          <div>
+                            <label>Contract</label>
+                            <input
+                              type="file"
+                              class="form-control"
+                              ng2FileSelect
+                              [uploader]="contractUploader" />
+                          </div>
+
+                          <div>
+                            <button
+                              class="btn btn-success"
+                              (click)="successfulStep(4)">
+                              Confirm sent docs
+                            </button>
+                          </div>
+                        </ng-container>
+                      </div>
+                    </li>
+                  </ng-container>
+                  <ng-container *ngIf="application.step >= 5">
+                    <li class="time-label">
+                      <span class="bg-orange">
+                        {{ fifthStep.created | date : 'dd. MMM. yyyy' }}
+                      </span>
+                    </li>
+                    <li>
+                      <i class="fa fa-cogs bg-blue"></i>
+
+                      <div class="timeline-item">
+                        <!-- <span class="time"><i class="fa fa-user"></i> 12:05</span> -->
+                        <h3 class="timeline-header">
+                          <a>OP Taker</a> reserved the student!
+                        </h3>
+                        <div class="timeline-body">
+                          OP Taker successfully reserved the student for the
+                          internship! Status:
+                          <span
+                            *ngIf="application.step == 5"
+                            style="color: red">
+                            <i class="fa fa-close"> </i
+                          ></span>
+                          <span
+                            *ngIf="application.step > 5"
+                            style="color: green">
+                            <i class="fa fa-check"> </i
+                          ></span>
+                        </div>
+                        <p *ngIf="application.step == 5">
+                          Waiting for the contract sign between OP taker and
+                          student
+                        </p>
+
+                        <div>
+                          <button
+                            class="btn btn-success"
+                            *ngIf="
+                              application.step == 5 &&
+                              excoUserIds.includes(userData.userTypeID)
+                            "
+                            (click)="successfulStep(5)">
+                            <i class="fa fa-check"></i> &nbsp; Skip
+                          </button>
+                          &nbsp; &nbsp;
+
+                          <button
+                            class="btn btn-danger"
+                            *ngIf="
+                              application.step == 5 &&
+                              excoUserIds.includes(userData.userTypeID)
+                            "
+                            (click)="denyApplication()">
+                            <i class="fa fa-close"></i> &nbsp; Unsuccessful
+                            contract sign
+                          </button>
+                          &nbsp; &nbsp;
+                        </div>
+                      </div>
+                    </li>
+                  </ng-container>
+                  <ng-container *ngIf="application.step >= 6">
+                    <li class="time-label">
+                      <span class="bg-orange">
+                        {{ sixthStep.created | date : 'dd. MMM. yyyy' }}
+                      </span>
+                    </li>
+                    <!-- /.timeline-label -->
+                    <!-- timeline item -->
+                    <li>
+                      <i class="fa fa-cogs bg-blue"></i>
+
+                      <div class="timeline-item">
+                        <!-- <span class="time"><i class="fa fa-user"></i> {{thirdStep.created | date: 'HH:MM' }}</span> -->
+
+                        <h3 class="timeline-header">
+                          <a>Invoice and outgoing student contract sent</a>
+                        </h3>
+                        <div class="timeline-body">
+                          <a
+                            target="__blank"
+                            href="{{ uploadImageSource }}/{{
+                              thirdStep.firstFilePath
+                            }}">
+                            <i class="fa fa-download"></i> &nbsp; Invoice</a
+                          >
+                          &nbsp;
+                          <a
+                            target="__blank"
+                            href="{{ uploadImageSource }}/{{
+                              thirdStep.secondFilePath
+                            }}">
+                            <i class="fa fa-download"></i> &nbsp; Contract</a
+                          >
+                          <br />
+                          Invoice is sent to the student. Status:
+                          <span
+                            *ngIf="application.step == 6"
+                            style="color: red">
+                            <i class="fa fa-2x fa-close"> </i
+                          ></span>
+                          <span
+                            *ngIf="application.step > 6"
+                            style="color: green">
+                            <i class="fa fa-check"> </i
+                          ></span>
+
+                          <div>
+                            <p>
+                              Waiting for student to upload signed contract and
+                              payment proof
+                            </p>
+                            <div
+                              *ngIf="
+                                application.step == 6 &&
+                                userData.userTypeID == 1
+                              ">
+                              <label>Contract</label>
+                              <input
+                                type="file"
+                                class="form-control"
+                                ng2FileSelect
+                                [uploader]="contractUploader" />
+                            </div>
+                            <div
+                              *ngIf="
+                                application.step == 6 &&
+                                userData.userTypeID == 1
+                              ">
+                              <label>Payment proof</label>
+                              <input
+                                type="file"
+                                class="form-control"
+                                ng2FileSelect
+                                [uploader]="invoiceUploader" />
+                            </div>
+                            <div
+                              *ngIf="
+                                application.step == 6 &&
+                                userData.userTypeID == 1
+                              ">
+                              <button
+                                class="btn btn-success"
+                                (click)="successfulStep(6)">
+                                Confirm sent docs
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ng-container>
+                  <ng-container *ngIf="application.step >= 7">
+                    <li class="time-label">
+                      <span class="bg-orange">
+                        {{ seventhStep.created | date : 'dd. MMM. yyyy' }}
+                      </span>
+                    </li>
+                    <!-- /.timeline-label -->
+                    <!-- timeline item -->
+                    <li>
+                      <i class="fa fa-cogs bg-blue"></i>
+
+                      <div class="timeline-item">
+                        <!-- <span class="time"><i class="fa fa-user"></i> 12:05</span> -->
+
+                        <h3 class="timeline-header">
+                          <a
+                            >Payment has been made and the outgoing student
+                            Contract signed</a
+                          >
+                        </h3>
+                        <div class="timeline-body">
+                          <a
+                            target="__blank"
+                            href="{{ uploadImageSource }}/{{
+                              fourthStep.firstFilePath
+                            }}">
+                            <i class="fa fa-download"></i> &nbsp; Payment</a
+                          >
+                          &nbsp;
+                          <a
+                            target="__blank"
+                            href="{{ uploadImageSource }}/{{
+                              fourthStep.secondFilePath
+                            }}">
+                            <i class="fa fa-download"></i> &nbsp; Contract</a
+                          >
+                          <br />
+                          Student sent the payment. Waiting for EB member to
+                          review contract and payment. Status:
+                          <span
+                            *ngIf="application.step == 7"
+                            style="color: red">
+                            <i class="fa fa-close"> </i
+                          ></span>
+                          <span
+                            *ngIf="application.step > 7"
+                            style="color: green">
+                            <i class="fa fa-check"> </i
+                          ></span>
+
+                          <div
+                            *ngIf="
+                              application.step == 7 &&
+                              excoUserIds.includes(userData.userTypeID)
+                            ">
+                            <button
+                              class="btn btn-success"
+                              (click)="successfulStep(7)">
+                              Successful Payment and Contract
+                            </button>
+                            &nbsp;
+                            <button
+                              class="btn btn-danger"
+                              (click)="unsuccessfulPaymentAndContract()">
+                              Unsuccessful Payment and Contract
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ng-container>
+
+                  <ng-container *ngIf="application.step >= 8">
+                    <li class="time-label">
+                      <span class="bg-green">
+                        {{ eightStep.created | date : 'dd. MMM. yyyy' }}
+                      </span>
+                    </li>
+                    <li>
+                      <i class="fa fa-cogs bg-blue"></i>
+
+                      <div class="timeline-item">
+                        <h3 class="timeline-header">
+                          <a>Contract</a> is signed!
+                        </h3>
+                        <div class="timeline-body">
+                          A contract between OP taker and student has been
+                          signed!
+                        </div>
+                        <p *ngIf="application.step == 8">
+                          Waiting for confirmation that student arrived. Status:
+                        </p>
+                        <span *ngIf="application.step == 8" style="color: red">
+                          <i class="fa fa-check"> </i
+                        ></span>
+                        <span *ngIf="application.step > 8" style="color: green">
+                          <i class="fa fa-check"> </i
+                        ></span>
+
+                        <div>
+                          <button
+                            class="btn btn-success"
+                            *ngIf="
+                              application.step == 8 &&
+                              excoUserIds.includes(userData.userTypeID)
+                            "
+                            (click)="successfulStep(8)">
+                            <i class="fa fa-check"></i> &nbsp; Student arrived!
+                          </button>
+                          &nbsp; &nbsp;
+
+                          <button
+                            class="btn btn-danger"
+                            *ngIf="
+                              application.step == 8 &&
+                              excoUserIds.includes(userData.userTypeID)
+                            "
+                            (click)="denyApplication()">
+                            <i class="fa fa-close"></i> &nbsp; Student did not
+                            arrive for internship
+                          </button>
+                          &nbsp; &nbsp;
+                        </div>
+                      </div>
+                    </li>
+                  </ng-container>
+                  <ng-container *ngIf="application.step >= 9">
+                    <li class="time-label">
+                      <span class="bg-green">
+                        {{ eightStep.created | date : 'dd. MMM. yyyy' }}
+                      </span>
+                    </li>
+                    <li>
+                      <i class="fa fa-cogs bg-blue"></i>
+
+                      <div class="timeline-item">
+                        <h3 class="timeline-header">
+                          <a>Student</a> arrived for the internship!
+                        </h3>
+                        <div class="timeline-body">
+                          ExCo verified students' arrival for the internship!
+                          Waiting for confirmation that internship was
+                          successful. Status:
+                          <span
+                            *ngIf="application.step == 9"
+                            style="color: red">
+                            <i class="fa fa-close"></i>
+                          </span>
+                          <span
+                            *ngIf="application.step > 9"
+                            style="color: green">
+                            <i class="fa fa-check"></i>
+                          </span>
+                        </div>
+
+                        <p *ngIf="application.step == 9"></p>
+
+                        <div>
+                          <button
+                            class="btn btn-success"
+                            *ngIf="
+                              application.step == 9 &&
+                              excoUserIds.includes(userData.userTypeID)
+                            "
+                            (click)="successfulStep(9)">
+                            <i class="fa fa-check"></i> &nbsp; Successful
+                            internship!
+                          </button>
+                          &nbsp; &nbsp;
+
+                          <button
+                            class="btn btn-danger"
+                            *ngIf="
+                              application.step == 9 &&
+                              excoUserIds.includes(userData.userTypeID)
+                            "
+                            (click)="denyApplication()">
+                            <i class="fa fa-close"></i> &nbsp; Internship was
+                            not successfull
+                          </button>
+                          &nbsp; &nbsp;
+                        </div>
+                      </div>
+                    </li>
+                  </ng-container>
+                  <ng-container *ngIf="application.step >= 10">
+                    <li class="time-label">
+                      <span class="bg-green">
+                        {{ ninthStep.created | date : 'dd. MMM. yyyy' }}
+                      </span>
+                    </li>
+                    <li>
+                      <i class="fa fa-cogs bg-blue"></i>
+
+                      <div class="timeline-item">
+                        <h3 class="timeline-header">
+                          <a>Internship</a> successfull!
+                        </h3>
+                        <div class="timeline-body">
+                          ExCo verified that students' Intenrship was
+                          successfull!
+                          <p *ngIf="application.step == 10">
+                            Waiting for student to send the testimonial
+                          </p>
+                          Status:
+                          <span
+                            *ngIf="application.step == 10"
+                            style="color: red">
+                            <i class="fa fa-close"> </i
+                          ></span>
+                          <span
+                            *ngIf="application.step > 10"
+                            style="color: green">
+                            <i class="fa fa-check"> </i
+                          ></span>
+                        </div>
+
+                        <div
+                          *ngIf="
+                            application.step == 10 && userData.userTypeID == 1
+                          ">
+                          <textarea
+                            class="form-control"
+                            name="message"
+                            [(ngModel)]="currentStep.message"></textarea>
+
+                          <label>Image</label>
+                          <input
+                            type="file"
+                            class="form-control"
+                            ng2FileSelect
+                            [uploader]="invoiceUploader" />
+
+                          <button
+                            class="btn btn-success"
+                            *ngIf="
+                              application.step == 10 && userData.userTypeID == 1
+                            "
+                            (click)="successfulStep(10)">
+                            <i class="fa fa-check"></i> &nbsp; Send testimonial
+                          </button>
+                        </div>
+
+                        <h3
+                          class="timeline-header"
+                          *ngIf="application.step >= 11">
+                          <a>Student sent testimonial and a review</a>
+                        </h3>
+                        <div
+                          class="timeline-body"
+                          *ngIf="application.step >= 11">
+                          <p [innerText]="tenthStep.message"></p>
+                          <img
+                            src="{{ uploadImageSource }}/{{
+                              tenthStep.secondFilePath
+                            }}" />
+                        </div>
+                        <!-- <div
+                          class="timeline-body"
+                          *ngIf="application.step >= 11">
+                          <a
+                            >Download Certificate <i class="fa fa-download"></i
+                          ></a>
+                        </div> -->
+                      </div>
+                    </li>
+                  </ng-container>
+                </ul>
+              </div>
+              <div>
+                <a
+                  style="margin-left: 50px"
+                  *ngIf="!isAdminLink"
+                  class="btn btn-success"
+                  routerLink="/profile">
+                  <i class="fa fa-arrow-left"></i> &nbsp; Back to my profile
+                </a>
+
+                <a
+                  style="margin-left: 50px"
+                  *ngIf="isAdminLink"
+                  class="btn btn-success"
+                  routerLink="/administration/applications">
+                  <i class="fa fa-arrow-left"></i> &nbsp; Back To Applications
+                  List
+                </a>
+              </div>
+
+              <!-- /.col -->
+            </div>
+            <!-- /.row -->
+          </section>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

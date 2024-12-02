@@ -1,0 +1,17 @@
+$imageSource: "https://iaas-world-space-prd.s3.ap-south-1.amazonaws.com";
+
+.contact-section {
+    background: url('#{$imageSource}/assets/img/background.jpg');
+}
+
+.text-center {
+    color: #70ad47;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+p {
+    color: black !important;
+    margin-top: 10px; 
+    margin-bottom: 10px;
+}

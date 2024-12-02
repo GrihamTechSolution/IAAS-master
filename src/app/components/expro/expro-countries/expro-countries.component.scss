@@ -1,0 +1,17 @@
+.countries-table tr:hover{
+    cursor: pointer;
+}
+
+.countries-table tr.selected {
+    background-color: #70ad47;
+    color: white;
+}
+
+.jumbotron {
+    background-color: #70ad47;
+}
+
+.display-3 {
+    color: white;
+    text-align: center;
+}

@@ -1,0 +1,76 @@
+<div class="jumbotron">
+  <div class="container">
+    <h1 class="display-3">Contact us!</h1>
+  </div>
+</div>
+
+<section class="our-team sec-padd2">
+  <div class="container">
+    <div class="section-title text-center">
+      <h2 style="color: #70ad47">IAAS World Executive & Control Board</h2>
+      <!-- <a  class="thm-btn style-2">VIEW ALL</a> -->
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div
+        *ngFor="let eb of executiveBoard"
+        class="col-md-3 col-sm-12 col-xs-12"
+        style="padding: 1em">
+        <div class="single-team-member">
+          <figure class="img-box">
+            <a
+              ><img
+                src="{{ eb.img }}"
+                alt="{{ eb.name }}"
+                style="
+                  height: 300px;
+                  width: 200px;
+                  object-fit: cover;
+                  background: #70ad47;
+                  border-radius: 10px;
+                "
+            /></a>
+            <div class="overlay">
+              <div class="inner-box">
+                <!-- <ul class="social">
+                                    <li><a ><i class="fa fa-link"></i></a></li>
+                                </ul> -->
+                <div
+                  style="
+                    display: table-cell;
+                    align-items: center;
+                    justify-content: center;
+                    vertical-align: middle;
+                  ">
+                  <a
+                    href="{{ eb.instalink }}"
+                    target="_blank"
+                    style="color: inherit">
+                    <i class="bx bxl-instagram" style="font-size: 25px"></i>
+                  </a>
+
+                  <a
+                    href="{{ eb.linkedinlink }}"
+                    target="_blank"
+                    style="color: inherit">
+                    <i
+                      class="bx bxl-linkedin-square"
+                      style="font-size: 25px; padding-left: 10px"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </figure>
+          <div class="author-info text-center">
+            <a
+              ><h4>{{ eb.name }}</h4></a
+            >
+            <p style="font-weight: bold">{{ eb.title }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
