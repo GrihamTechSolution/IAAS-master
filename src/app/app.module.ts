@@ -123,6 +123,7 @@ import { ExproBackpackingComponent } from './components/expro/expro-backpacking/
 import { ExproTestimonialsComponent } from './components/expro/expro-testimonials/expro-testimonials.component';
 import { ExproTestimonialsDetalisComponent } from './components/expro/expro-testimonials-details/expro-testimonials-details.component';
 import { ProjectsComponent } from './components/administration/projects/projects.component';
+import { ProjectComponent } from './components/administration/project/projects.component';
 
 @NgModule({
   declarations: [
@@ -214,6 +215,7 @@ import { ProjectsComponent } from './components/administration/projects/projects
     PresentationStudyAbroadUniversitiesComponent,
     PresentationStudyAbroadStudentsComponent,
     NewsletterGenerationComponent,
+    
     NewsletterGenerationArticleDetailsComponent,
     BecomeSponsorComponent,
     ApplicationsArchiveComponent,
@@ -227,6 +229,7 @@ import { ProjectsComponent } from './components/administration/projects/projects
     ExproBackpackingComponent,
     ExproTestimonialsComponent,
     ExproTestimonialsDetalisComponent,
+    ProjectComponent
   ],
   imports: [
     BrowserModule,

@@ -11,5 +11,6 @@ export class Events {
     content: string = ''; // Initial value, if not editor shows undefined when started new article
     updated: Date;
     created: Date;
+    type: string;
     user: User = new User();
 }

@@ -13,7 +13,10 @@ export class EventsService {
 
   constructor(private http: HttpClient) { }
 
-  public getAllEvents() {
+  public getAllEvents(isProject=false) {
+    if(isProject) {
+      return this.http.get<any>(`${this.apiUrl}/projects`);
+    }
     return this.http.get<any>(this.apiUrl);
   }
 

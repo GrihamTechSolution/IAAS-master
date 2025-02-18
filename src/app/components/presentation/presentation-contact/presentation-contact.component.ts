@@ -21,7 +21,7 @@ export class PresentationContactComponent implements OnInit {
       img: `/assets/img/president.png`,
       instalink:
         'https://www.instagram.com/alperenozturrk?igsh=MTZrMW5kZW40NHB0eg==',
-      linkedinlink: 'https://www.linkedin.com/in/rabi-raut-000792221/',
+      linkedinlink: 'https://www.linkedin.com/in/alperen-%C3%B6zt%C3%BCrk-611b7317a/',
       mail: "president@iaasworld.org"
     },
     {

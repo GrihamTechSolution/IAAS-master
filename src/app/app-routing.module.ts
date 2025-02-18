@@ -93,6 +93,7 @@ import { ExproBackpackingComponent } from './components/expro/expro-backpacking/
 import { ExproTestimonialsComponent } from './components/expro/expro-testimonials/expro-testimonials.component';
 import { ExproTestimonialsDetalisComponent } from './components/expro/expro-testimonials-details/expro-testimonials-details.component';
 import { ProjectsComponent } from './components/administration/projects/projects.component';
+import { ProjectComponent } from './components/administration/project/projects.component';
 
 const routes: Routes = [
   {
@@ -120,12 +121,21 @@ const routes: Routes = [
         component: NewsletterGenerationComponent,
       },
       { path: 'events', component: EventsComponent },
+      { path: 'projects', component: ProjectComponent },
       {
         path: 'addeditevents',
         component: AddEditEventsComponent,
       },
       {
         path: 'addeditevents/:id',
+        component: AddEditEventsComponent,
+      },
+      {
+        path: 'addeditprojects',
+        component: AddEditEventsComponent,
+      },
+      {
+        path: 'addeditprojects/:id',
         component: AddEditEventsComponent,
       },
       { path: 'countries', component: CountriesComponent },
@@ -516,6 +526,14 @@ const routes: Routes = [
       },
       {
         path: 'events/:id',
+        component: PresentationEventsSingleComponent,
+      },
+      {
+        path: 'projects',
+        component: PresentationEventsComponent,
+      },
+      {
+        path: 'projects/:id',
         component: PresentationEventsSingleComponent,
       },
     ],

@@ -12,6 +12,8 @@ import { CountryCategoryService } from 'src/app/services/country-category.servic
 import { CountryStatusService } from 'src/app/services/country-status.service';
 import { RegionService } from 'src/app/services/region.service';
 import { NotifierService } from 'angular-notifier';
+import { EventsService } from 'src/app/services/events-service';
+import { Events } from 'src/app/models/Events';
 
 declare var $ : any;
 
@@ -20,6 +22,7 @@ declare var $ : any;
   templateUrl: './projects.component.html'
 })
 export class ProjectsComponent implements OnInit {
+  
 
   modalRef: BsModalRef;
   @ViewChild('countryModal')
@@ -60,8 +63,9 @@ export class ProjectsComponent implements OnInit {
   regions: Region[] = [];
   uploadImageSource = `${environment.uploadImageSource}`;
   c: Country = new Country();
-
+  events: Events[] = [];
   constructor(private modalService: BsModalService, 
+     private eventsService: EventsService,
               private countryService: CountryService, 
               private countryCategoryService: CountryCategoryService,
               private countryStatusService: CountryStatusService,
@@ -69,6 +73,11 @@ export class ProjectsComponent implements OnInit {
               private notifier: NotifierService) { }
 
   ngOnInit(): void {
+
+    this.eventsService.getAllEvents(true).subscribe(data => {
+      console.log(data)
+      this.events = data.data;
+    })
 
     this.countryCategoryService.getCountryCategories().subscribe(data => {
       this.categories = data;
