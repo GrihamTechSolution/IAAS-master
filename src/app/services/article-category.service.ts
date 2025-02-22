@@ -13,6 +13,7 @@ export class ArticleCategoryService {
 
   apiUrl = environment.apiUrl + '/articleCategory';
   articleApiUrl = environment.apiUrl + '/article';
+  aluminiApiUrl = environment.apiUrl + '/alumini';
   commentApiUrl = environment.apiUrl + '/comment';
 
   constructor(private http: HttpClient) { }
@@ -80,5 +81,10 @@ export class ArticleCategoryService {
   public getArticleByTimerange(from: Date, to: Date) {
     return this.http.post<Article[]>(`${this.articleApiUrl}/getByTimerange`, { from, to });
   }
+
+  public insertAlumini(article: any) {
+    return this.http.post<OperationResponse>(this.aluminiApiUrl, article);
+  }
+  
 
 }

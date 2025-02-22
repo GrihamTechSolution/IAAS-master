@@ -19,7 +19,8 @@ declare var $ : any;
 
 @Component({
   selector: 'app-project-network',
-  templateUrl: './projects.component.html'
+  templateUrl: './projects.component.html',
+  styleUrls: ['./project.component.css']
 })
 export class ProjectsComponent implements OnInit {
   
@@ -119,5 +120,19 @@ export class ProjectsComponent implements OnInit {
 
 
     
+  }
+
+  truncateHTML(text: string): string {
+
+    let charlimit = 300;
+    if(!text || text.length <= charlimit )
+    {
+        return text;
+    }
+  
+  
+  let without_html = text.replace(/<(?:.|\n)*?>/gm, '');
+  let shortened = without_html.substring(0, charlimit) + "...";
+  return shortened;
   }
 }

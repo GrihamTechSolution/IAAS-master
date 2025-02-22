@@ -1,4 +1,28 @@
 <div class="container">
+<h1 class="gallery-title">Project Gallery</h1>
+  <div *ngFor='let event of events'>
+  <div class="project-card">
+
+    <div class="project-content">
+      <div>
+        <h1 class="project-title">{{event.title}}</h1>
+      </div>
+      
+      <div class="project-body">
+      <div class="project-image">
+        <img src="{{uploadImageSource}}/{{event.imagePath}}" alt="UNEA6 Event">
+      </div>
+      
+      <div class="project-details">
+        <p class="project-date">{{event.dateLocation}}</p>
+        <div [innerHTML]="truncateHTML(event.content)" style="margin-bottom: 0.5em;"></div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+  </div>
+<!-- <div class="container">
   <h4 class="common_h4">1. Village Concept Projects</h4>
   <div class="common_main_div">
     <div class="common_p_color common_sub_div">
@@ -199,4 +223,4 @@
     all around the world towards knowledge transfers and dissemination,
     international cooperation and sustainable local management.
   </p>
-</div>
+</div> -->
