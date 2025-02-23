@@ -10,11 +10,15 @@ import { OperationResponse } from '../models/OperationResponse';
 export class StudentsService {
 
   apiUrl = environment.apiUrl + '/student';
+  alumniApiUrl = environment.apiUrl + '/alumini';
 
   constructor(private http: HttpClient) { }
 
   public getStudents(){
     return this.http.get<Student[]>(this.apiUrl);
+  }
+  public getAlumni(){
+    return this.http.get<any>(this.alumniApiUrl);
   }
 
   public getStudentByID(id:number){

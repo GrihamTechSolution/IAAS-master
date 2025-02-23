@@ -6,6 +6,7 @@ import { ArticleCategory } from 'src/app/models/ArticleCategory';
 import { ArticleCategoryService } from 'src/app/services/article-category.service';
 import { environment } from 'src/environments/environment';
 import { NotifierService } from 'angular-notifier';
+import { FileUploader } from 'ng2-file-upload';
 
 @Component({
   selector: 'app-alumni',
@@ -20,9 +21,19 @@ export class AlumniComponent implements OnInit {
   alumniCategoryID = environment.alumniCategoryID;
   imageSource = environment.imageSource
   uploadImageSource = environment.uploadImageSource
+  fileAdded: boolean = false;
+
+  profilePicture: string;
+
+  uploader: FileUploader = new FileUploader({
+    url: `${environment.apiUrl}/upload`,
+    itemAlias: 'doc',
+  });
 
   constructor(private articleCategoryService: ArticleCategoryService,private notifier: NotifierService,
     private loadingSpinner: Ng4LoadingSpinnerService,) { }
+
+
 
   ngOnInit(): void {
 
@@ -42,6 +53,33 @@ export class AlumniComponent implements OnInit {
       })
 
       this.loadingSpinner.hide();
+
+      this.uploader.onAfterAddingFile = file => {
+        file.withCredentials = false;
+        this.fileAdded = true;
+        // Show spinner when cover image upload starts
+        this.loadingSpinner.show();
+        this.uploader.uploadAll();
+      };
+  
+      this.uploader.onCompleteItem = (
+        item: any,
+        response: any,
+        status: any,
+        headers: any
+      ) => {
+        // Hide spinner when cover image upload finish
+        this.loadingSpinner.hide();
+        response = JSON.parse(response);
+        if (response.status == 0) {
+          console.log(response.filename);
+          this.notifier.notify('success', 'Image uploaded!');
+          this.profilePicture = response.filename;
+          //this.addEditArticle();
+        } else {
+          this.notifier.notify('error', 'Error while uploading image!');
+        }
+      };
     })
   }
 
@@ -68,22 +106,18 @@ export class AlumniComponent implements OnInit {
     else {
       form.value.agree = 0;
     }
+    form.value.profilePhoto = this.profilePicture;
       this.articleCategoryService.insertAlumini(form.value).subscribe(response => {
         console.log("Form submitted successfully", response);
         this.notifier.notify('info', "Form submitted successfully");
+         // **Reset the form**
+    form.reset();
+    // **Reset profile picture variable if needed**
+    this.profilePicture = null;
       }, error => {
         this.notifier.notify('error', "Error submitting form");
         console.error("Error submitting form", error);
       });
   }
-  
-    
 
-    onFileChange(event) {
-      this.articleCategoryService.updateArticle(event.target.files[0]).subscribe(data => {
-        this.articleCategoryService.insertAlumini(data).subscribe(data => {
-          console.log(data);
-        })
-      })
-   }
 }

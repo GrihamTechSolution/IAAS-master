@@ -124,6 +124,7 @@ import { ExproTestimonialsComponent } from './components/expro/expro-testimonial
 import { ExproTestimonialsDetalisComponent } from './components/expro/expro-testimonials-details/expro-testimonials-details.component';
 import { ProjectsComponent } from './components/administration/projects/projects.component';
 import { ProjectComponent } from './components/administration/project/projects.component';
+import { AdminAluminiomponent } from './components/administration/admin-alumini/admin-alumini.component';
 
 @NgModule({
   declarations: [
@@ -229,7 +230,8 @@ import { ProjectComponent } from './components/administration/project/projects.c
     ExproBackpackingComponent,
     ExproTestimonialsComponent,
     ExproTestimonialsDetalisComponent,
-    ProjectComponent
+    ProjectComponent,
+    AdminAluminiomponent
   ],
   imports: [
     BrowserModule,

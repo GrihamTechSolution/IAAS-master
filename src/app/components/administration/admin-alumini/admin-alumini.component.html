@@ -1,0 +1,65 @@
+<section class="content">
+    <div class="box box-success">
+      <div class="box-header">
+        <h2 class="box-title">List of Alumni Students</h2>
+      </div>
+      <div class="box-body">
+        <table class="table table-striped table-bordered" *ngIf="students.length > 0">
+          <thead>
+            <tr>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Nationality</th>
+              <th>Email</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let student of students">
+              <td>{{ student.firstName }}</td>
+              <td>{{ student.lastName }}</td>
+              <td>{{ student.nationality }}</td>
+              <td>{{ student.email }}</td>
+              <td>
+                <button class="btn btn-info" (click)="openModal(student)">
+                  <i class="fa fa-eye"></i> View Details
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Modal for Displaying Full Details -->
+  <div class="modal fade" id="studentModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Alumni Student Details</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p><strong>First Name:</strong> {{ selectedStudent?.firstName }}</p>
+          <p><strong>Last Name:</strong> {{ selectedStudent?.lastName }}</p>
+          <p><strong>Date of Birth:</strong> {{ selectedStudent?.dob }}</p>
+          <p><strong>Gender:</strong> {{ selectedStudent?.gender }}</p>
+          <p><strong>Email:</strong> {{ selectedStudent?.email }}</p>
+          <p><strong>Phone:</strong> {{ selectedStudent?.phone }}</p>
+          <p><strong>Nationality:</strong> {{ selectedStudent?.nationality }}</p>
+          <p><strong>Role:</strong> {{ selectedStudent?.role }}</p>
+          <p><strong>Current Occupation:</strong> {{ selectedStudent?.currentOccupation }}</p>
+          <p><strong>Alumni Committee:</strong> {{ selectedStudent?.alumniCommittee }}</p>
+          <p><strong>Additional Info:</strong> {{ selectedStudent?.additionalInfo }}</p>
+          <p><strong>Receive Emails:</strong> {{ selectedStudent?.receiveEmails ? 'Yes' : 'No' }}</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

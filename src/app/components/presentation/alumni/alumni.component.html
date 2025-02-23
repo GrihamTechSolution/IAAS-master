@@ -185,19 +185,19 @@
   <h2>IAAS Alumni Form</h2>
   <form (ngSubmit)="onSubmit(alumniForm)" #alumniForm="ngForm">
     <div>
-      <label for="firstName">First Name:</label>
+      <label for="firstName">First Name: *</label>
       <input type="text" id="firstName" name="firstName" ngModel required>
     </div>
     <div>
-      <label for="lastName">Last Name:</label>
+      <label for="lastName">Last Name: *</label>
       <input type="text" id="lastName" name="lastName" ngModel required>
     </div>
     <div>
-      <label for="dob">Date of Birth:</label>
+      <label for="dob">Date of Birth: *</label>
       <input type="date" id="dob" name="dob" ngModel required>
     </div>
     <div>
-      <label for="gender">Gender:</label>
+      <label for="gender">Gender: *</label>
       <select id="gender" name="gender" ngModel required>
         <option value="male">Male</option>
         <option value="female">Female</option>
@@ -205,15 +205,15 @@
       </select>
     </div>
     <div>
-      <label for="email">Email:</label>
+      <label for="email">Email: *</label>
       <input type="email" id="email" name="email" ngModel required>
     </div>
     <div>
-      <label for="phone">Phone Number:</label>
+      <label for="phone">Phone Number: *</label>
       <input type="text" id="phone" name="phone" ngModel required>
     </div>
     <div>
-      <label for="nationality">Nationality:</label>
+      <label for="nationality">Nationality: *</label>
       <input type="text" id="nationality" name="nationality" ngModel required>
     </div>
     <div>
@@ -229,12 +229,9 @@
       <input type="text" id="currentOccupation" name="currentOccupation" ngModel>
     </div>
     <div>
-      <label for="agree">Do you agree to use your details and photo on the IAAS website alumni section?</label>
-      <input type="checkbox" id="agree" name="agree" ngModel required>
-    </div>
-    <div>
-      <label for="profilePhoto">Upload Your Profile Photo:</label>
-      <input type="file" id="profilePhoto" name="profilePhoto" (change)="onFileChange($event)" ngModel>
+      <label for="profilePhoto">Upload Your Profile Photo : *</label>
+      <input type="file" id="profilePhoto" name="profilePhoto"  ng2FileSelect
+      [uploader]='uploader' required ngModel>
     </div>
     <div>
       <label for="linkedIn">Are you part of the LinkedIn group?</label>
@@ -250,16 +247,17 @@
     </div>
     <div>
       <label for="receiveEmails">Do you want to receive e-mails about IAAS alumni meetings and relevant updates?</label>
-      <input type="checkbox" id="receiveEmails" name="receiveEmails" ngModel>
+      <input  type="checkbox" id="receiveEmails" name="receiveEmails" ngModel>
     </div>
     <div>
-      <label for="additionalInfo">Anything you would like to share with the current leadership of IAAS?</label>
-      <textarea id="additionalInfo" name="additionalInfo" ngModel></textarea>
+      <label for="agree">Do you agree to use your details and photo on the IAAS website alumni section? *</label>
+      <input type="checkbox" id="agree" name="agree" ngModel required>
     </div>
-    
-    <button class="submit-btn" type="submit">Submit</button>
+    <div>
+      <button class="submit-btn" type="submit">Submit</button>
+    </div>
+
   </form>
-  
 </div>
 
 <div class="news-section no-margin" *ngIf="articles && articles.length > 0">

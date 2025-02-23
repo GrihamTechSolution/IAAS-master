@@ -5,7 +5,7 @@ import { ArticleCategory } from '../models/ArticleCategory';
 import { OperationResponse } from '../models/OperationResponse';
 import { Article } from '../models/Article';
 import { Page } from '../models/Page';
-
+import { switchMap } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
@@ -15,6 +15,7 @@ export class ArticleCategoryService {
   articleApiUrl = environment.apiUrl + '/article';
   aluminiApiUrl = environment.apiUrl + '/alumini';
   commentApiUrl = environment.apiUrl + '/comment';
+  fileApiUrl = environment.apiUrl + '/upload';
 
   constructor(private http: HttpClient) { }
 
@@ -81,10 +82,7 @@ export class ArticleCategoryService {
   public getArticleByTimerange(from: Date, to: Date) {
     return this.http.post<Article[]>(`${this.articleApiUrl}/getByTimerange`, { from, to });
   }
-
-  public insertAlumini(article: any) {
-    return this.http.post<OperationResponse>(this.aluminiApiUrl, article);
+  public insertAlumini(alumini: any) {  
+    return this.http.post<OperationResponse>(this.aluminiApiUrl, alumini);
   }
-  
-
 }

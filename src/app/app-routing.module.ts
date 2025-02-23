@@ -94,6 +94,7 @@ import { ExproTestimonialsComponent } from './components/expro/expro-testimonial
 import { ExproTestimonialsDetalisComponent } from './components/expro/expro-testimonials-details/expro-testimonials-details.component';
 import { ProjectsComponent } from './components/administration/projects/projects.component';
 import { ProjectComponent } from './components/administration/project/projects.component';
+import { AdminAluminiomponent } from './components/administration/admin-alumini/admin-alumini.component';
 
 const routes: Routes = [
   {
@@ -198,6 +199,10 @@ const routes: Routes = [
       {
         path: 'articles',
         component: ArticlesComponent,
+      },
+      {
+        path: 'alumni',
+        component: AdminAluminiomponent,
       },
       {
         path: 'addeditarticle',
