@@ -45,6 +45,8 @@ export class PresentationEventsSingleComponent implements OnInit {
                   this.router.navigateByUrl('events')
                 }
                 this.event = data.data
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                
                 if(this.event.status === 0) {
                     this.router.navigateByUrl('events'); 
                 }
@@ -55,6 +57,7 @@ export class PresentationEventsSingleComponent implements OnInit {
           complete:() => this.spinner.hide() 
         })
       }
+      
     })
 }
 }

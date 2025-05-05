@@ -206,7 +206,7 @@
     <h1 class="gallery-title-new">Project Gallery</h1>
 
     <div *ngFor='let event of visibleEvents'>
-      <div class="project-card">
+      <div class="project-card" routerLink='/projects/{{event.id}}'>
         <div class="project-content">
           <div>
             <h1 class="project-title">{{ event.title }}</h1>

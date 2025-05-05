@@ -85,7 +85,9 @@ export class ProjectsComponent implements OnInit {
 
     this.eventsService.getAllEvents(true).subscribe(data => {
       this.events = data.data;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
       this.loadMore(); // Load initial batch
+      
     });
 
     this.countryCategoryService.getCountryCategories().subscribe(data => {
