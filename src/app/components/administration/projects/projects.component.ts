@@ -29,6 +29,8 @@ export class ProjectsComponent implements OnInit {
   @ViewChild('countryModal')
   countryModal: TemplateRef<any>;
 
+  
+
   // colors: 
   // full - #8dc63f
   // candidate - yellow 
@@ -65,6 +67,12 @@ export class ProjectsComponent implements OnInit {
   uploadImageSource = `${environment.uploadImageSource}`;
   c: Country = new Country();
   events: Events[] = [];
+  visibleEvents: Events[] = [];  // Events shown in UI
+  pageSize: number = 10;
+  currentPage: number = 1;
+  loading: boolean = false;
+
+  
   constructor(private modalService: BsModalService, 
      private eventsService: EventsService,
               private countryService: CountryService, 
@@ -76,9 +84,9 @@ export class ProjectsComponent implements OnInit {
   ngOnInit(): void {
 
     this.eventsService.getAllEvents(true).subscribe(data => {
-      console.log(data)
       this.events = data.data;
-    })
+      this.loadMore(); // Load initial batch
+    });
 
     this.countryCategoryService.getCountryCategories().subscribe(data => {
       this.categories = data;
@@ -121,6 +129,24 @@ export class ProjectsComponent implements OnInit {
 
     
   }
+
+  loadMore() {
+    this.loading = true;
+
+    // Simulate async loading
+    setTimeout(() => {
+      const start = 0;
+      const end = this.currentPage * this.pageSize;
+      this.visibleEvents = this.events.slice(0, end);
+      this.currentPage++;
+      this.loading = false;
+    }, 300); // Small delay for UX (optional)
+  }
+
+  get hasMore(): boolean {
+    return this.visibleEvents.length < this.events.length;
+  }
+
 
   truncateHTML(text: string): string {
 

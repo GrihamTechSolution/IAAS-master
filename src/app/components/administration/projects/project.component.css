@@ -4,6 +4,13 @@
     color: #000;
     font-weight: 600;
   }
+.gallery-title-new {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    margin-top: 5rem;
+    color: #000;
+    font-weight: 600;
+  }
 
   .project-card {
     background: #f8f9fa;
@@ -103,3 +110,26 @@
     height: 30px;
     object-fit: contain;
   }
+
+  /* Add to component CSS */
+.loading-text {
+  text-align: center;
+  margin: 1em;
+  font-weight: bold;
+}
+
+.load-more-container {
+  text-align: center;
+  margin-top: 1em;
+}
+
+.load-more-button {
+  padding: 0.75em 1.5em;
+  background-color: #6fad46;
+  color: white;
+  border: none;
+  margin: auto;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
