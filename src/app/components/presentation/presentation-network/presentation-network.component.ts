@@ -97,13 +97,13 @@ export class PresentationNetworkComponent implements OnInit {
         let current = this.countries[i];
         switch (current.country_status.id) {
           case 1:
-            values[current.code.toUpperCase()] = '#8dc63f';
+            values[current.code?.toUpperCase()] = '#8dc63f';
             break;
           case 2:
-            values[current.code.toUpperCase()] = 'blue';
+            values[current.code?.toUpperCase()] = 'blue';
             break;
           case 3:
-            values[current.code.toUpperCase()] = 'yellow';
+            values[current.code?.toUpperCase()] = 'yellow';
             break;
         }
       }
