@@ -7,6 +7,8 @@ import { environment } from 'src/environments/environment';
 import { Observable, forkJoin } from 'rxjs';
 import { ArticleCategoryService } from 'src/app/services/article-category.service';
 import { Article } from 'src/app/models/Article';
+import { EmailSubscriptionService } from 'src/app/services/email-subscription.service';
+import { NotifierService } from 'angular-notifier';
 
 declare var $ : any;
 
@@ -22,6 +24,10 @@ export class PresentationHomeComponent implements OnInit {
   sliderPartners: Partner[] = [];
   sliderSponsors: Sponsor[] = [];
   articles: Article[] = [];
+  
+  // Email subscription properties
+  subscriptionEmail: string = '';
+  isSubscribing: boolean = false;
 
 
   homeContent: any = [
@@ -52,7 +58,9 @@ export class PresentationHomeComponent implements OnInit {
  
   constructor(private partnerService: PartnerService, 
               private sponsorService: SponsorService,
-              private articleCategoryService: ArticleCategoryService) { }
+              private articleCategoryService: ArticleCategoryService,
+              private emailSubscriptionService: EmailSubscriptionService,
+              private notifier: NotifierService) { }
 
   ngOnInit(): void {
 
@@ -105,6 +113,36 @@ export class PresentationHomeComponent implements OnInit {
 
   prepareCarousel(){
     
-  }    
+  }
+
+  subscribeToNewsletter() {
+    if (!this.subscriptionEmail || !this.isValidEmail(this.subscriptionEmail)) {
+      this.notifier.notify('error', 'Please enter a valid email address');
+      return;
+    }
+
+    this.isSubscribing = true;
+    this.emailSubscriptionService.subscribeEmail(this.subscriptionEmail).subscribe(
+      (response) => {
+        console.log(response);
+        if (response.status === 0) {
+          this.notifier.notify('success', 'Successfully subscribed to our newsletter!');
+          this.subscriptionEmail = '';
+        } else {
+          this.notifier.notify('error', response.error || 'Failed to subscribe. Please try again.');
+        }
+        this.isSubscribing = false;
+      },
+      (error) => {
+        this.notifier.notify('error', 'An error occurred. Please try again.');
+        this.isSubscribing = false;
+      }
+    );
+  }
+
+  private isValidEmail(email: string): boolean {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  }
 
 }

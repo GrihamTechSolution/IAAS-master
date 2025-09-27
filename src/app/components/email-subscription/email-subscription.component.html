@@ -1,0 +1,26 @@
+<div class="email-subscription-container">
+  <div class="subscription-form">
+    <h3>Subscribe to Our Newsletter</h3>
+    <p>Stay updated with the latest IAAS news, events, and opportunities!</p>
+    
+    <div class="form-group">
+      <input 
+        type="email" 
+        [(ngModel)]="email" 
+        placeholder="Enter your email address"
+        class="form-control"
+        [disabled]="isSubscribing"
+        (keyup.enter)="subscribeToNewsletter()"
+      >
+    </div>
+    
+    <button 
+      class="btn btn-primary"
+      (click)="subscribeToNewsletter()"
+      [disabled]="isSubscribing || !email"
+    >
+      <span *ngIf="isSubscribing">Subscribing...</span>
+      <span *ngIf="!isSubscribing">Subscribe</span>
+    </button>
+  </div>
+</div>

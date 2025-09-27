@@ -95,6 +95,7 @@ import { ExproTestimonialsDetalisComponent } from './components/expro/expro-test
 import { ProjectsComponent } from './components/administration/projects/projects.component';
 import { ProjectComponent } from './components/administration/project/projects.component';
 import { AdminAluminiomponent } from './components/administration/admin-alumini/admin-alumini.component';
+import { AdminEmailSubscriptionsComponent } from './components/administration/admin-email-subscriptions/admin-email-subscriptions.component';
 
 const routes: Routes = [
   {
@@ -339,6 +340,10 @@ const routes: Routes = [
       {
         path: 'fields',
         component: AdminBackgroundFieldsComponent,
+      },
+      {
+        path: 'email-subscriptions',
+        component: AdminEmailSubscriptionsComponent,
       },
       {
         path: 'iaas-users',

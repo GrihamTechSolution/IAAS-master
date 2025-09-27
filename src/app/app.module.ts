@@ -125,6 +125,7 @@ import { ExproTestimonialsDetalisComponent } from './components/expro/expro-test
 import { ProjectsComponent } from './components/administration/projects/projects.component';
 import { ProjectComponent } from './components/administration/project/projects.component';
 import { AdminAluminiomponent } from './components/administration/admin-alumini/admin-alumini.component';
+import { AdminEmailSubscriptionsComponent } from './components/administration/admin-email-subscriptions/admin-email-subscriptions.component';
 
 @NgModule({
   declarations: [
@@ -231,7 +232,8 @@ import { AdminAluminiomponent } from './components/administration/admin-alumini/
     ExproTestimonialsComponent,
     ExproTestimonialsDetalisComponent,
     ProjectComponent,
-    AdminAluminiomponent
+    AdminAluminiomponent,
+    AdminEmailSubscriptionsComponent
   ],
   imports: [
     BrowserModule,

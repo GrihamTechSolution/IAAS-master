@@ -203,6 +203,7 @@
     <a class="btn btn-success" routerLink="/becomeMember">Become member now</a>
   </div>
 
+
   <!-- <div class="home-jumbo-3 jumbotron no-margin">
     <div class="home-jumbo-3-inner"></div>
   </div> -->
@@ -270,4 +271,35 @@
       <a routerLink="/contact" class="btn btn-success">CONTACT US</a>
     </div>
   </div>
+
+    <!-- Email Subscription Section -->
+    <div class="newsletter-section">
+      <div class="container text-center">
+        <h2>Stay Updated</h2>
+        <p>
+          Subscribe to our newsletter and get the latest updates about IAAS activities, opportunities, and events.
+        </p>
+        <div class="subscription-form">
+          <div class="input-group">
+            <input 
+              type="email" 
+              class="form-control" 
+              placeholder="Enter your email address"
+              [(ngModel)]="subscriptionEmail"
+              [disabled]="isSubscribing">
+            <button 
+              class="btn btn-success" 
+              (click)="subscribeToNewsletter()"
+              [disabled]="isSubscribing || !subscriptionEmail">
+              <span *ngIf="!isSubscribing">Subscribe</span>
+              <span *ngIf="isSubscribing">Subscribing...</span>
+            </button>
+          </div>
+          <small>
+            We respect your privacy. Unsubscribe at any time.
+          </small>
+        </div>
+      </div>
+    </div>
+  
 </div>

@@ -29,6 +29,88 @@ h1 {
   margin-top: 3em;
 }
 
+.newsletter-section {
+  // background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  // padding: 3em 0;
+  // margin: 2em 0;
+  // border-top: 1px solid #dee2e6;
+  // border-bottom: 1px solid #dee2e6;
+  
+  h2 {
+    color: #2c3e50;
+    font-weight: 600;
+    margin-bottom: 0.5em;
+  }
+  
+  p {
+    color: #6c757d;
+    font-size: 1.1em;
+    margin-bottom: 2em;
+  }
+  
+  .subscription-form {
+    max-width: 500px;
+    margin: 0 auto;
+    
+    .input-group {
+      display: flex;
+      gap: 10px;
+      
+      input {
+        flex: 1;
+        padding: 12px 16px;
+        border: 2px solid #e9ecef;
+        border-radius: 6px;
+        font-size: 16px;
+        transition: border-color 0.3s ease;
+        
+        &:focus {
+          outline: none;
+          border-color: #70ad47;
+          box-shadow: 0 0 0 3px rgba(112, 173, 71, 0.1);
+        }
+        
+        &:disabled {
+          background-color: #f8f9fa;
+          opacity: 0.7;
+        }
+      }
+      
+      button {
+        padding: 12px 24px;
+        font-size: 16px;
+        border-radius: 6px;
+        border: none;
+        background-color: #70ad47;
+        color: white;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        
+        &:hover:not(:disabled) {
+          background-color: #5a8a3a;
+          transform: translateY(-1px);
+          box-shadow: 0 4px 8px rgba(112, 173, 71, 0.3);
+        }
+        
+        &:disabled {
+          background-color: #6c757d;
+          cursor: not-allowed;
+          transform: none;
+          box-shadow: none;
+        }
+      }
+    }
+    
+    small {
+      color: #6c757d;
+      margin-top: 12px;
+      display: block;
+      font-size: 0.9em;
+    }
+  }
+}
+
 .header-flex {
   display: flex;
   //   justify-content: space-between;
