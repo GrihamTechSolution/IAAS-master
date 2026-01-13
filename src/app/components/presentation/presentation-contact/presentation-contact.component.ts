@@ -16,9 +16,9 @@ export class PresentationContactComponent implements OnInit {
   
   executiveBoard = [
     {
-      name: 'Alperen Öztürk',
+      name: 'Christopher Sawyer Bateman',
       title: 'President of IAAS World',
-      img: `/assets/img/president.png`,
+      img: `/assets/img/president.jpeg`,
       instalink:
         'https://www.instagram.com/alperenozturrk?igsh=MTZrMW5kZW40NHB0eg==',
       linkedinlink: 'https://www.linkedin.com/in/alperen-%C3%B6zt%C3%BCrk-611b7317a/',
@@ -47,9 +47,9 @@ export class PresentationContactComponent implements OnInit {
       name: 'S. M. Riaz-us Saleheen',
       title: 'VP of Communication',
       img: `/assets/img/vp_comm.png`,
-      instalink: 'https://www.instagram.com/smr_saleheen?igsh=Mmp1aGhod24zYzBv',
-      linkedinlink:
-        'https://www.linkedin.com/in/saleheen767?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
+      // instalink: 'https://www.instagram.com/smr_saleheen?igsh=Mmp1aGhod24zYzBv',
+      // linkedinlink:
+      //   'https://www.linkedin.com/in/saleheen767?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
         mail: 'vpcommunication@iaasworld.org'
     },
     {
@@ -63,14 +63,14 @@ export class PresentationContactComponent implements OnInit {
         'https://www.linkedin.com/in/claudia-ximena-janampa-mallqui-325682228?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
     },
     {
-      name: 'Yassirys Sánchez',
+      name: 'Jannatul Ferdawsi Miti',
       title: 'Head of Control Board',
-      img: `assets/img/cb_head.png`,
+      img: `/assets/img/control_board.jpeg`,
       mail: 'controlboard@iaasworld.org',
       instalink:
         'https://www.instagram.com/yassirys_sanchez?igsh=aTIxeDBtcmJzbHZm',
       linkedinlink:
-        'https://www.linkedin.com/in/yassirys-s%C3%A1nchez-5a6a301a2?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
+        'www.linkedin.com/in/jannatul-ferdawsi-miti-9a127a252',
     },
     {
       name: 'Insaf Beri',
